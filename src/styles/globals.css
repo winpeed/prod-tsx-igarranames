@@ -1,0 +1,33 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, section {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  --yellow: #f6a307;
+  --black: rgb(60 58 58);
+  --blue-light: rgb(0 127 177);
+  --blue-dark: #1938b3;
+  --gray-light: #faf3e6;
+  --gray-dark: #e4e4ed;
+  --white: #ffffff;
+  --green-dark: #286568;
+  --btn-blue: #1da1f2;
+}/*# sourceMappingURL=globals.css.map */
