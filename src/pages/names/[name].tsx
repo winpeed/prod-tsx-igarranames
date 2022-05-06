@@ -10,12 +10,14 @@ import FooterComp from "../../../components/FooterComp";
 import NamePageContainer from "../../../containers/NamePageContainer";
 
 const NamePage: NextPage = ({ data }) => {
-  const { name, meaning } = data.fields;
+  const { name, meaning, card } = data.fields;
 
   const router = useRouter();
   const { asPath } = router;
 
   const shareURL = `https:/igarranames.com${asPath}`;
+
+  console.log(data.fields);
   return (
     <>
       <Head>
@@ -28,18 +30,11 @@ const NamePage: NextPage = ({ data }) => {
         <meta name="twitter:title" content={name} />
         <meta name="twitter:description" content={meaning} />
         <meta name="twitter:creator" content="@igarranames" />
-        <meta
-          name="twitter:image"
-          // content={`https://${post.fields.heroImage.fields.file.url}`}
-        />
+        {/* <meta name="twitter:image" content={`${card[0].url}`} /> */}
         <meta property="og:title" content={name} key="ogtitle" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={shareURL} key="ogurl" />
-        <meta
-          property="og:image"
-          // content={`https://${post.fields.heroImage.fields.file.url}`}
-          key="ogimage"
-        />
+        {/* <meta property="og:image" content={`${card[0].url}`} key="ogimage" /> */}
         <meta property="og:description" content={meaning} key="ogdesc" />
         <meta property="og:site_name" content="Igarra Names" key="ogsitename" />
       </Head>

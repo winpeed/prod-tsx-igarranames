@@ -5,7 +5,6 @@ import { add } from "../src/features/search/searchSlice";
 import { useAppSelector, useAppDispatch } from "../src/app/hooks";
 import { BsSearch } from "react-icons/bs";
 import { Result } from "../interfaces/interface";
-import { isOptionalChain } from "typescript";
 
 interface FormContainerProps {
   searchText: string | null;

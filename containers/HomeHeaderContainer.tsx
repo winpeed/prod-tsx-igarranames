@@ -4,7 +4,6 @@ import axios from "axios";
 import SearchForm from "../components/SearchForm";
 import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
-import { useAppSelector, useAppDispatch } from "../src/app/hooks";
 
 import { Result } from "../interfaces/interface";
 
@@ -24,8 +23,6 @@ export default function HomeHeaderContainer({ data }: { data: Result[] }) {
   useEffect(() => {
     getNumberOfNames();
   }, []);
-
-  console.log(useAppSelector((state) => state.search.value));
 
   return (
     <Header>

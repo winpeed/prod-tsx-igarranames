@@ -3,6 +3,8 @@ import { AnchorProps, SectionProps } from "../../interfaces/interface";
 import { ComponentProps, Ref } from "../../interfaces/interface";
 import {
   Container,
+  NameWrapper,
+  Article,
   Wrapper,
   Links,
   Heading,
@@ -21,6 +23,20 @@ import {
 export default function Body({ children, ...restProps }: ComponentProps) {
   return <Container {...restProps}>{children}</Container>;
 }
+
+Body.NameWrapper = function BodyNameWrapper({
+  children,
+  ...restProps
+}: ComponentProps) {
+  return <NameWrapper {...restProps}>{children}</NameWrapper>;
+};
+
+Body.Article = function BodyArticle({
+  children,
+  ...restProps
+}: ComponentProps) {
+  return <Article {...restProps}>{children}</Article>;
+};
 
 Body.Wrapper = function BodyWrapper({
   children,

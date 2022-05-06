@@ -72,10 +72,15 @@ export const ListItem = styled.li`
 export const ListLink = styled.a<AnchorProps>`
   font-weight: 400;
   color: var(--black);
-  font-size: 1rem;
+  font-size: 0.85rem;
   opacity: 1;
-  line-height: 1.5;
-  font-weight: 500;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+
+  &:hover{
+    text-decoration: underline;
+  }
 `;
 
 export const Span = styled.span`

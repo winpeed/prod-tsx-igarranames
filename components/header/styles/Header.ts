@@ -23,6 +23,10 @@ export const Span = styled.span`
   z-index:1;
   color: var(--blue-light);
   font-style: italic;
+
+  @media (min-width: 900px) {
+    display: none
+  }
 `;
 
 export const Nav = styled.nav`
@@ -49,8 +53,8 @@ export const ItemWrapper = styled.div`
 export const Heading = styled.h1`
   font-weight: 700;
   letter-spacing: -0.02em;
-  font-size: 1.5rem;
-  line-height: 1.5;
+  font-size: 1.9rem;
+  line-height: 1.3;
   padding: 1em 0em;
 
   @media (min-width: 768px) {
@@ -59,7 +63,7 @@ export const Heading = styled.h1`
 `;
 
 export const Text = styled.p`
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
   font-weight: 400;
   color: var(--black);
@@ -119,7 +123,11 @@ export const Button = styled.button`
 `;
 
 export const NavList = styled.ul`
-  list-style: none;
+  display: flex;
+ align-items: center;
+ list-style: none;
+ 
+ @media (max-width: 900px) {
   background: var(--gray-light);
   color: var(--black);
   height: 62vh;
@@ -134,23 +142,32 @@ export const NavList = styled.ul`
   top: 0;
  position: absolute;
  transform: translateX(0%);
-
- 
-
-  @media (min-width: 768px) {
-    display: flex;
-    align-items: center;
-  }
+}
 `;
 
 export const NavItem = styled.li`
   padding: 1em 0em;
+ 
+
+  @media (min-width: 900px) {
+    padding: 0em 0.8em;
+  }
+
+  &:hover{
+    text-decoration: underline;
+  }
 `;
 
 export const NavLink = styled.a<AnchorProps>`
-  color: ${props => props.color == 'true' ? 'var(--black)' : 'var(--black);'};
-  font-size: 1.1rem;
-  padding: 0.5em 0em;
+  color: ${props => props.color == 'true' ? 'var(--black)' : props.name == 'login' || props.name == 'donate'  ? 'var(--white)' : null};
+  font-size: 1rem;
+  padding: 0.6em 1em;
   font-weight: 500;
   line-height: 1.5;
+  border-radius: 5px;
+  background: ${props => props.name == 'donate' ? 'var(--red)' : props.name == 'login' ? 'var(--green)' : null};
+
+  :hover{
+    text-decoration: none;
+  }
 `;

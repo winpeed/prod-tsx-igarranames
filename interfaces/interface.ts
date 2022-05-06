@@ -34,6 +34,7 @@ export interface AnchorProps extends React.HTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
   color?: string;
   selected?: boolean;
+  name?:string;
 }
 
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {

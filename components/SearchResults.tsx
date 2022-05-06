@@ -59,6 +59,8 @@ const SearchResults = ({ data, letter, searchText }) => {
                   columnWidth: "125px",
                   padding: "0em",
                   margin: "0em",
+                  display: "flex",
+                  flexWrap: "wrap",
                 }}
               >
                 {filteredResult.map((item) => {
