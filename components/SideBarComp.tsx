@@ -70,12 +70,14 @@ const SideBarComp = () => {
     });
   return (
     <Sidebar>
-      <Sidebar.Heading>
-        Recently Added ({names.length == 0 ? 0 : 10})
-      </Sidebar.Heading>
-      <Sidebar.List>{recentlyAdded}</Sidebar.List>
-
-      <Sidebar.Heading>Popular names</Sidebar.Heading>
+      {names.length !== 0 && (
+        <>
+          <Sidebar.Heading>
+            Recently Added ({names.length == 0 ? 0 : 10})
+          </Sidebar.Heading>
+          <Sidebar.List>{recentlyAdded}</Sidebar.List>
+        </>
+      )}
 
       {searchItems.length !== 0 && (
         <>
@@ -84,6 +86,10 @@ const SideBarComp = () => {
           </Sidebar.Heading>
           <Sidebar.List>{userSearches}</Sidebar.List>
         </>
+      )}
+
+      {searchItems.length !== 0 && (
+        <Sidebar.Heading>Popular names</Sidebar.Heading>
       )}
     </Sidebar>
   );

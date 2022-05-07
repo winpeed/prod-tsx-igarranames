@@ -15,6 +15,7 @@ import {
   Button,
   LetterWrapper,
   Form,
+  Banner,
   Input,
   TextArea,
   Label,
@@ -29,6 +30,10 @@ Body.NameWrapper = function BodyNameWrapper({
   ...restProps
 }: ComponentProps) {
   return <NameWrapper {...restProps}>{children}</NameWrapper>;
+};
+
+Body.Banner = function BodyBanner({ children, ...restProps }: ComponentProps) {
+  return <Banner {...restProps}>{children}</Banner>;
 };
 
 Body.Article = function BodyArticle({

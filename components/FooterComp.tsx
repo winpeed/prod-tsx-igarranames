@@ -62,8 +62,8 @@ export default function FooterComp() {
               </Link>
             </Footer.ListItem>
             <Footer.ListItem>
-              <Link href="/login" passHref>
-                <Footer.ListLink>Log in</Footer.ListLink>
+              <Link href="/signin" passHref>
+                <Footer.ListLink>Sign in</Footer.ListLink>
               </Link>
             </Footer.ListItem>
           </Footer.Column>

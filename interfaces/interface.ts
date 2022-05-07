@@ -23,6 +23,7 @@ export interface Fields {
 export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   full?: string;
+  direction?:string
 }
 
 export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -53,4 +54,8 @@ export interface FormProps extends React.HTMLAttributes<HTMLFormElement> {
 export interface HeadingProps {
   color?: string;
   alignment?: string;
+}
+
+export interface ButtonProps {
+  media?: string;
 }

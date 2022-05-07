@@ -16,7 +16,7 @@ export const NameWrapper = styled(Container)`
   max-width: 1000px;
   margin: 1em auto;
   justify-content: space-between;
-  padding: 2em 1em;
+  padding: 0.7em;
 
   @media(min-width: 768px){
     flex-direction: row;
@@ -34,7 +34,18 @@ export const Article = styled.article`
   justify-content: space-between;
   line-height: 1.7;
   margin: 1em 0em 3em 0em;
+  flex-direction: ${props => props.direction == 'column' ? 'column' : 'row'}
 `;
+
+export const Banner = styled.section`
+display: flex; 
+max-width: 700px; 
+align-items: center;
+padding: 1em 2em 2em 2em;
+justify-content: space-between;
+line-height: 1.7;
+flex-direction: ${props => props.direction == 'column' ? 'column' : 'row'}
+`
 
 export const Wrapper = styled.div`
   display: flex;
@@ -69,14 +80,14 @@ export const Card = styled.div`
 `;
 
 export const Heading = styled.h2<HeadingProps>`
-  color: ${(props: { color: any }) =>
-    props.color ? "var(--white)" : "var(--black)"};
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  color: ${(props) =>
+    props.color == 'white' ? "var(--yellow)" : "var(--black)"};
+  font-weight: 600;
+  letter-spacing: 0.015em;
   font-size: 1.5rem;
-  line-height: 1.375rem;
+  line-height: 1.2;
   padding: 0.5em 0em 0.5em 0em;
-  text-align: ${(props: { alignment: string }) =>
+  text-align: ${(props) =>
     props.alignment == "left" ? "left" : "center"};
 
   @media (min-width: 768px) {
@@ -87,10 +98,10 @@ export const Heading = styled.h2<HeadingProps>`
 
 export const Text = styled.p<HeadingProps>`
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.5;
   font-weight: 400;
   padding: 0.5em 0em 1em 0em;
-  color: ${(props: { color: any }) => (props.color ? "white" : "black")};
+  color: ${props => props.color == 'white' ? "var(--white)" : "var(--black)"};
   max-width: 400px;
 
   @media (min-width: 768px) {
@@ -145,11 +156,16 @@ export const Button = styled.button`
   font-weight: 600;
   border-radius: 4px;
   padding: 0.8em 1.3em;
-  background: var(--yellow);
-  color: var(--black);
-  font-size: 1rem;
+  background: ${props => props.media == 'cancel' ? 'var(--red)' : props.media == 'submit' ? 'var(--yellow)' : null } ;
+  color: ${props => props.media == 'submit' ? 'var(--black)' : "var(--white)" } ;
+  font-size: 0.95rem;
   cursor: pointer;
   margin-top: 1.3em;
+  dispay: inline-block;
+
+  &:nth-child(2){
+    margin-left: 1.5em;
+  }
 `;
 
 export const LetterWrapper = styled.section`
@@ -158,6 +174,7 @@ export const LetterWrapper = styled.section`
   justify-content: center;
   max-width: 1000px;
   margin: 0 auto;
+  align-items: center;
 
   @media (min-width: 768px) {
     justify-content: flex-start;

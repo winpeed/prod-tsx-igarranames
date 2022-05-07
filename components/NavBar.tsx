@@ -67,7 +67,7 @@ export default function NavBar() {
               </Header.NavItem>
 
               <Header.NavItem>
-                <Link href="/login" passHref>
+                <Link href="/signin" passHref>
                   <Header.NavLink>Sign In</Header.NavLink>
                 </Link>
               </Header.NavItem>

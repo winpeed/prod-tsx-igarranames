@@ -5,7 +5,7 @@ import { getNames } from "../api/v1/names";
 import HeaderContainer from "../../../containers/HeaderContainer";
 import LetterComp from "../../../components/LetterComp";
 import FooterComp from "../../../components/FooterComp";
-import SideBar from "../../../components/SideBar";
+import SideBarComp from "../../../components/SideBarComp";
 
 const NamesPage: NextPage = ({ data }) => {
   return (
@@ -20,7 +20,7 @@ const NamesPage: NextPage = ({ data }) => {
       </Head>
       <HeaderContainer data={data} />
       <LetterComp />
-      <SideBar />
+      <SideBarComp />
       <FooterComp />
     </>
   );

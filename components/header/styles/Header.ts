@@ -12,7 +12,7 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 3;
 `;
 
 export const Span = styled.span`
@@ -23,6 +23,7 @@ export const Span = styled.span`
   z-index:1;
   color: var(--blue-light);
   font-style: italic;
+  z-index: 3;
 
   @media (min-width: 900px) {
     display: none
@@ -36,7 +37,8 @@ export const Nav = styled.nav`
   padding: 1em 0em;
   max-width: 1100px;
   margin: 0 auto;
-  background: var(--gray-light)
+  background: var(--gray-light);
+
 `;
 
 export const ItemWrapper = styled.div`
@@ -126,6 +128,7 @@ export const NavList = styled.ul`
   display: flex;
  align-items: center;
  list-style: none;
+ z-index: 2;
  
  @media (max-width: 900px) {
   background: var(--gray-light);

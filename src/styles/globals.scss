@@ -2,18 +2,52 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
 }
 
-h1,h2,h3,h4,h5,h6,p,span,div,section{
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-family: "Inter", sans-serif;
+  color: var(--black);
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Inter", sans-serif;
+  color: var(--black);
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-family: "Inter", sans-serif;
+  color: var(--black);
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Inter", sans-serif;
+  color: var(--black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+section {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 a {
-  color: inherit;
+  color: var(--blue-light);
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 * {
@@ -21,15 +55,34 @@ a {
 }
 
 html {
-  --yellow: #f6a307;
+  --yellow: rgb(251 188 5);
   --black: rgb(60 58 58);
-  --blue-light: rgb(0 127 177);
+  --blue-light: #0572e6;
   --blue-dark: #1938b3;
   --gray-light: #faf3e6;
   --gray-dark: #e4e4ed;
-  --green: #26d671;
+  --green: rgb(52 168 83);
   --white: #ffffff;
   --green-dark: #286568;
   --btn-blue: #1da1f2;
-  --red: red;
+  --red: rgb(234 67 53);
+}
+
+.banner {
+  position: fixed;
+  background: var(--green-dark);
+  color: var(--white);
+  z-index: 1;
+  margin: 0 auto;
+  top: 10%;
+  bottom: 9%;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  max-width: 600px;
+}
+
+.banner::after{
+  box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+  opacity: 1;
 }

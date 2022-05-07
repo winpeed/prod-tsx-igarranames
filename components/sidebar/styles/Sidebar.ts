@@ -33,6 +33,8 @@ width: 120px;
 font-size: 1.1rem;
 letter-spacing: 0.02em;
 color: #007fb1;
+
+:hover{text-decoration: underline;}
 `
 
 export const Anchor  =styled.a<AnchorProps>`

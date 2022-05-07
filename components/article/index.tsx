@@ -6,6 +6,7 @@ import {
   MinHeading,
   Text,
   Span,
+  Button,
 } from "./styles/Article";
 
 export default function Article({ children, ...restProps }: ComponentProps) {
@@ -45,4 +46,11 @@ Article.Span = function ArticleSpan({
   ...restProps
 }: ComponentProps) {
   return <Span {...restProps}>{children}</Span>;
+};
+
+Article.Button = function ArticleButton({
+  children,
+  ...restProps
+}: ComponentProps) {
+  return <Button {...restProps}>{children}</Button>;
 };

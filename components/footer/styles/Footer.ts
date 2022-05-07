@@ -133,10 +133,11 @@ export const Form = styled.form`
 export const Button = styled.button`
   border: 1px solid var(--light-gray);
   font-weight: 600;
+  letter-spacing: 0.02em;
   border-radius: 4px;
   padding: 0.8em 1.3em;
-  background: var(--yellow);
-  color: var(--black);
+  background: var(--green);
+  color: var(--white);
   font-size: 1rem;
   cursor: pointer;
 `;
