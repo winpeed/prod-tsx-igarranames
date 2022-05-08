@@ -13,15 +13,17 @@ export default function FooterComp() {
     <Footer>
       <Footer.Row>
         {" "}
-        <Footer.Logo>
-          <Image
-            src="/ignames.png"
-            alt="Igarra Names Logo"
-            width={25}
-            height={25}
-          />
-          <Footer.Span>Igarranames.</Footer.Span>
-        </Footer.Logo>
+        <Link href="/" passHref>
+          <Footer.ListLink>
+            <Image
+              src="/ignames.png"
+              alt="Igarra Names Logo"
+              width={30}
+              height={30}
+            />
+            <Footer.Logo>Igarranames</Footer.Logo>
+          </Footer.ListLink>
+        </Link>
         <Link href="/" passHref>
           <Footer.ListLink>hi@igarranames.com</Footer.ListLink>
         </Link>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonProps } from "../../../interfaces/interface";
+import { ButtonProps, DivProps } from "../../../interfaces/interface";
 
 export const Container = styled.section`
   display: flex;
@@ -18,8 +18,10 @@ export const Heading = styled.h3`
 font-size: 2.6rem;
 `
 
-export const Wrapper = styled.div`
-padding: 0.1em 0em ;
+export const Wrapper = styled.div<DivProps>`
+padding: 0.1em 0em;
+font-size:${props => props.icon  ? '4rem' : null};
+cursor:${props => props.icon ? 'pointer' : null}
 `
 
 export const MinHeading = styled.h4`

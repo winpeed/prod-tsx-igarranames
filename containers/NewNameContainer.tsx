@@ -1,15 +1,14 @@
 import React from "react";
+import Body from "../components/body";
 import NewNameForm from "../components/NewNameForm";
-import SideBar from "../components/SideBar";
+import SideBarComp from "../components/SideBarComp";
 
-type Props = {};
-
-const NewNameContainer = (props: Props) => {
+const NewNameContainer = () => {
   return (
-    <div style={{ display: "flex" }}>
+    <Body.NameWrapper>
       <NewNameForm />
-      <SideBar />
-    </div>
+      <SideBarComp />
+    </Body.NameWrapper>
   );
 };
 

@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/header";
-import axios from "axios";
 import SearchForm from "../components/SearchForm";
 import NavBar from "../components/NavBar";
+import { Result } from "../interfaces/interface";
 
-export default function HeaderContainer() {
-  const [names, setNames] = useState<[] | null>([]);
+export default function HeaderContainer({ data }: { data: Result[] }) {
+  const [names, setNames] = useState<Result[] | null>([]);
   const [searchText, setSearchText] = useState<string | null>("");
 
-  const getNumberOfNames = async () => {
-    const response = await axios.get("/api/v1/names");
-    setNames(response.data.data);
-  };
-
   useEffect(() => {
-    getNumberOfNames();
+    setNames(data);
   }, []);
 
   return (

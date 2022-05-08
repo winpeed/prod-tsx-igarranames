@@ -10,7 +10,7 @@ export default function LetterComp() {
 
   return (
     <Body.Section color="true">
-      <Body.Heading>Names listed alphabetically : </Body.Heading>
+      <Body.Heading>Names listed alphabetically: </Body.Heading>
       <Body.LetterWrapper>
         {letters.map((item) => {
           return (

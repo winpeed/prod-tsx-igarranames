@@ -1,15 +1,14 @@
 import React from "react";
 import Header from "./header";
+import { Result } from "../interfaces/interface";
 import CountUp from "react-countup";
 
-type Props = {};
-
-export default function Hero(props: Props) {
+export default function Hero({ names }: { names: Result[] }) {
   return (
     <Header.ItemWrapper>
       <Header.Heading>
         Over {""}
-        {/* <CountUp end={data.length} duration={2} /> */}
+        <CountUp end={names.length} duration={4} />
         {""} Etuno names and counting...
       </Header.Heading>
       <Header.Text>

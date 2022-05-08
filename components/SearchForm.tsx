@@ -23,17 +23,19 @@ export default function SearchForm({
     dispatch(add(uniqueName));
   };
 
-  const results = names
-    .filter((item: Result) => {
-      if (searchText === "") {
-        return item;
-      } else if (
-        item.fields.engName.toLowerCase().includes(searchText.toLowerCase())
-      ) {
-        return item;
-      }
-    })
-    .slice(0, 5);
+  const results =
+    names &&
+    names
+      .filter((item: Result) => {
+        if (searchText === "") {
+          return item;
+        } else if (
+          item.fields.engName.toLowerCase().includes(searchText.toLowerCase())
+        ) {
+          return item;
+        }
+      })
+      .slice(0, 5);
   return (
     <>
       <Header.Form

@@ -5,7 +5,7 @@ import ArticleComp from "../components/ArticleComp";
 
 export default function NamePageContainer({ data, shareURL }) {
   return (
-    <Body.NameWrapper>
+    <Body.NameWrapper hero="set">
       <ArticleComp data={data} shareURL={shareURL} />
       <SideBarComp />
     </Body.NameWrapper>

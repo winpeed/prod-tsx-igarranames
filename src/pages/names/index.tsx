@@ -2,12 +2,17 @@ import React from "react";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { getNames } from "../api/v1/names";
+import { Result } from "../../../interfaces/interface";
 import HeaderContainer from "../../../containers/HeaderContainer";
 import LetterComp from "../../../components/LetterComp";
 import FooterComp from "../../../components/FooterComp";
 import SideBarComp from "../../../components/SideBarComp";
 
-const NamesPage: NextPage = ({ data }) => {
+type Props = {
+  data: Result[];
+};
+
+const NamesPage: NextPage<Props> = ({ data }) => {
   return (
     <>
       <Head>

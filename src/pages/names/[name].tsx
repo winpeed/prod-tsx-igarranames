@@ -3,21 +3,24 @@ import { useRouter } from "next/router";
 import { getName } from "../api/v1/names/[name]";
 import type { GetStaticProps, NextPage, GetStaticPaths } from "next";
 import Head from "next/head";
+import { Result } from "../../../interfaces/interface";
 import { getNames } from "../api/v1/names";
-import HeaderContainer from "../../../containers/HeaderContainer";
 import LetterComp from "../../../components/LetterComp";
 import FooterComp from "../../../components/FooterComp";
 import NamePageContainer from "../../../containers/NamePageContainer";
+import NavBar from "../../../components/NavBar";
 
-const NamePage: NextPage = ({ data }) => {
+type Props = {
+  data: Result;
+};
+
+const NamePage: NextPage<Props> = ({ data }) => {
   const { name, meaning, card } = data.fields;
-
   const router = useRouter();
   const { asPath } = router;
 
   const shareURL = `https:/igarranames.com${asPath}`;
 
-  console.log(data.fields);
   return (
     <>
       <Head>
@@ -30,15 +33,23 @@ const NamePage: NextPage = ({ data }) => {
         <meta name="twitter:title" content={name} />
         <meta name="twitter:description" content={meaning} />
         <meta name="twitter:creator" content="@igarranames" />
-        {/* <meta name="twitter:image" content={`${card[0].url}`} /> */}
+        {/* {card && (
+          <meta name="twitter:image" content={`${data.fields.card[0].url}`} />
+        )} */}
         <meta property="og:title" content={name} key="ogtitle" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={shareURL} key="ogurl" />
-        {/* <meta property="og:image" content={`${card[0].url}`} key="ogimage" /> */}
+        {/* {card && (
+          <meta
+            property="og:image"
+            content={`${data.fields.card[0].url}`}
+            key="ogimage"
+          />
+        )} */}
         <meta property="og:description" content={meaning} key="ogdesc" />
         <meta property="og:site_name" content="Igarra Names" key="ogsitename" />
       </Head>
-      <HeaderContainer data={data} />
+      <NavBar />
       <NamePageContainer data={data} shareURL={shareURL} />
       <LetterComp />
       <FooterComp />

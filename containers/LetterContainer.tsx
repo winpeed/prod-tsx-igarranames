@@ -3,11 +3,10 @@ import FooterComp from "../components/FooterComp";
 import LetterComp from "../components/LetterComp";
 import LetterHeaderComp from "../components/LetterHeaderComp";
 import SearchResults from "../components/SearchResults";
-
-type Props = {};
+import SideBarComp from "../components/SideBarComp";
 
 const LetterContainer = ({ data, letter }) => {
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState<string | null>("");
 
   useEffect(() => {
     setSearchText("");
@@ -21,6 +20,7 @@ const LetterContainer = ({ data, letter }) => {
       />
       <SearchResults data={data} letter={letter} searchText={searchText} />
       <LetterComp />
+      <SideBarComp />
       <FooterComp />
     </>
   );

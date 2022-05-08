@@ -5,8 +5,13 @@ import FooterComp from "../../components/FooterComp";
 import { getNames } from "./api/v1/names";
 import HeaderContainer from "../../containers/HeaderContainer";
 import NewNameContainer from "../../containers/NewNameContainer";
+import { Result } from "../../interfaces/interface";
 
-const NewNamePage: NextPage = ({ data }) => {
+type Props = {
+  data: Result[];
+};
+
+const NewNamePage: NextPage<Props> = ({ data }) => {
   return (
     <>
       <HeaderContainer data={data} />
@@ -19,7 +24,7 @@ const NewNamePage: NextPage = ({ data }) => {
 
 export default NewNamePage;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const data = await getNames();
 
   return {

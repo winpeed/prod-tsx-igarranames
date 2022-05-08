@@ -77,7 +77,7 @@ const ArticleComp = ({ data, shareURL }) => {
         </Article.Wrapper>
 
         {sound ? (
-          <Article.Wrapper style={{ fontSize: "3rem", cursor: "pointer" }}>
+          <Article.Wrapper icon>
             {isPlaying ? (
               <BsPlayCircle onClick={handlePlay} />
             ) : (

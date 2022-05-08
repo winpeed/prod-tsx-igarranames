@@ -53,10 +53,12 @@ export const ColWrap = styled.div<DivProps>`
 `;
 
 export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0em 0em 0.8em 0em;
+  margin-left: 0.6em;
+  color: var(--blue-light);
+  font-style:italic;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  font-size: 1rem;
 `;
 
 export const Column = styled.ul`
@@ -77,6 +79,9 @@ export const ListLink = styled.a<AnchorProps>`
   line-height: 1.3;
   font-weight: 600;
   letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0em;
 
   &:hover{
     text-decoration: underline;

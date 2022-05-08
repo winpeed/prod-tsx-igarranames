@@ -1,27 +1,22 @@
 import type { NextPage } from "next";
 import { getNames } from "./api/v1/names";
 import { GetServerSideProps } from "next";
-import { createContext } from "react";
-
 import HomeHeaderContainer from "../../containers/HomeHeaderContainer";
 import HomePageContainer from "../../containers/HomePageContainer";
+import { ComponentProps } from "../../interfaces/interface";
 
-const NameContext = createContext();
-
-const IndexPage: NextPage = ({ data }) => {
+const IndexPage: NextPage = ({ data }: ComponentProps) => {
   return (
-    <NameContext.Provider value={data}>
-      <HomeHeaderContainer data={[]} />
-      <HomePageContainer data={[]} />
-    </NameContext.Provider>
+    <>
+      <HomeHeaderContainer data={data} />
+      <HomePageContainer />
+    </>
   );
 };
 
 export default IndexPage;
 
-export { NameContext };
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const data = await getNames();
 
   return {

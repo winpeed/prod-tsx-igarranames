@@ -4,7 +4,7 @@ import { AnchorProps, FormProps, InputProps } from "../../../interfaces/interfac
 export const Container = styled.header`
 background: linear-gradient(35deg, var(--gray-light), var(--gray-light));
 background-size: contain;
-  padding: 0em 1em 2em 1em;
+  padding: 6em 1em 2em 1em;
   background-blend-mode: soft-light;
 `;
 
@@ -12,7 +12,10 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 3;
+  margin-left: 0.7em;
+  font-style:italic;
+  letter-spacing: 0.02em;
+  font-weight: 600;
 `;
 
 export const Span = styled.span`
@@ -34,11 +37,22 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1em 0em;
-  max-width: 1100px;
+  padding: 1em 1em;
+  max-width: 2000px;
   margin: 0 auto;
   background: var(--gray-light);
+  position: fixed;
+  top:0;
+  left:0;
+  right: 0;
 
+  @media(min-width: 1000px){
+    padding: 1em 4em;
+  }
+
+  @media(min-width: 1200px){
+    padding: 1em 8em;
+  }
 `;
 
 export const ItemWrapper = styled.div`
@@ -133,7 +147,7 @@ export const NavList = styled.ul`
  @media (max-width: 900px) {
   background: var(--gray-light);
   color: var(--black);
-  height: 62vh;
+  height: 84vh;
   display: flex;
   flex-direction: column;
   align-items: center; 
@@ -169,8 +183,12 @@ export const NavLink = styled.a<AnchorProps>`
   line-height: 1.5;
   border-radius: 5px;
   background: ${props => props.name == 'donate' ? 'var(--red)' : props.name == 'login' ? 'var(--green)' : null};
+  align-items: center;
+  display: flex;
+  z-index:10;
 
   :hover{
     text-decoration: none;
+    color: ${props => props.name == 'donate' ? 'var(--white)' : "var(--black)"};
   }
 `;
