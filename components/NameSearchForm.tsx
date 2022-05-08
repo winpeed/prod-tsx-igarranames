@@ -4,10 +4,10 @@ import { BsSearch } from "react-icons/bs";
 import { Result } from "../interfaces/interface";
 
 interface FormContainerProps {
-  searchText: string | null;
-  names: Result[];
+  searchText?: string | null;
+  names?: Result[];
   onSetSearch?: () => void;
-  onSetText?: () => void;
+  onSetText?: ({ target }: { target: HTMLInputElement }) => Function;
 }
 
 export default function NameSearchForm({

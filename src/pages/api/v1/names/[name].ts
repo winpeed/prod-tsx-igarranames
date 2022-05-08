@@ -23,7 +23,7 @@ const namesHandler: NextApiHandler = async (request, response) => {
 
 export default namesHandler;
 
-export async function getName(name: string) {
+export async function getName(name: string ) {
   const response = await airtable.list({ maxRecords: 1000 });
   const data = await response;
 

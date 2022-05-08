@@ -2,19 +2,8 @@ import React from "react";
 
 export type ComponentProps = {
   children?: React.ReactNode;
-  data?:Result[];
+  data?: Result[];
   onClick?: () => void;
-  direction?:string;
-  media?:string;
-  type?: string;
-  placeholder?:string;
-  required?:boolean;
-  alignment?:string;
-  color?:string;
-  style?:string;
-  icon?:boolean
-
-
 };
 
 export type Ref = HTMLAnchorElement;
@@ -25,6 +14,12 @@ export interface Result {
   createdTime: string;
 }
 
+export interface LetterComponents {
+  children?: React.ReactNode;
+  data?: Result[];
+  letter?: string;
+}
+
 export interface Fields {
   meaning: string;
   engName: string;
@@ -32,47 +27,67 @@ export interface Fields {
   added: string;
   modified: string;
   card?: [] | undefined;
+  sound?: SoundFields[];
+}
+
+export interface SoundFields {
+  filename: string;
+  id: string;
+  size: number;
+  type: string;
+  url: string;
 }
 
 export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   full?: string;
-  direction?:string;
-  icon?:boolean
+  direction?: string;
+  icon?: boolean;
+  width?: string;
 }
 
 export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   color?: string;
   hero?: string;
+  direction?: string;
+  justify?: string;
 }
 
 export interface AnchorProps extends React.HTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
   color?: string;
   selected?: boolean;
-  name?:string;
+  name?: string;
 }
 
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
-  type: string;
+  type?: string;
   name?: string;
   required?: boolean;
-  placeholder: string;
+  placeholder?: string;
   value?: string | null;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface TextAreaProps
+  extends React.HTMLAttributes<HTMLTextAreaElement> {
+  name?: string;
+  required?: boolean;
+  placeholder?: string;
+  value?: string | null;
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 export interface FormProps extends React.HTMLAttributes<HTMLFormElement> {
   onSubmit?: any;
 }
 
-export interface HeadingProps {
+export interface HeadingProps extends ComponentProps {
   color?: string;
   alignment?: string;
 }
 
-export interface ButtonProps {
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   media?: string;
 }
-

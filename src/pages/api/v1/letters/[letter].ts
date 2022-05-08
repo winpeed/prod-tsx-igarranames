@@ -21,7 +21,7 @@ const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
   
   export default namesHandler;
 
-export async function getNamesFromLetter(id: string) {
+export async function getNamesFromLetter(id: string| string[]) {
   const response = await airtable.list({ maxRecords: 1000 });
   const results = await response;
 

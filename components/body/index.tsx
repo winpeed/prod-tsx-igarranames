@@ -1,5 +1,13 @@
 import React from "react";
-import { AnchorProps, SectionProps } from "../../interfaces/interface";
+import {
+  AnchorProps,
+  ButtonProps,
+  DivProps,
+  HeadingProps,
+  InputProps,
+  SectionProps,
+  TextAreaProps,
+} from "../../interfaces/interface";
 import { ComponentProps, Ref } from "../../interfaces/interface";
 import {
   Container,
@@ -15,6 +23,7 @@ import {
   Button,
   LetterWrapper,
   Form,
+  BannerWrapper,
   Banner,
   Input,
   TextArea,
@@ -28,11 +37,18 @@ export default function Body({ children, ...restProps }: ComponentProps) {
 Body.NameWrapper = function BodyNameWrapper({
   children,
   ...restProps
-}: ComponentProps) {
+}: SectionProps) {
   return <NameWrapper {...restProps}>{children}</NameWrapper>;
 };
 
-Body.Banner = function BodyBanner({ children, ...restProps }: ComponentProps) {
+Body.BannerWrapper = function BodyBannerWrapper({
+  children,
+  ...restProps
+}: DivProps) {
+  return <BannerWrapper {...restProps}>{children}</BannerWrapper>;
+};
+
+Body.Banner = function BodyBanner({ children, ...restProps }: SectionProps) {
   return <Banner {...restProps}>{children}</Banner>;
 };
 
@@ -54,14 +70,11 @@ Body.Card = function BodyCard({ children, ...restProps }: ComponentProps) {
   return <Card {...restProps}>{children}</Card>;
 };
 
-Body.Text = function BodyText({ children, ...restProps }: ComponentProps) {
+Body.Text = function BodyText({ children, ...restProps }: HeadingProps) {
   return <Text {...restProps}>{children}</Text>;
 };
 
-Body.Heading = function BodyHeading({
-  children,
-  ...restProps
-}: ComponentProps) {
+Body.Heading = function BodyHeading({ children, ...restProps }: HeadingProps) {
   return <Heading {...restProps}>{children}</Heading>;
 };
 
@@ -80,21 +93,21 @@ Body.Section = function BodySection({ children, ...restProps }: SectionProps) {
   return <Section {...restProps}>{children}</Section>;
 };
 
-Body.Button = function BodyButton({ children, ...restProps }: ComponentProps) {
+Body.Button = function BodyButton({ children, ...restProps }: ButtonProps) {
   return <Button {...restProps}>{children}</Button>;
 };
 
 Body.SectionWrap = function BodySectionWrap({
   children,
   ...restProps
-}: ComponentProps) {
+}: SectionProps) {
   return <SectionWrap {...restProps}>{children}</SectionWrap>;
 };
 
 Body.LetterWrapper = function BodyLetterWrapper({
   children,
   ...restProps
-}: ComponentProps) {
+}: SectionProps) {
   return <LetterWrapper {...restProps}>{children}</LetterWrapper>;
 };
 
@@ -105,7 +118,7 @@ Body.Form = function BodyForm({ children, ...restProps }: ComponentProps) {
 Body.TextArea = function BodyTextArea({
   children,
   ...restProps
-}: ComponentProps) {
+}: TextAreaProps) {
   return <TextArea {...restProps}>{children}</TextArea>;
 };
 
@@ -113,6 +126,6 @@ Body.Label = function BodyLabel({ children, ...restProps }: ComponentProps) {
   return <Label {...restProps}>{children}</Label>;
 };
 
-Body.Input = function BodyInput({ ...restProps }: ComponentProps) {
+Body.Input = function BodyInput({ ...restProps }: InputProps) {
   return <Input {...restProps} />;
 };

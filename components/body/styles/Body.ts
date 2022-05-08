@@ -3,7 +3,10 @@ import {
   AnchorProps,
   HeadingProps,
   SectionProps,
-  InputProps
+  InputProps,
+  ButtonProps,
+  DivProps,
+  TextAreaProps,
 } from "../../../interfaces/interface";
 
 export const Container = styled.section`
@@ -16,14 +19,14 @@ export const NameWrapper = styled(Container)<SectionProps>`
   max-width: 1000px;
   margin: 1em auto;
   justify-content: space-between;
-  padding: ${props => props.hero == 'set' ? '7em 0.7em' : '0.7em'} ;
+  padding: ${(props) => (props.hero == "set" ? "7em 0.7em" : "0.7em")};
 
-  @media(min-width: 768px){
+  @media (min-width: 768px) {
     flex-direction: row;
   }
 `;
 
-export const Article = styled.article`
+export const Article = styled.article<SectionProps>`
   display: flex;
   align-items: center;
   border: 1px solid var(--gray-light);
@@ -34,18 +37,45 @@ export const Article = styled.article`
   justify-content: space-between;
   line-height: 1.7;
   margin: 1em 0em 3em 0em;
-  flex-direction: ${props => props.direction == 'column' ? 'column' : 'row'}
+  flex-direction: ${(props) =>
+    props.direction == "column" ? "column" : "row"};
 `;
 
-export const Banner = styled.section`
-display: flex; 
-max-width: 700px; 
-align-items: center;
-padding: 1em 2em 2em 2em;
-justify-content: space-between;
-line-height: 1.7;
-flex-direction: ${props => props.direction == 'column' ? 'column' : 'row'}
-`
+export const BannerWrapper = styled.div<DivProps>`
+  position: fixed;
+  background: var(--green-dark);
+  color: var(--white);
+  z-index: 11;
+  margin: 0 auto;
+  top: 15%;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  max-width: 600px;
+
+  @media(max-width: 376px){
+    bottom: 2%;
+  }
+
+  @media(min-width: 450px){
+    bottom: 20%;
+  }
+
+  @media(min-width: 760px){
+    bottom: 9%;
+  }
+`;
+
+export const Banner = styled.section<SectionProps>`
+  display: flex;
+  max-width: 700px;
+  align-items: center;
+  padding: 1em 2em 2em 2em;
+  justify-content: space-between;
+  line-height: 1.7;
+  flex-direction: ${(props) =>
+    props.direction == "column" ? "column" : "row"};
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -81,14 +111,13 @@ export const Card = styled.div`
 
 export const Heading = styled.h2<HeadingProps>`
   color: ${(props) =>
-    props.color == 'white' ? "var(--yellow)" : "var(--black)"};
+    props.color == "white" ? "var(--yellow)" : "var(--black)"};
   font-weight: 600;
   letter-spacing: 0.015em;
   font-size: 1.5rem;
   line-height: 1.2;
   padding: 0.5em 0em 0.5em 0em;
-  text-align: ${(props) =>
-    props.alignment == "left" ? "left" : "center"};
+  text-align: ${(props) => (props.alignment == "left" ? "left" : "center")};
 
   @media (min-width: 768px) {
     font-size: 1.5rem;
@@ -101,7 +130,8 @@ export const Text = styled.p<HeadingProps>`
   line-height: 1.5;
   font-weight: 400;
   padding: 0.5em 0em 1em 0em;
-  color: ${props => props.color == 'white' ? "var(--white)" : "var(--black)"};
+  color: ${(props) =>
+    props.color == "white" ? "var(--white)" : "var(--black)"};
   max-width: 400px;
 
   @media (min-width: 768px) {
@@ -114,11 +144,9 @@ export const Links = styled.a<AnchorProps>`
   align-items: center;
   color: var(--white);
   background: var(--btn-blue);
-  font-size: ${(props: { selected: any }) =>
-    props.selected ? "1.15em" : "0.85rem"};
+  font-size: ${props =>  props.selected ? "1.15em" : "0.85rem"};
   font-weight: 600;
-  letter-spacing: ${(props: { selected: any }) =>
-    props.selected ? "0.01em" : "0.015em"};
+  letter-spacing: ${props =>  props.selected ? "0.01em" : "0.015em"};
   padding: 0.9em 2em;
   border-radius: 3px;
 `;
@@ -130,13 +158,11 @@ export const Section = styled.section<SectionProps>`
   padding: 1.5em 1em 2em 1em;
   margin: 0em auto;
   text-align: center;
-  background: ${(props: { color: any }) =>
-    props.color ? "var(--white)" : "var(--black)"};
+  background: ${(props) => (props.color ? "var(--white)" : "var(--black)")};
 
   @media (min-width: 768px) {
     padding: 2em 4em 4em 4em;
-    flex-direction: ${(props: { color: any }) =>
-      props.color ? "column" : "row"};
+    flex-direction: ${(props) => (props.color ? "column" : "row")};
     align-items: center;
   }
 `;
@@ -151,24 +177,30 @@ export const SectionWrap = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<ButtonProps>`
   border: 1px solid var(--light-gray);
   font-weight: 600;
   border-radius: 4px;
   padding: 0.8em 1.3em;
-  background: ${props => props.media == 'cancel' ? 'var(--red)' : props.media == 'submit' ? 'var(--yellow)' : null } ;
-  color: ${props => props.media == 'submit' ? 'var(--black)' : "var(--white)" } ;
+  background: ${(props) =>
+    props.media == "cancel"
+      ? "var(--red)"
+      : props.media == "submit"
+      ? "var(--yellow)"
+      : null};
+  color: ${(props) =>
+    props.media == "submit" ? "var(--black)" : "var(--white)"};
   font-size: 0.95rem;
   cursor: pointer;
   margin-top: 1.3em;
   dispay: inline-block;
 
-  &:nth-child(2){
+  &:nth-child(2) {
     margin-left: 1.5em;
   }
 `;
 
-export const LetterWrapper = styled.section`
+export const LetterWrapper = styled.section<SectionProps>`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -177,7 +209,8 @@ export const LetterWrapper = styled.section`
   align-items: center;
 
   @media (min-width: 768px) {
-    justify-content: flex-start;
+    justify-content: ${(props) =>
+      props.justify == "center" ? "center" : " flex-start"};
   }
 
   a {
@@ -202,7 +235,7 @@ export const Input = styled.input<InputProps>`
   width: 100%;
 `;
 
-export const TextArea = styled.textarea`
+export const TextArea = styled.textarea<TextAreaProps>`
   border: 1px solid var(--gray-dark);
   display: block;
   width: 100%;

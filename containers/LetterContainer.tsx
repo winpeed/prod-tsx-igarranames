@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { ComponentProps, useEffect, useState } from "react";
 import FooterComp from "../components/FooterComp";
 import LetterComp from "../components/LetterComp";
 import LetterHeaderComp from "../components/LetterHeaderComp";
 import SearchResults from "../components/SearchResults";
 import SideBarComp from "../components/SideBarComp";
+import { LetterComponents } from "../interfaces/interface";
 
-const LetterContainer = ({ data, letter }) => {
+const LetterContainer = ({ data, letter }: LetterComponents) => {
   const [searchText, setSearchText] = useState<string | null>("");
 
   useEffect(() => {
@@ -13,11 +14,7 @@ const LetterContainer = ({ data, letter }) => {
   }, [letter]);
   return (
     <>
-      <LetterHeaderComp
-        data={data}
-        searchText={searchText}
-        setSearchText={setSearchText}
-      />
+      <LetterHeaderComp searchText={searchText} setSearchText={setSearchText} />
       <SearchResults data={data} letter={letter} searchText={searchText} />
       <LetterComp />
       <SideBarComp />

@@ -3,8 +3,15 @@ import Head from "next/head";
 import FooterComp from "../../../components/FooterComp";
 import LetterComp from "../../../components/LetterComp";
 import HeaderContainer from "../../../containers/HeaderContainer";
+import { GetServerSideProps } from "next";
+import { Result } from "../../../interfaces/interface";
+import { getNames } from "../api/v1/names";
 
-const LettersPage: NextPage = () => {
+type Props = {
+  data: Result[];
+};
+
+const LettersPage: NextPage<Props> = ({ data }) => {
   return (
     <>
       <Head>
@@ -15,7 +22,7 @@ const LettersPage: NextPage = () => {
         />
         <link rel="icon" href="/ignames.png" />
       </Head>
-      <HeaderContainer />
+      <HeaderContainer data={data} />
       <LetterComp />
       <FooterComp />
     </>
@@ -23,3 +30,13 @@ const LettersPage: NextPage = () => {
 };
 
 export default LettersPage;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const data = await getNames();
+
+  return {
+    props: {
+      data,
+    },
+  };
+};

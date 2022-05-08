@@ -5,10 +5,11 @@ import Head from "next/head";
 import { getNamesFromLetter } from "../api/v1/letters/[letter]";
 import { letters } from "../../../letters";
 import LetterContainer from "../../../containers/LetterContainer";
+import { LetterComponents } from "../../../interfaces/interface";
 
-const LetterPage: NextPage = ({ data }) => {
+const LetterPage: NextPage<LetterComponents> = ({ data }) => {
   const router = useRouter();
-  const { letter } = router.query;
+  const { letter }: { letter?: string } = router.query;
 
   return (
     <>
@@ -30,7 +31,7 @@ const LetterPage: NextPage = ({ data }) => {
 export default LetterPage;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { letter } = context.params;
+  const { letter }: { letter?: string } = context.params;
 
   const data = await getNamesFromLetter(letter);
 
@@ -41,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async (context) => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = letters.map((letter) => {
     return {
       params: { letter: `${String(letter.toLowerCase())}` },

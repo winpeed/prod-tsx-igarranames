@@ -15,7 +15,7 @@ import {
   WhatsappIcon,
 } from "react-share";
 import Body from "./body";
-import Link from "next/link";
+import { ImCancelCircle } from "react-icons/im";
 
 const ArticleComp = ({ data, shareURL }) => {
   const { name, meaning, modified, sound, card } = data.fields;
@@ -94,7 +94,18 @@ const ArticleComp = ({ data, shareURL }) => {
         ) : null}
       </Article>
       {isShowFeedback ? (
-        <div className="banner">
+        <Body.BannerWrapper>
+          <ImCancelCircle
+            style={{
+              fontSize: "2.5rem",
+              position: "absolute",
+              right: -15,
+              top: -15,
+              fill: "var(--black)",
+              cursor: "pointer",
+            }}
+            onClick={() => setIsShowFeedback(false)}
+          />
           <Body.Banner direction="column">
             <Body.Heading color="white">Help us improve {name}</Body.Heading>
             <Body.Text color="white">
@@ -103,7 +114,7 @@ const ArticleComp = ({ data, shareURL }) => {
             </Body.Text>
             <Body.Form>
               <Body.TextArea required></Body.TextArea>
-              <Body.LetterWrapper>
+              <Body.LetterWrapper justify="center">
                 <Body.Button media="submit">Submit Feedback</Body.Button>
                 <Body.Button
                   media="cancel"
@@ -114,7 +125,7 @@ const ArticleComp = ({ data, shareURL }) => {
               </Body.LetterWrapper>
             </Body.Form>
           </Body.Banner>
-        </div>
+        </Body.BannerWrapper>
       ) : null}
     </>
   );

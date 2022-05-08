@@ -1,4 +1,8 @@
-import { ComponentProps } from "../../interfaces/interface";
+import {
+  ButtonProps,
+  ComponentProps,
+  DivProps,
+} from "../../interfaces/interface";
 import {
   Container,
   Heading,
@@ -23,7 +27,7 @@ Article.Heading = function ArticleHeading({
 Article.Wrapper = function ArticleWrapper({
   children,
   ...restProps
-}: ComponentProps) {
+}: DivProps) {
   return <Wrapper {...restProps}>{children}</Wrapper>;
 };
 
@@ -51,6 +55,6 @@ Article.Span = function ArticleSpan({
 Article.Button = function ArticleButton({
   children,
   ...restProps
-}: ComponentProps) {
+}: ButtonProps) {
   return <Button {...restProps}>{children}</Button>;
 };

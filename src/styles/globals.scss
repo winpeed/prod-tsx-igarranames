@@ -68,21 +68,3 @@ html {
   --red: rgb(234 67 53);
 }
 
-.banner {
-  position: fixed;
-  background: var(--green-dark);
-  color: var(--white);
-  z-index: 11;
-  margin: 0 auto;
-  top: 10%;
-  bottom: 9%;
-  left: 5%;
-  right: 5%;
-  text-align: center;
-  max-width: 600px;
-}
-
-.banner::after{
-  box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
-  opacity: 1;
-}

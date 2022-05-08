@@ -4,7 +4,7 @@ import { AnchorProps, FormProps, InputProps } from "../../../interfaces/interfac
 export const Container = styled.header`
 background: linear-gradient(35deg, var(--gray-light), var(--gray-light));
 background-size: contain;
-  padding: 6em 1em 2em 1em;
+  padding: 5em 1em 2em 1em;
   background-blend-mode: soft-light;
 `;
 

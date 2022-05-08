@@ -60,7 +60,7 @@ const NamePage: NextPage<Props> = ({ data }) => {
 export default NamePage;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { name } = context.params;
+  const { name }: { name?: string } = context.params;
   const data = await getName(name);
 
   return {
