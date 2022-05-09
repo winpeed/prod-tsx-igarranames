@@ -38,21 +38,6 @@ export default function SearchForm({
       .slice(0, 5);
   return (
     <>
-      <Header.Form
-        onSubmit={(event: React.FormEvent<HTMLFormElement>): void => {
-          event.preventDefault();
-        }}
-      >
-        <Header.FormWrapper>
-          <BsSearch style={{ margin: "0em" }} />
-          <Header.Input
-            type="text"
-            placeholder="Search Names..."
-            onChange={setSearchText}
-            value={searchText}
-          />
-        </Header.FormWrapper>
-      </Header.Form>
       {searchText == "" ? null : results.length !== 0 ? (
         <div
           style={{
@@ -62,7 +47,8 @@ export default function SearchForm({
             alignItems: "flex-start",
             padding: "1.2em 2em 1.2em 2em",
             maxWidth: "580px",
-            margin: "-2em auto 2em auto",
+            margin: "0em auto -2em",
+            zIndex: "3",
           }}
         >
           {results.map((item: Result) => {
@@ -88,12 +74,28 @@ export default function SearchForm({
             alignItems: "flex-start",
             padding: "1.2em 2em 1.2em 2em",
             maxWidth: "580px",
-            margin: "-2em auto 2em auto",
+            margin: "-0em auto -2em",
+            zIndex: "3",
           }}
         >
           No results found...
         </div>
       )}
+      <Header.Form
+        onSubmit={(event: React.FormEvent<HTMLFormElement>): void => {
+          event.preventDefault();
+        }}
+      >
+        <Header.FormWrapper>
+          <BsSearch style={{ margin: "0em" }} />
+          <Header.Input
+            type="text"
+            placeholder="Search Names..."
+            onChange={setSearchText}
+            value={searchText}
+          />
+        </Header.FormWrapper>
+      </Header.Form>
     </>
   );
 }
