@@ -57,7 +57,7 @@ export default function NavBar() {
           </Header.NavLink>
         </Link>
 
-        <Header.Span onClick={() => handleShow(textValue)}>
+        <Header.Span onClick={handleShow}>
           {isShow ? (
             <Image src="/close.svg" alt="Close" width={20} height={20} />
           ) : (
