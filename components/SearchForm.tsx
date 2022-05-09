@@ -1,36 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Header from "./header";
-import { add } from "../src/features/search/searchSlice";
-import { useAppSelector, useAppDispatch } from "../src/app/hooks";
+import { add, text } from "../src/features/search/searchSlice";
+import { useAppDispatch, useAppSelector } from "../src/app/hooks";
 import { BsSearch } from "react-icons/bs";
 import { Result } from "../interfaces/interface";
 
 interface FormContainerProps {
-  searchText: string | null;
   names: Result[];
-  setSearchText: any;
 }
 
-export default function SearchForm({
-  searchText,
-  names,
-  setSearchText,
-}: FormContainerProps) {
+export default function SearchForm({ names }: FormContainerProps) {
   const dispatch = useAppDispatch();
+
+  const textValue = useAppSelector((state) => state.search.text);
 
   const handleSearch = (uniqueName: string) => {
     dispatch(add(uniqueName));
+    dispatch(text(""));
+  };
+
+  const handleChange = (event) => {
+    dispatch(text(event.target.value));
   };
 
   const results =
     names &&
     names
       .filter((item: Result) => {
-        if (searchText === "") {
+        if (textValue === "") {
           return item;
         } else if (
-          item.fields.engName.toLowerCase().includes(searchText.toLowerCase())
+          item.fields.engName.toLowerCase().includes(textValue.toLowerCase())
         ) {
           return item;
         }
@@ -38,7 +39,7 @@ export default function SearchForm({
       .slice(0, 5);
   return (
     <>
-      {searchText == "" ? null : results.length !== 0 ? (
+      {textValue == "" ? null : results.length !== 0 ? (
         <div
           style={{
             display: "flex",
@@ -88,11 +89,12 @@ export default function SearchForm({
       >
         <Header.FormWrapper>
           <BsSearch style={{ margin: "0em" }} />
+
           <Header.Input
             type="text"
             placeholder="Search Names..."
-            onChange={setSearchText}
-            value={searchText}
+            onChange={handleChange}
+            value={textValue}
           />
         </Header.FormWrapper>
       </Header.Form>

@@ -7,7 +7,6 @@ import { Result } from "../interfaces/interface";
 
 export default function HomeHeaderContainer({ data }: { data: Result[] }) {
   const [names, setNames] = useState<Result[] | null>([]);
-  const [searchText, setSearchText] = useState<string | null>("");
 
   useEffect(() => {
     setNames(data);
@@ -17,13 +16,7 @@ export default function HomeHeaderContainer({ data }: { data: Result[] }) {
     <Header>
       <NavBar />
       <Hero names={names} />
-      <SearchForm
-        searchText={searchText}
-        names={names}
-        setSearchText={({ target }: { target: HTMLInputElement }) =>
-          setSearchText(target.value)
-        }
-      />
+      <SearchForm names={names} />
     </Header>
   );
 }

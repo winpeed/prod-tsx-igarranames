@@ -9,6 +9,8 @@ import LetterComp from "../../../components/LetterComp";
 import FooterComp from "../../../components/FooterComp";
 import NamePageContainer from "../../../containers/NamePageContainer";
 import NavBar from "../../../components/NavBar";
+import { useAppSelector } from "../../app/hooks";
+import HeaderContainer from "../../../containers/HeaderContainer";
 
 type Props = {
   data: Result;
@@ -20,6 +22,8 @@ const NamePage: NextPage<Props> = ({ data }) => {
   const { asPath } = router;
 
   const shareURL = `https:/igarranames.com${asPath}`;
+
+  const names = useAppSelector((state) => state.search.names);
 
   return (
     <>
@@ -49,7 +53,7 @@ const NamePage: NextPage<Props> = ({ data }) => {
         <meta property="og:description" content={meaning} key="ogdesc" />
         <meta property="og:site_name" content="Igarra Names" key="ogsitename" />
       </Head>
-      <NavBar />
+      <HeaderContainer data={names} />
       <NamePageContainer data={data} shareURL={shareURL} />
       <LetterComp />
       <FooterComp />

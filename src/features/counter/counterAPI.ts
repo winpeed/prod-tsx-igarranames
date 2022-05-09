@@ -10,3 +10,6 @@ export async function fetchCount(amount = 1): Promise<{ data: number }> {
 
   return result
 }
+
+
+

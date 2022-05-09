@@ -2,9 +2,24 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "./header";
+import { useAppDispatch, useAppSelector } from "../src/app/hooks";
+import { text } from "../src/features/search/searchSlice";
 
 export default function NavBar() {
   const [isShow, setIsShow] = useState<boolean>(false);
+
+  const textValue = useAppSelector((state) => state.search.text);
+  const dispatch = useAppDispatch();
+
+  const handleShow = () => {
+    if (!isShow) {
+      setIsShow(true);
+      dispatch(text(""));
+    } else if (isShow) {
+      setIsShow(false);
+      dispatch(text(""));
+    }
+  };
 
   useEffect(() => {
     if (window.innerWidth > 900) {
@@ -42,7 +57,7 @@ export default function NavBar() {
           </Header.NavLink>
         </Link>
 
-        <Header.Span onClick={() => setIsShow(!isShow)}>
+        <Header.Span onClick={() => handleShow(textValue)}>
           {isShow ? (
             <Image src="/close.svg" alt="Close" width={20} height={20} />
           ) : (

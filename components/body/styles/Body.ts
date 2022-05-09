@@ -19,7 +19,7 @@ export const NameWrapper = styled(Container)<SectionProps>`
   max-width: 1000px;
   margin: 1em auto;
   justify-content: space-between;
-  padding: ${(props) => (props.hero == "set" ? "7em 0.7em" : "0.7em")};
+  padding: ${(props) => (props.hero == "set" ? "1em 0.7em" : "0.7em")};
 
   @media (min-width: 768px) {
     flex-direction: row;

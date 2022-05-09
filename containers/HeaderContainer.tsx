@@ -3,25 +3,28 @@ import Header from "../components/header";
 import SearchForm from "../components/SearchForm";
 import NavBar from "../components/NavBar";
 import { Result } from "../interfaces/interface";
+import { useAppDispatch, useAppSelector } from "../src/app/hooks";
+import { name, text } from "../src/features/search/searchSlice";
 
 export default function HeaderContainer({ data }: { data: Result[] }) {
   const [names, setNames] = useState<Result[] | null>([]);
-  const [searchText, setSearchText] = useState<string | null>("");
+
+  const dispatch = useAppDispatch();
+  const allNames = useAppSelector((state) => state.search.names);
 
   useEffect(() => {
-    setNames(data);
+    fetch(" http://localhost:3000/api/v1/names")
+      .then((response) => response.json())
+      .then((names) => {
+        dispatch(name(names.data));
+        setNames(allNames);
+      });
   }, []);
 
   return (
     <Header>
       <NavBar />
-      <SearchForm
-        searchText={searchText}
-        names={names}
-        setSearchText={({ target }: { target: HTMLInputElement }) =>
-          setSearchText(target.value)
-        }
-      />
+      <SearchForm names={data} />
     </Header>
   );
 }
