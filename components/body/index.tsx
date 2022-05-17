@@ -3,9 +3,12 @@ import {
   AnchorProps,
   ButtonProps,
   DivProps,
+  FormProps,
   HeadingProps,
   InputProps,
+  OptionProps,
   SectionProps,
+  SelectProps,
   TextAreaProps,
 } from "../../interfaces/interface";
 import { ComponentProps, Ref } from "../../interfaces/interface";
@@ -24,10 +27,14 @@ import {
   LetterWrapper,
   Form,
   BannerWrapper,
+  ContactHeading,
+  ContactWrapper,
   Banner,
   Input,
   TextArea,
   Label,
+  Select,
+  Option,
 } from "./styles/Body";
 
 export default function Body({ children, ...restProps }: ComponentProps) {
@@ -78,6 +85,13 @@ Body.Heading = function BodyHeading({ children, ...restProps }: HeadingProps) {
   return <Heading {...restProps}>{children}</Heading>;
 };
 
+Body.ContactHeading = function BodyContactHeading({
+  children,
+  ...restProps
+}: HeadingProps) {
+  return <ContactHeading {...restProps}>{children}</ContactHeading>;
+};
+
 Body.Links = React.forwardRef<Ref, AnchorProps>(function BodyLinks(
   { children, ...restProps },
   ref
@@ -111,7 +125,7 @@ Body.LetterWrapper = function BodyLetterWrapper({
   return <LetterWrapper {...restProps}>{children}</LetterWrapper>;
 };
 
-Body.Form = function BodyForm({ children, ...restProps }: ComponentProps) {
+Body.Form = function BodyForm({ children, ...restProps }: FormProps) {
   return <Form {...restProps}>{children}</Form>;
 };
 
@@ -128,4 +142,19 @@ Body.Label = function BodyLabel({ children, ...restProps }: ComponentProps) {
 
 Body.Input = function BodyInput({ ...restProps }: InputProps) {
   return <Input {...restProps} />;
+};
+
+Body.Select = function BodySelect({ children, ...restProps }: SelectProps) {
+  return <Select {...restProps}>{children}</Select>;
+};
+
+Body.Option = function BodyOption({ children, ...restProps }: OptionProps) {
+  return <Option {...restProps}>{children}</Option>;
+};
+
+Body.ContactWrapper = function BodyContactWrapper({
+  children,
+  ...restProps
+}: SectionProps) {
+  return <ContactWrapper {...restProps}>{children}</ContactWrapper>;
 };

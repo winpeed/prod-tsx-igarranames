@@ -12,6 +12,9 @@ export const Container = styled.section`
   justify-content: space-between;
   line-height: 1.7;
   margin: 1em 0em 3em 0em;
+  width: 100%;
+
+
 `;
 
 export const Heading = styled.h3`

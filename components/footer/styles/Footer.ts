@@ -3,24 +3,47 @@ import { AnchorProps, DivProps, InputProps } from "../../../interfaces/interface
 
 
 export const Container = styled.footer`
-  background: var(--white);
-  padding: 2.5em 1em;
+  background: rgba(243,244,246,1);
+  padding: 2.5em 1.5em;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   bottom: 0;
-  max-width:1100px;
+  max-width:2000px;
+
+  @media (min-width: 588px) {
+    flex-direction: row;
+  }
 
   @media (min-width: 768px) {
+    
+    padding: 3em 1.5em;
     flex-direction: row;
-    margin: 0 auto;
-    padding: 3em;
+  }
+
+  @media (min-width: 1000px) {
+  
+    padding: 3em 1em 3em 5em;
+  }
+
+  @media (min-width: 1100px) {
+  
+    padding: 3em 3em 3em 5em;
+  }
+
+  @media (min-width: 1200px) {
+  
+    padding: 3em 2em 3em 9em;
   }
 `;
 
 export const Row = styled.div<DivProps>`
   padding: 1.5em 0em;
   border-top: ${(props) => (props.full == 'yes' ? "1px solid #c1c1c1" : null)};
+
+  @media (min-width: 588px) {
+    flex: ${(props) => (props.full == 'yes' ? "0 0 100%" : "0 0 42%")};
+  }
 
   @media (min-width: 768px) {
     display: ${(props) => (props.full == 'yes' ? "flex" : null)};
@@ -29,6 +52,13 @@ export const Row = styled.div<DivProps>`
     flex: ${(props) => (props.full == 'yes' ? "0 0 100%" : "0 0 33%")};
     padding-right: ${(props) => (props.full == 'yes' ? "6em" : null)};
   }
+
+  @media (min-width: 900px) {
+
+    flex: ${(props) => (props.full == 'yes' ? "0 0 100%" : "0 0 21%")};
+  }
+
+
 `;
 
 export const RowWrap = styled.div`
@@ -48,7 +78,7 @@ export const ColHead = styled.h5`
 
 export const ColWrap = styled.div<DivProps>`
   @media (min-width: 768px) {
-    max-width: ${(props) => (props.full ? "70%" : null)};
+    max-width: ${(props) => (props.full ? "92%" : null)};
   }
 `;
 
@@ -110,8 +140,8 @@ export const Text = styled.p`
 
 export const Input = styled.input<InputProps>`
   border: 1px solid var(--green-dark);
-  padding: 1em 3em 1em 1em;
-  margin: 1em 0em;
+  padding: 1em 1em 1em 1em;
+  margin: 1.5em 0em;
   border-radius: 5px;
 
   &:focus {
@@ -119,20 +149,15 @@ export const Input = styled.input<InputProps>`
   }
 
   @media (min-width: 768px) {
-    margin: 1em 1em 1em 0em;
+    margin: 1.5em 1em 1.5em 0em;
   }
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  flex-wrap: wrap;
 
-  @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
 `;
 
 export const Button = styled.button`
@@ -145,4 +170,9 @@ export const Button = styled.button`
   color: var(--white);
   font-size: 1rem;
   cursor: pointer;
+
+  @media(min-width: 750px){
+    max-width: 95%;
+  }
+
 `;

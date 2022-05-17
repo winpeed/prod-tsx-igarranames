@@ -19,8 +19,9 @@ import { ImCancelCircle } from "react-icons/im";
 
 const ArticleComp = ({ data, shareURL }) => {
   const { name, meaning, modified, sound, card } = data.fields;
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isShowFeedback, setIsShowFeedback] = useState(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isShowFeedback, setIsShowFeedback] = useState<boolean>(false);
+  const [formDetail, setFormDetail] = useState({ Feedback: "" });
 
   const audioRef = useRef(null);
 
@@ -30,6 +31,41 @@ const ArticleComp = ({ data, shareURL }) => {
 
   const handlePause = () => {
     audioRef.current.pause();
+  };
+
+  const handleChange = (event: { target: { name: any; value: any } }) => {
+    setFormDetail((prevState) => {
+      return {
+        ...prevState,
+        [event.target.name]: event.target.value,
+      };
+    });
+  };
+
+  const addNewName = async () => {
+    const headers = {
+      "Content-type": "application/json",
+    };
+
+    try {
+      const response = await fetch("/api/v1/feedback", {
+        method: "post",
+        headers,
+        body: JSON.stringify({
+          Name: name,
+          Feedback: formDetail.Feedback,
+        }),
+      });
+      const data = await response.json();
+      setFormDetail({ Feedback: "" });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleFormSubmit = async (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    await addNewName();
   };
 
   return (
@@ -112,8 +148,13 @@ const ArticleComp = ({ data, shareURL }) => {
               Do you have a story to share about this name? Do you think we
               missed something? Kindly share with us make improvements.
             </Body.Text>
-            <Body.Form>
-              <Body.TextArea required></Body.TextArea>
+            <Body.Form onSubmit={handleFormSubmit}>
+              <Body.TextArea
+                required
+                onChange={handleChange}
+                value={formDetail.Feedback}
+                name="Feedback"
+              ></Body.TextArea>
               <Body.LetterWrapper justify="center">
                 <Body.Button media="submit">Submit Feedback</Body.Button>
                 <Body.Button

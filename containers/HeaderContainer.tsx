@@ -4,7 +4,7 @@ import SearchForm from "../components/SearchForm";
 import NavBar from "../components/NavBar";
 import { Result } from "../interfaces/interface";
 import { useAppDispatch, useAppSelector } from "../src/app/hooks";
-import { name, text } from "../src/features/search/searchSlice";
+import { name } from "../src/features/search/searchSlice";
 
 export default function HeaderContainer({ data }: { data: Result[] }) {
   const [names, setNames] = useState<Result[] | null>([]);

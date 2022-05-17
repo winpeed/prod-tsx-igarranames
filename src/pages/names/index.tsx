@@ -6,7 +6,6 @@ import { Result } from "../../../interfaces/interface";
 import HeaderContainer from "../../../containers/HeaderContainer";
 import LetterComp from "../../../components/LetterComp";
 import FooterComp from "../../../components/FooterComp";
-import SideBarComp from "../../../components/SideBarComp";
 
 type Props = {
   data: Result[];
@@ -25,7 +24,7 @@ const NamesPage: NextPage<Props> = ({ data }) => {
       </Head>
       <HeaderContainer data={data} />
       <LetterComp />
-      <SideBarComp />
+
       <FooterComp />
     </>
   );

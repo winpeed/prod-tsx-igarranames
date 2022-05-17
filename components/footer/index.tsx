@@ -1,5 +1,10 @@
 import React from "react";
-import { AnchorProps, DivProps, InputProps } from "../../interfaces/interface";
+import {
+  AnchorProps,
+  DivProps,
+  InputProps,
+  FormProps,
+} from "../../interfaces/interface";
 import { ComponentProps, Ref } from "../../interfaces/interface";
 import {
   Container,
@@ -70,7 +75,7 @@ Footer.Text = function FooterText({ children, ...restProps }: ComponentProps) {
   return <Text {...restProps}>{children}</Text>;
 };
 
-Footer.Form = function FooterForm({ children, ...restProps }: ComponentProps) {
+Footer.Form = function FooterForm({ children, ...restProps }: FormProps) {
   return <Form {...restProps}>{children}</Form>;
 };
 

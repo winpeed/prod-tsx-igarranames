@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from "../src/app/hooks";
 import axios from "axios";
 import { add } from "../src/features/search/searchSlice";
 import Sidebar from "../components/sidebar/index";
+import NewsletterComp from "./NewsletterComp";
 
 const SideBarComp = () => {
   const [searchItems, setSearchItems] = useState([]);
@@ -91,6 +92,8 @@ const SideBarComp = () => {
       {searchItems.length !== 0 && (
         <Sidebar.Heading>Popular names</Sidebar.Heading>
       )}
+
+      <NewsletterComp />
     </Sidebar>
   );
 };

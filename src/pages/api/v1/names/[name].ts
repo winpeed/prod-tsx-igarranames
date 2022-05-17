@@ -28,7 +28,7 @@ export async function getName(name: string ) {
   const data = await response;
 
   const result = data.records.find(
-    (item: any) => String(item.fields.name.toLowerCase()).includes(name.toLowerCase())
+    (item: any) => String(item.fields.name.toLowerCase()) == (name.toLowerCase())
   );
   return result;
 }

@@ -2,10 +2,12 @@ import styled from 'styled-components'
 import { AnchorProps } from '../../../interfaces/interface'
 
 export const Container = styled.aside`
-flex: 0 0 35%;
-padding: 1em 0em 1em 2em;
-max-width: 1000px;
-margin: 0 auto;
+flex: 0 0 38%;
+padding: 2em;
+max-width: 550px;
+margin: 1em auto;
+background: #f3f4f6;
+border-radius: 5px;
 `
 
 export const Heading = styled.h3`
@@ -20,9 +22,16 @@ margin: 0em;
 flex-wrap: wrap;
 list-style: none;
 text-align: left;
+display: flex;
 
-@media(max-width: 768px){
-    display: flex;
+a{
+    flex: 0 0 100%;
+}
+
+@media(min-width: 400px){
+    a{
+        flex: 0 0 48%;
+    }
 }
 `
 

@@ -7,6 +7,7 @@ import {
   FaFacebookSquare,
   FaInstagramSquare,
 } from "react-icons/fa";
+import NewsletterComp from "./NewsletterComp";
 
 export default function FooterComp() {
   return (
@@ -97,19 +98,7 @@ export default function FooterComp() {
           </Footer.Column>
         </Footer.ColWrap>
       </Footer.Row>
-      <Footer.Row full="true">
-        <Footer.ColWrap full="true">
-          <Footer.ColHead>Subscribe to our newsletter</Footer.ColHead>
-          <Footer.Text>
-            Stay up to date with the latest news, announcements, and articles.
-          </Footer.Text>
-        </Footer.ColWrap>
-
-        <Footer.Form>
-          <Footer.Input type="email" placeholder="Enter your email" required />
-          <Footer.Button>Subscribe</Footer.Button>
-        </Footer.Form>
-      </Footer.Row>
+      <NewsletterComp />
       <Footer.Row full="yes">
         <Footer.Text>
           © 2022 Igarra Names. All rights reserved. Built by{" "}

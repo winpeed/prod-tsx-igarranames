@@ -91,3 +91,16 @@ export interface HeadingProps extends ComponentProps {
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   media?: string;
 }
+
+export interface FormProps extends React.HTMLAttributes<HTMLFormElement>{
+  
+}
+
+export interface SelectProps extends React.HTMLAttributes<HTMLSelectElement>{
+  onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  name: string;
+}
+
+export interface OptionProps extends React.HTMLAttributes<HTMLOptionElement>{
+value: string;
+}

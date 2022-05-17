@@ -62,11 +62,17 @@ html {
   --black: rgb(60 58 58);
   --blue-light: #0572e6;
   --blue-dark: #1938b3;
-  --gray-light: #faf3e6;
+  --gray-light: #f9f9f9;
   --gray-dark: #e4e4ed;
   --green: rgb(52 168 83);
   --white: #ffffff;
   --green-dark: #286568;
   --btn-blue: #1da1f2;
   --red: rgb(234 67 53);
+}
+
+input, select, option, textarea {
+  font-family: "Inter", sans-serif;
+  color: var(--black);
+  font-size: 1rem;
 }/*# sourceMappingURL=globals.css.map */

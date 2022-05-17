@@ -7,6 +7,8 @@ import {
   ButtonProps,
   DivProps,
   TextAreaProps,
+  SelectProps,
+  OptionProps
 } from "../../../interfaces/interface";
 
 export const Container = styled.section`
@@ -16,10 +18,11 @@ export const Container = styled.section`
 export const NameWrapper = styled(Container)<SectionProps>`
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
+  max-width: 1150px;
   margin: 1em auto;
   justify-content: space-between;
   padding: ${(props) => (props.hero == "set" ? "1em 0.7em" : "0.7em")};
+  align-items: flex-start;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -109,6 +112,18 @@ export const Card = styled.div`
   }
 `;
 
+
+export const ContactHeading = styled.h1<HeadingProps>`
+font-weight: 600;
+  letter-spacing: 0.015em;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  padding: 0.5em 0em 0.5em 0em;
+  text-align: center;
+  text-align: ${(props) => (props.alignment == "left" ? "left" : "center")};
+
+`
+
 export const Heading = styled.h2<HeadingProps>`
   color: ${(props) =>
     props.color == "white" ? "var(--yellow)" : "var(--black)"};
@@ -161,9 +176,10 @@ export const Section = styled.section<SectionProps>`
   background: ${(props) => (props.color ? "var(--white)" : "var(--black)")};
 
   @media (min-width: 768px) {
-    padding: 2em 4em 4em 4em;
+    padding: 0em 3em 4em 1em;
     flex-direction: ${(props) => (props.color ? "column" : "row")};
     align-items: center;
+    flex:0 0 43%;
   }
 `;
 
@@ -187,7 +203,7 @@ export const Button = styled.button<ButtonProps>`
       ? "var(--red)"
       : props.media == "submit"
       ? "var(--yellow)"
-      : null};
+      : props.media == "green" ? "var(--green)" : null};
   color: ${(props) =>
     props.media == "submit" ? "var(--black)" : "var(--white)"};
   font-size: 0.95rem;
@@ -224,24 +240,29 @@ export const LetterWrapper = styled.section<SectionProps>`
 
 export const Form = styled.form`
   text-align: left;
-  max-width: 390px;
+  max-width: 500px;
   width: 100%;
+  display: flex;
+  flex-direction: column; 
 `;
 
 export const Input = styled.input<InputProps>`
-  padding: 0.7em 1em;
-  border: 1px solid var(--gray-dark);
+  padding: 0.9em 1em;
+  border: 1px solid var(--black);
+  border-radius: 3px;
   display: block;
+  margin: 0.8em 0em;
   width: 100%;
 `;
 
 export const TextArea = styled.textarea<TextAreaProps>`
-  border: 1px solid var(--gray-dark);
+  border: 1px solid var(--black);
   display: block;
   width: 100%;
   min-height: 150px;
   padding: 0.7em 1em;
 `;
+
 export const Label = styled.label`
   font-size: 0.9rem;
   font-weight: 600;
@@ -249,3 +270,23 @@ export const Label = styled.label`
   padding: 2em 0em 0.5em 0em;
   display: block;
 `;
+
+export const Select = styled.select<SelectProps>`
+padding: 0.8em;
+margin: 0.8em 0em;
+`
+
+export const Option = styled.option<OptionProps>`
+`
+
+export const ContactWrapper = styled.section
+`
+padding: 7.5em 1em;
+
+@media(min-width: 500px){
+  margin: 0 auto;
+  max-width: 450px;
+  text-align: center;
+}
+
+`
