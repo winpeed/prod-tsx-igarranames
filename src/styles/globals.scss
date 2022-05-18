@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-input-placeholder {
@@ -59,8 +60,8 @@ html {
   --black: rgb(60 58 58);
   --blue-light: #0572e6;
   --blue-dark: #1938b3;
-  --gray-light: #f9f9f9;
-  --gray-dark: #e4e4ed;
+  --gray-light: #ffffff;
+  --gray-dark: #e9e9f5;
   --green: rgb(52 168 83);
   --white: #ffffff;
   --green-dark: #286568;
@@ -68,7 +69,10 @@ html {
   --red: rgb(234 67 53);
 }
 
-input, select, option, textarea{
+input,
+select,
+option,
+textarea {
   font-family: "Inter", sans-serif;
   color: var(--black);
   font-size: 1rem;

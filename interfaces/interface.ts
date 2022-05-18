@@ -44,6 +44,7 @@ export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {
   direction?: string;
   icon?: boolean;
   width?: string;
+  close?:string;
 }
 
 export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -103,4 +104,8 @@ export interface SelectProps extends React.HTMLAttributes<HTMLSelectElement>{
 
 export interface OptionProps extends React.HTMLAttributes<HTMLOptionElement>{
 value: string;
+}
+
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement>{
+  close?: string
 }

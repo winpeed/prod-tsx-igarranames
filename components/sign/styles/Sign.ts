@@ -4,14 +4,15 @@ import {
   HeadingProps,
   ButtonProps,
   DivProps,
-  AnchorProps
+  AnchorProps,
+  FormProps
 } from "../../../interfaces/interface";
 
 export const Container = styled.main`
-  background: var(--gray-light);
+  background: var(--gray-dark);
   width: 100vw;
   min-height: 100vh;
-  padding: 3em 1.8em 3em 1em;
+  padding: 5em 1.8em 3em 1em;
 `;
 
 export const Card = styled.section`
@@ -19,7 +20,7 @@ export const Card = styled.section`
   margin: 2em auto;
   background: var(--white);
   text-align: center;
-  padding: 1em 1.5em;
+  padding: 0em 1.5em 3em 1.5em;
   border-radius: 8px;
 
   @media (max-width: 400px) {
@@ -68,7 +69,7 @@ export const Text = styled.p<HeadingProps>`
   line-height: 1.7;
   font-weight: 600;
   padding: 0.5em 0em 0.5em 0em;
-  color: ${(props) => (props.color ? "white" : "black")};
+  color: ${(props) => (props.color == 'red' ? 'var(--red)' : props.color == 'white' ? "white" : "black")};
   text-align: center;
   margin-top: 1em;
 
@@ -78,20 +79,22 @@ export const Text = styled.p<HeadingProps>`
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<FormProps>`
   text-align: left;
   width: 100%;
-  max-width: 300px;
+  max-width: 370px;
   margin: 0 auto;
+  padding: 1em 2.5em;
+
 `;
 
 export const Input = styled.input<InputProps>`
-  padding: 1.2em 1em;
+  padding: 1em 1em;
   border: none;
   display: block;
   border-radius: 4px;
   width: 100%;
-  background: var(--gray-light);
+  background: var(--gray-dark);
 `;
 
 export const Label = styled.label`

@@ -80,7 +80,7 @@ export const Banner = styled.section<SectionProps>`
     props.direction == "column" ? "column" : "row"};
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<DivProps>`
   display: flex;
   flex-direction: column;
   max-width: 1000px;
@@ -88,7 +88,7 @@ export const Wrapper = styled.div`
   padding: 1em 1em 2em 1em;
 
   @media (min-width: 768px) {
-    flex-direction: row;
+    flex-direction:  ${(props) => (props.close == 'yes' ? "column" : "row")};
     padding: 1em 1.5em 2em 1.5em;
   }
 `;

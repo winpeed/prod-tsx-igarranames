@@ -4,6 +4,7 @@ import {
   DivProps,
   InputProps,
   FormProps,
+  TextProps,
 } from "../../interfaces/interface";
 import { ComponentProps, Ref } from "../../interfaces/interface";
 import {
@@ -71,7 +72,7 @@ Footer.RowWrap = function FooterRowWrap({
   return <RowWrap {...restProps}>{children}</RowWrap>;
 };
 
-Footer.Text = function FooterText({ children, ...restProps }: ComponentProps) {
+Footer.Text = function FooterText({ children, ...restProps }: TextProps) {
   return <Text {...restProps}>{children}</Text>;
 };
 

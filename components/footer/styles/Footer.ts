@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AnchorProps, DivProps, InputProps } from "../../../interfaces/interface";
+import { AnchorProps, DivProps, InputProps, TextProps } from "../../../interfaces/interface";
 
 
 export const Container = styled.footer`
@@ -40,6 +40,8 @@ export const Container = styled.footer`
 export const Row = styled.div<DivProps>`
   padding: 1.5em 0em;
   border-top: ${(props) => (props.full == 'yes' ? "1px solid #c1c1c1" : null)};
+  display: ${(props) => (props.close == 'yes' ? "flex" : null)};
+  flex-direction:  ${(props) => (props.close == 'yes' ? "column" : null)};
 
   @media (min-width: 588px) {
     flex: ${(props) => (props.full == 'yes' ? "0 0 100%" : "0 0 42%")};
@@ -126,11 +128,12 @@ export const Span = styled.span`
   font-style: italic;
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<TextProps>`
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
   color: var(--black);
+  flex: ${props => props.close == 'yes' && '0 0 60%'}
 
   @media (min-width: 768px) {
     font-size: 1rem;
@@ -141,7 +144,7 @@ export const Text = styled.p`
 export const Input = styled.input<InputProps>`
   border: 1px solid var(--green-dark);
   padding: 1em 1em 1em 1em;
-  margin: 1.5em 0em;
+  margin: 0.5em 0em 1.5em 0em;
   border-radius: 5px;
 
   &:focus {
@@ -149,7 +152,7 @@ export const Input = styled.input<InputProps>`
   }
 
   @media (min-width: 768px) {
-    margin: 1.5em 1em 1.5em 0em;
+    margin: 0.5em 1em 1.5em 0em;
   }
 `;
 

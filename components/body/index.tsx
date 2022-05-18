@@ -66,10 +66,7 @@ Body.Article = function BodyArticle({
   return <Article {...restProps}>{children}</Article>;
 };
 
-Body.Wrapper = function BodyWrapper({
-  children,
-  ...restProps
-}: ComponentProps) {
+Body.Wrapper = function BodyWrapper({ children, ...restProps }: DivProps) {
   return <Wrapper {...restProps}>{children}</Wrapper>;
 };
 

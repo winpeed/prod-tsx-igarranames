@@ -1,9 +1,13 @@
 import styled from "styled-components";
-import { AnchorProps, FormProps, InputProps } from "../../../interfaces/interface";
+import {
+  AnchorProps,
+  FormProps,
+  InputProps,
+} from "../../../interfaces/interface";
 
 export const Container = styled.header`
-background: linear-gradient(35deg, var(--gray-light), var(--gray-light));
-background-size: contain;
+  background: linear-gradient(35deg, var(--gray-light), var(--gray-light));
+  background-size: contain;
   padding: 5em 1em 2em 1em;
   background-blend-mode: soft-light;
 `;
@@ -13,7 +17,7 @@ export const Logo = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-left: 0.7em;
-  font-style:italic;
+  font-style: italic;
   letter-spacing: 0.02em;
   font-weight: 600;
 `;
@@ -23,13 +27,13 @@ export const Span = styled.span`
   font-weight: 600;
   margin-left: 0.5em;
   cursor: pointer;
-  z-index:1;
+  z-index: 1;
   color: var(--blue-light);
   font-style: italic;
   z-index: 3;
 
   @media (min-width: 900px) {
-    display: none
+    display: none;
   }
 `;
 
@@ -42,16 +46,17 @@ export const Nav = styled.nav`
   margin: 0 auto;
   background: var(--gray-light);
   position: fixed;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   right: 0;
+  z-index: 11;
 
-  @media(min-width: 1000px){
-    padding: 1em 4em;
+  @media (min-width: 1000px) {
+    padding: 0em 4em;
   }
 
-  @media(min-width: 1200px){
-    padding: 1em 8em;
+  @media (min-width: 1200px) {
+    padding: 0em 8em;
   }
 `;
 
@@ -107,7 +112,7 @@ export const FormWrapper = styled.div`
 export const Input = styled.input<InputProps>`
   width: 83%;
   padding-left: 1.1em;
-  font-size:1.2rem;
+  font-size: 1.2rem;
   border: 1px solid var(--white);
 
   &:focus {
@@ -140,55 +145,66 @@ export const Button = styled.button`
 
 export const NavList = styled.ul`
   display: flex;
- align-items: center;
- list-style: none;
- z-index: 2;
- 
- @media (max-width: 900px) {
-  background: var(--gray-light);
-  color: var(--black);
-  height: 84vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center;
-  padding: 0em;
-  margin: 0em;
-  left: 0;
-  right: 0;
-  top: 0;
- position: absolute;
- transform: translateX(0%);
-}
+  align-items: center;
+  list-style: none;
+  z-index: 2;
+
+  @media (max-width: 900px) {
+    background: var(--gray-light);
+    color: var(--black);
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 13.5em 0em;
+    margin: 0em;
+    left: 0;
+    right: 0;
+    top: 79px;
+    position: absolute;
+    transform: translateX(0%);
+    border: 1px solid var(--gray-dark);
+  }
 `;
 
 export const NavItem = styled.li`
   padding: 1em 0em;
- 
 
   @media (min-width: 900px) {
     padding: 0em 0.8em;
   }
 
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 `;
 
 export const NavLink = styled.a<AnchorProps>`
-  color: ${props => props.color == 'true' ? 'var(--black)' : props.name == 'login' || props.name == 'donate'  ? 'var(--white)' : null};
+  color: ${(props) =>
+    props.color == "true"
+      ? "var(--black)"
+      : props.name == "login" || props.name == "donate"
+      ? "var(--white)"
+      : null};
   font-size: 1rem;
   padding: 0.6em 1em;
   font-weight: 500;
   line-height: 1.5;
   border-radius: 5px;
-  background: ${props => props.name == 'donate' ? 'var(--red)' : props.name == 'login' ? 'var(--green)' : null};
+  background: ${(props) =>
+    props.name == "donate"
+      ? "var(--red)"
+      : props.name == "login"
+      ? "var(--green)"
+      : null};
   align-items: center;
   display: flex;
-  z-index:10;
+  z-index: 10;
 
-  :hover{
+  :hover {
     text-decoration: none;
-    color: ${props => props.name == 'donate' ? 'var(--white)' : "var(--black)"};
+    color: ${(props) =>
+      props.name == "donate" ? "var(--white)" : "var(--black)"};
   }
 `;

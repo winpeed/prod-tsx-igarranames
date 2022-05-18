@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { AnchorProps } from '../../../interfaces/interface'
 
 export const Container = styled.aside`
-flex: 0 0 38%;
+flex: 0 0 34%;
 padding: 2em;
 max-width: 550px;
 margin: 1em auto;

@@ -4,12 +4,22 @@ import Image from "next/image";
 import Header from "./header";
 import { useAppDispatch, useAppSelector } from "../src/app/hooks";
 import { text } from "../src/features/search/searchSlice";
+import Router from "next/router";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
+import { auth } from "../src/firebase";
 
 export default function NavBar() {
   const [isShow, setIsShow] = useState<boolean>(false);
+  const [user, loading, error] = useAuthState(auth);
 
   const textValue = useAppSelector((state) => state.search.text);
   const dispatch = useAppDispatch();
+
+  const logout = () => {
+    signOut(auth);
+    Router.push("/");
+  };
 
   const handleShow = () => {
     if (!isShow) {
@@ -41,7 +51,8 @@ export default function NavBar() {
         setIsShow(false);
       });
     };
-  }, []);
+  }, [isShow]);
+
   return (
     <>
       <Header.Nav>
@@ -88,11 +99,21 @@ export default function NavBar() {
                 </Link>
               </Header.NavItem>
 
-              <Header.NavItem>
-                <Link href="/signin" passHref>
-                  <Header.NavLink>Sign In</Header.NavLink>
-                </Link>
-              </Header.NavItem>
+              {user ? (
+                <Header.NavItem>
+                  <Link href="/" passHref>
+                    <Header.NavLink onClick={() => logout()}>
+                      Sign Out
+                    </Header.NavLink>
+                  </Link>
+                </Header.NavItem>
+              ) : (
+                <Header.NavItem>
+                  <Link href="/signin" passHref>
+                    <Header.NavLink>Sign In</Header.NavLink>
+                  </Link>
+                </Header.NavItem>
+              )}
 
               <Header.NavItem>
                 <Link href="/donate" passHref>

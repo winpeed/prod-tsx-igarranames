@@ -13,12 +13,16 @@ export default function HeaderContainer({ data }: { data: Result[] }) {
   const allNames = useAppSelector((state) => state.search.names);
 
   useEffect(() => {
-    fetch(" http://localhost:3000/api/v1/names")
-      .then((response) => response.json())
-      .then((names) => {
-        dispatch(name(names.data));
-        setNames(allNames);
-      });
+    const fetchNames = () => {
+      fetch(" http://localhost:3000/api/v1/names")
+        .then((response) => response.json())
+        .then((names) => {
+          dispatch(name(names.data));
+          setNames(allNames);
+        });
+    };
+
+    fetchNames();
   }, []);
 
   return (

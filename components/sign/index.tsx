@@ -20,6 +20,7 @@ import {
   ButtonProps,
   HeadingProps,
   DivProps,
+  FormProps,
 } from "../../interfaces/interface";
 import React from "react";
 
@@ -39,7 +40,7 @@ Sign.Text = function SignText({ children, ...restProps }: HeadingProps) {
   return <Text {...restProps}>{children}</Text>;
 };
 
-Sign.Form = function SignForm({ children, ...restProps }: ComponentProps) {
+Sign.Form = function SignForm({ children, ...restProps }: FormProps) {
   return <Form {...restProps}>{children}</Form>;
 };
 
