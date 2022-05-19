@@ -8,8 +8,12 @@ import {
 export const Container = styled.header`
   background: linear-gradient(35deg, var(--gray-light), var(--gray-light));
   background-size: contain;
-  padding: 5em 1em 2em 1em;
+  padding: 5.5em 1em 0em 1em;
   background-blend-mode: soft-light;
+
+  @media(min-width: 900px){
+    padding: 6em 1em 0em 1em;
+  }
 `;
 
 export const Logo = styled.div`
@@ -129,7 +133,7 @@ export const Form = styled.form<FormProps>`
   flex-direction: column;
   max-width: 580px;
   margin: 0 auto;
-  padding: 2em 0em 0em 0em;
+  padding: 1em 0em 0em 0em;
 `;
 
 export const Button = styled.button`

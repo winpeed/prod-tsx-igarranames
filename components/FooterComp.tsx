@@ -97,7 +97,7 @@ export default function FooterComp() {
           </Footer.Column>
         </Footer.ColWrap>
       </Footer.Row>
-      <NewsletterComp />
+      <NewsletterComp color="white" />
       <Footer.Row full="yes">
         <Footer.Text>
           © 2022 Igarra Names. All rights reserved. Built by{" "}

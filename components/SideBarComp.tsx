@@ -93,17 +93,17 @@ const SideBarComp = () => {
       );
     });
 
-  const popularSearches =
-    popularNames.length !== 0 &&
-    popularNames.map((item, index) => {
-      return (
-        <Link href={`/names/${item.Name}`} passHref key={index}>
-          <Sidebar.Anchor onClick={() => handleSearch(item)}>
-            <Sidebar.ListItem>{item.Name}</Sidebar.ListItem>
-          </Sidebar.Anchor>
-        </Link>
-      );
-    });
+  // const popularSearches =
+  //   popularNames.length !== 0 &&
+  //   popularNames.map((item, index) => {
+  //     return (
+  //       <Link href={`/names/${item.Name}`} passHref key={index}>
+  //         <Sidebar.Anchor onClick={() => handleSearch(item)}>
+  //           <Sidebar.ListItem>{item.Name}</Sidebar.ListItem>
+  //         </Sidebar.Anchor>
+  //       </Link>
+  //     );
+  //   });
 
   useEffect(() => {
     const getPopularNames = () => {
@@ -134,14 +134,14 @@ const SideBarComp = () => {
         </>
       )}
 
-      {popularNames.length !== 0 && (
+      {/* {popularNames.length !== 0 && (
         <>
           <Sidebar.Heading>Popular names</Sidebar.Heading>
           <Sidebar.List> {popularSearches}</Sidebar.List>
         </>
-      )}
+      )} */}
 
-      <NewsletterComp />
+      <NewsletterComp color="black" />
     </Sidebar>
   );
 };

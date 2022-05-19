@@ -19,14 +19,14 @@ export const NameWrapper = styled(Container)<SectionProps>`
   display: flex;
   flex-direction: column;
   max-width: 1150px;
-  margin: 1em auto;
+  margin: 0em auto;
   justify-content: space-between;
-  padding: ${(props) => (props.hero == "set" ? "1em 0.7em" : "0.7em")};
+  padding: ${(props) => (props.hero == "set" ? "0em 0.7em" : "0.7em")};
   align-items: flex-start;
 
   @media (min-width: 768px) {
     flex-direction: row;
-  padding: ${(props) => (props.hero == "set" ? "1em 0.7em 1em 3.7em" : "0.7em")};
+  padding: ${(props) => (props.hero == "set" ? "0em 0.7em 1em 3.7em" : "0.7em")};
 
    
   }
@@ -173,7 +173,7 @@ export const Section = styled.section<SectionProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.5em 1em 2em 1em;
+  padding: 1.5em 1em 3em 1em;
   margin: 0em auto;
   text-align: center;
   background: ${(props) => (props.color ? "var(--white)" : "var(--black)")};

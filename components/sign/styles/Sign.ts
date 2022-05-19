@@ -84,7 +84,7 @@ export const Form = styled.form<FormProps>`
   width: 100%;
   max-width: 370px;
   margin: 0 auto;
-  padding: 1em 2.5em;
+  padding: 1em 0.8em;
 
 `;
 

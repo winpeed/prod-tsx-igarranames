@@ -5,6 +5,7 @@ import {
   InputProps,
   FormProps,
   TextProps,
+  HeadingProps,
 } from "../../interfaces/interface";
 import { ComponentProps, Ref } from "../../interfaces/interface";
 import {
@@ -53,7 +54,7 @@ Footer.ListItem = function FooterListItem({
 Footer.ColHead = function FooterColHead({
   children,
   ...restProps
-}: ComponentProps) {
+}: HeadingProps) {
   return <ColHead {...restProps}>{children}</ColHead>;
 };
 

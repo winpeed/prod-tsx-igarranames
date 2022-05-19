@@ -4,6 +4,7 @@ export type ComponentProps = {
   children?: React.ReactNode;
   data?: Result[];
   onClick?: () => void;
+  color?: string;
 };
 
 export type Ref = HTMLAnchorElement;

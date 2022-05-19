@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AnchorProps, DivProps, InputProps, TextProps } from "../../../interfaces/interface";
+import { AnchorProps, DivProps, HeadingProps, InputProps, TextProps } from "../../../interfaces/interface";
 
 
 export const Container = styled.footer`
@@ -73,9 +73,9 @@ export const RowWrap = styled.div`
   }
 `;
 
-export const ColHead = styled.h5`
+export const ColHead = styled.h5<HeadingProps>`
   font-size: 1.3rem;
-  color: var(--white);
+  color: ${(props) => (props.color == 'black' ? "var(--black)" : "var(--white)")}; 
   padding: 0.35em 0em;
 `;
 
@@ -132,7 +132,7 @@ export const Text = styled.p<TextProps>`
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: var(--white);
+  color: ${props => props.color == 'black' ? 'var(--black)' : 'var(--white)'}
   flex: ${props => props.close == 'yes' && '0 0 60%'}
 
   @media (min-width: 768px) {

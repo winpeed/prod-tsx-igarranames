@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Footer from "./footer";
 import Image from "next/image";
 
-const NewsletterComp = () => {
+const NewsletterComp = ({ color }) => {
   const [newsForm, setNewsForm] = useState<{ name: string; email: string }>({
     name: "",
     email: "",
@@ -69,8 +69,10 @@ const NewsletterComp = () => {
           </Footer.Row>
         ) : (
           <>
-            <Footer.ColHead>Subscribe to our newsletter</Footer.ColHead>
-            <Footer.Text>
+            <Footer.ColHead color={color}>
+              Subscribe to our newsletter
+            </Footer.ColHead>
+            <Footer.Text color={color}>
               Stay up to date with the latest news, announcements, and articles.
             </Footer.Text>
           </>
