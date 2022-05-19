@@ -4,7 +4,10 @@ import Sign from "./sign";
 import { FaFacebookSquare } from "react-icons/fa";
 import { IoLogoGoogle } from "react-icons/io";
 import { AiOutlineTwitter } from "react-icons/ai";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { auth } from "../src/firebase";
 import Router from "next/router";
 import Link from "next/link";
@@ -17,6 +20,8 @@ const SignInForm = () => {
   }>({ email: "", password: "" });
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   const handleChange = (event: { target: { name: any; value: any } }) => {
     setUserDetails((prevState) => {
@@ -34,9 +39,9 @@ const SignInForm = () => {
     Router.push("/new");
   };
 
-  console.log("error", error);
-  console.log(user, "user");
-  console.log("loading", loading);
+  const handleGoogle = () => {
+    console.log("Goodle stuff");
+  };
 
   return (
     <Sign>
@@ -72,7 +77,7 @@ const SignInForm = () => {
 
             <Sign.Text>OR</Sign.Text>
             <Sign.Wrapper direction="column">
-              <Sign.Button media="facebook">
+              <Sign.Button media="facebook" onClick={handleGoogle}>
                 {" "}
                 <FaFacebookSquare
                   style={{
@@ -83,7 +88,8 @@ const SignInForm = () => {
                 />
                 Continue with Facebook
               </Sign.Button>
-              <Sign.Button media="google">
+
+              <Sign.Button media="google" onClick={handleGoogle}>
                 {" "}
                 <IoLogoGoogle
                   style={{
@@ -94,7 +100,7 @@ const SignInForm = () => {
                 />{" "}
                 Continue with Google
               </Sign.Button>
-              <Sign.Button media="twitter">
+              <Sign.Button media="twitter" onClick={handleGoogle}>
                 <AiOutlineTwitter
                   style={{
                     fontSize: "1.2rem",
@@ -102,7 +108,7 @@ const SignInForm = () => {
                     marginRight: "0.8em",
                   }}
                 />
-                Continue with Twitter
+                Handle Stuff
               </Sign.Button>
             </Sign.Wrapper>
 

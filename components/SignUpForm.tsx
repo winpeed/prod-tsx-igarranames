@@ -4,7 +4,6 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { IoLogoGoogle } from "react-icons/io";
 import { AiOutlineTwitter } from "react-icons/ai";
 import Link from "next/link";
-import Image from "next/image";
 import { auth } from "../src/firebase";
 import {
   useAuthState,

@@ -2,11 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../components/footer/index";
-import {
-  FaTwitterSquare,
-  FaFacebookSquare,
-  FaInstagramSquare,
-} from "react-icons/fa";
 import NewsletterComp from "./NewsletterComp";
 
 export default function FooterComp() {
@@ -22,29 +17,33 @@ export default function FooterComp() {
               width={30}
               height={30}
             />
-            <Footer.Logo>Igarranames</Footer.Logo>
+            {/* <Footer.Logo>Igarranames</Footer.Logo> */}
           </Footer.ListLink>
         </Link>
-        <Link href="/" passHref>
-          <Footer.ListLink>hi@igarranames.com</Footer.ListLink>
-        </Link>
-        <Footer.RowWrap>
-          <Link href="/" passHref>
-            <Footer.ListLink>
-              <FaTwitterSquare />
-            </Footer.ListLink>
-          </Link>
-          <Link href="/" passHref>
-            <Footer.ListLink>
-              <FaFacebookSquare />
-            </Footer.ListLink>
-          </Link>
-          <Link href="/" passHref>
-            <Footer.ListLink>
-              <FaInstagramSquare />
-            </Footer.ListLink>
-          </Link>
-        </Footer.RowWrap>
+        <Footer.ColWrap>
+          <Footer.Column>
+            <Footer.ListItem>
+              <Link href="/" passHref>
+                <Footer.ListLink>Email</Footer.ListLink>
+              </Link>
+            </Footer.ListItem>
+            <Footer.ListItem>
+              <Link href="/names" passHref>
+                <Footer.ListLink>Twitter</Footer.ListLink>
+              </Link>
+            </Footer.ListItem>
+            <Footer.ListItem>
+              <Link href="/new" passHref>
+                <Footer.ListLink>Facebook</Footer.ListLink>
+              </Link>
+            </Footer.ListItem>
+            <Footer.ListItem>
+              <Link href="/signin" passHref>
+                <Footer.ListLink>Instagram</Footer.ListLink>
+              </Link>
+            </Footer.ListItem>
+          </Footer.Column>
+        </Footer.ColWrap>
       </Footer.Row>
       <Footer.Row>
         <Footer.ColWrap>

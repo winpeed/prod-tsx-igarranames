@@ -1,11 +1,5 @@
 import type { NextApiHandler } from "next";
-import { getMaxListeners } from "process";
 
-// const Airtable = require("airtable-node");
-
-// const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
-//   .base(process.env.AIRTABLE_BASE)
-//   .table("Newsletter Form");
 
 const Airtable = require("airtable");
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(

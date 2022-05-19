@@ -15,12 +15,30 @@ export default function SearchForm({ names }: FormContainerProps) {
 
   const textValue = useAppSelector((state) => state.search.text);
 
+  const addPopularName = async (name: string) => {
+    const headers = {
+      "Content-type": "application/json",
+    };
+
+    try {
+      const response = await fetch("/api/v1/popular", {
+        method: "post",
+        headers,
+        body: JSON.stringify({ Name: name }),
+      });
+      const data = await response.json();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleSearch = (uniqueName: string) => {
     dispatch(add(uniqueName));
     dispatch(text(""));
+    addPopularName(uniqueName);
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: { target: { value: string } }) => {
     dispatch(text(event.target.value));
   };
 

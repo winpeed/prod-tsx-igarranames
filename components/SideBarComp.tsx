@@ -8,6 +8,7 @@ import NewsletterComp from "./NewsletterComp";
 
 const SideBarComp = () => {
   const [searchItems, setSearchItems] = useState([]);
+  const [popularNames, setPopularNames] = useState([]);
 
   const items = useAppSelector((state) => state.search.value);
   const uniqueItems = [...new Set(items)];
@@ -22,7 +23,10 @@ const SideBarComp = () => {
     try {
       const response = await axios.get("/api/v1/names");
       const sortedData = response.data.data.sort(
-        (a, b) =>
+        (
+          a: { fields: { modified: string | number | Date } },
+          b: { fields: { modified: string | number | Date } }
+        ) =>
           new Date(b.fields.modified).getTime() -
           new Date(a.fields.modified).getTime()
       );
@@ -39,7 +43,26 @@ const SideBarComp = () => {
   const dispatch = useAppDispatch();
 
   const handleSearch = (uniqueName: string) => {
+    addPopularName(uniqueName);
+    console.log(uniqueName);
     dispatch(add(uniqueName));
+  };
+
+  const addPopularName = async (name: string) => {
+    const headers = {
+      "Content-type": "application/json",
+    };
+
+    try {
+      const response = await fetch("/api/v1/popular", {
+        method: "post",
+        headers,
+        body: JSON.stringify({ Name: name }),
+      });
+      const data = await response.json();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const recentlyAdded =
@@ -69,6 +92,28 @@ const SideBarComp = () => {
         </Link>
       );
     });
+
+  const popularSearches =
+    popularNames.length !== 0 &&
+    popularNames.map((item, index) => {
+      return (
+        <Link href={`/names/${item.Name}`} passHref key={index}>
+          <Sidebar.Anchor onClick={() => handleSearch(item)}>
+            <Sidebar.ListItem>{item.Name}</Sidebar.ListItem>
+          </Sidebar.Anchor>
+        </Link>
+      );
+    });
+
+  useEffect(() => {
+    const getPopularNames = () => {
+      fetch("/api/v1/popular")
+        .then((response) => response.json())
+        .then((data) => setPopularNames(data.data));
+    };
+    getPopularNames();
+  }, []);
+
   return (
     <Sidebar>
       {names.length !== 0 && (
@@ -89,8 +134,11 @@ const SideBarComp = () => {
         </>
       )}
 
-      {searchItems.length !== 0 && (
-        <Sidebar.Heading>Popular names</Sidebar.Heading>
+      {popularNames.length !== 0 && (
+        <>
+          <Sidebar.Heading>Popular names</Sidebar.Heading>
+          <Sidebar.List> {popularSearches}</Sidebar.List>
+        </>
       )}
 
       <NewsletterComp />

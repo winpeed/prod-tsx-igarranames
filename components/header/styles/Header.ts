@@ -44,7 +44,7 @@ export const Nav = styled.nav`
   padding: 1em 1em;
   max-width: 2000px;
   margin: 0 auto;
-  background: var(--gray-light);
+  background: var(--black);
   position: fixed;
   top: 0;
   left: 0;
@@ -61,7 +61,7 @@ export const Nav = styled.nav`
 `;
 
 export const ItemWrapper = styled.div`
-  padding: 0em 0em 0em 0em;
+  padding: 1em 0em 0em 0em;
   text-align: center;
 
   @media (min-width: 768px) {
@@ -129,7 +129,7 @@ export const Form = styled.form<FormProps>`
   flex-direction: column;
   max-width: 580px;
   margin: 0 auto;
-  padding: 1em 0em;
+  padding: 2em 0em 0em 0em;
 `;
 
 export const Button = styled.button`
@@ -150,8 +150,8 @@ export const NavList = styled.ul`
   z-index: 2;
 
   @media (max-width: 900px) {
-    background: var(--gray-light);
-    color: var(--black);
+    background: var(--black);
+    color: var(--white);
     height: 60vh;
     display: flex;
     flex-direction: column;
@@ -164,7 +164,7 @@ export const NavList = styled.ul`
     top: 79px;
     position: absolute;
     transform: translateX(0%);
-    border: 1px solid var(--gray-dark);
+    border: 1px solid var(--black);
   }
 `;
 
@@ -186,7 +186,7 @@ export const NavLink = styled.a<AnchorProps>`
       ? "var(--black)"
       : props.name == "login" || props.name == "donate"
       ? "var(--white)"
-      : null};
+      : "var(--white)"};
   font-size: 1rem;
   padding: 0.6em 1em;
   font-weight: 500;
@@ -205,6 +205,6 @@ export const NavLink = styled.a<AnchorProps>`
   :hover {
     text-decoration: none;
     color: ${(props) =>
-      props.name == "donate" ? "var(--white)" : "var(--black)"};
+      props.name == "donate" ? "var(--white)" : "var(--blue-light)"};
   }
 `;

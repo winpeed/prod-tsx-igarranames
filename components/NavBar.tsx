@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Header from "./header";
+import { GiHamburgerMenu, GiCrossMark } from "react-icons/gi";
 import { useAppDispatch, useAppSelector } from "../src/app/hooks";
 import { text } from "../src/features/search/searchSlice";
 import Router from "next/router";
@@ -70,13 +71,14 @@ export default function NavBar() {
 
         <Header.Span onClick={handleShow}>
           {isShow ? (
-            <Image src="/close.svg" alt="Close" width={20} height={20} />
+            <GiCrossMark
+              style={{ width: "25px", height: "25px" }}
+              fill="white"
+            />
           ) : (
-            <Image
-              src="/hamburger.svg"
-              alt="Hamburger"
-              width={30}
-              height={30}
+            <GiHamburgerMenu
+              style={{ width: "25px", height: "25px" }}
+              fill="white"
             />
           )}
         </Header.Span>

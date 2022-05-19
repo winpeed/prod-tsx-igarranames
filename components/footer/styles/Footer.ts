@@ -3,13 +3,14 @@ import { AnchorProps, DivProps, InputProps, TextProps } from "../../../interface
 
 
 export const Container = styled.footer`
-  background: rgba(243,244,246,1);
+  background: var(--black);
   padding: 2.5em 1.5em;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   bottom: 0;
   max-width:2000px;
+  color: var(--white);
 
   @media (min-width: 588px) {
     flex-direction: row;
@@ -73,8 +74,8 @@ export const RowWrap = styled.div`
 `;
 
 export const ColHead = styled.h5`
-  font-size: 0.875rem;
-  color: var(--black);
+  font-size: 1.3rem;
+  color: var(--white);
   padding: 0.35em 0em;
 `;
 
@@ -86,7 +87,7 @@ export const ColWrap = styled.div<DivProps>`
 
 export const Logo = styled.div`
   margin-left: 0.6em;
-  color: var(--blue-light);
+  color: var(--white);
   font-style:italic;
   letter-spacing: 0.02em;
   font-weight: 600;
@@ -104,12 +105,11 @@ export const ListItem = styled.li`
 `;
 
 export const ListLink = styled.a<AnchorProps>`
-  font-weight: 400;
-  color: var(--black);
+  color: var(--white);;
   font-size: 0.85rem;
   opacity: 1;
   line-height: 1.3;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.01em;
   display: flex;
   align-items: center;
@@ -132,7 +132,7 @@ export const Text = styled.p<TextProps>`
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: var(--black);
+  color: var(--white);
   flex: ${props => props.close == 'yes' && '0 0 60%'}
 
   @media (min-width: 768px) {

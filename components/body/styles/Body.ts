@@ -26,6 +26,9 @@ export const NameWrapper = styled(Container)<SectionProps>`
 
   @media (min-width: 768px) {
     flex-direction: row;
+  padding: ${(props) => (props.hero == "set" ? "1em 0.7em 1em 3.7em" : "0.7em")};
+
+   
   }
 `;
 
