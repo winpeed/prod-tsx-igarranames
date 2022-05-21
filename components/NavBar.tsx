@@ -52,7 +52,7 @@ export default function NavBar() {
         setIsShow(false);
       });
     };
-  }, [isShow]);
+  }, []);
 
   return (
     <>

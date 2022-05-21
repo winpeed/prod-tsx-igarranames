@@ -8,7 +8,7 @@ export default function Hero({ names }: { names: Result[] }) {
     <Header.ItemWrapper>
       <Header.Heading>
         Over {""}
-        <CountUp end={names.length} duration={4} />
+        <CountUp end={names.length} duration={1} />
         {""} Etuno names and counting...
       </Header.Heading>
       <Header.Text>

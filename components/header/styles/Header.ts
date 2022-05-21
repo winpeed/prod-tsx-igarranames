@@ -133,7 +133,7 @@ export const Form = styled.form<FormProps>`
   flex-direction: column;
   max-width: 580px;
   margin: 0 auto;
-  padding: 1em 0em 0em 0em;
+  padding: 0.5em 0em 1.5em 0em;
 `;
 
 export const Button = styled.button`

@@ -21,7 +21,16 @@ const SignInForm = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-  const [signInWithGoogle] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+
+  const signGoogle = async () => {
+    try {
+      await signInWithGoogle();
+      await Router.push("/new");
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleChange = (event: { target: { name: any; value: any } }) => {
     setUserDetails((prevState) => {
@@ -33,20 +42,20 @@ const SignInForm = () => {
   };
 
   const handleSubmit = async (event: { preventDefault: () => void }) => {
-    const { email, password } = userDetails;
     event.preventDefault();
-    signInWithEmailAndPassword(email, password);
-    Router.push("/new");
-  };
-
-  const handleGoogle = () => {
-    console.log("Goodle stuff");
+    const { email, password } = userDetails;
+    try {
+      await signInWithEmailAndPassword(email, password);
+      Router.push("/new");
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
     <Sign>
       <NavBar />
-      {error ? (
+      {error || error2 ? (
         <>
           <Sign.Card>
             <Sign.Form onSubmit={handleSubmit}>
@@ -77,7 +86,7 @@ const SignInForm = () => {
 
             <Sign.Text>OR</Sign.Text>
             <Sign.Wrapper direction="column">
-              <Sign.Button media="facebook" onClick={handleGoogle}>
+              <Sign.Button media="facebook">
                 {" "}
                 <FaFacebookSquare
                   style={{
@@ -89,7 +98,7 @@ const SignInForm = () => {
                 Continue with Facebook
               </Sign.Button>
 
-              <Sign.Button media="google" onClick={handleGoogle}>
+              <Sign.Button media="google" onClick={signGoogle}>
                 {" "}
                 <IoLogoGoogle
                   style={{
@@ -100,7 +109,7 @@ const SignInForm = () => {
                 />{" "}
                 Continue with Google
               </Sign.Button>
-              <Sign.Button media="twitter" onClick={handleGoogle}>
+              <Sign.Button media="twitter">
                 <AiOutlineTwitter
                   style={{
                     fontSize: "1.2rem",
@@ -130,7 +139,7 @@ const SignInForm = () => {
             </Link>
           </Sign.Wrapper>
         </>
-      ) : loading ? (
+      ) : loading || loading2 ? (
         <Sign.Text>Signing in...</Sign.Text>
       ) : user ? (
         Router.push("/new")
@@ -173,7 +182,7 @@ const SignInForm = () => {
                 />
                 Continue with Facebook
               </Sign.Button>
-              <Sign.Button media="google">
+              <Sign.Button media="google" onClick={signGoogle}>
                 {" "}
                 <IoLogoGoogle
                   style={{
