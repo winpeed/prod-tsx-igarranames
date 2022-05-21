@@ -173,7 +173,7 @@ export const Section = styled.section<SectionProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.5em 1em 3em 1em;
+  padding: 0em 1em 3em 1em;
   margin: 0em auto;
   text-align: center;
   background: ${(props) => (props.color ? "var(--white)" : "var(--black)")};

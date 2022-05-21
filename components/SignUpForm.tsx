@@ -9,14 +9,26 @@ import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
+  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import Router from "next/router";
 import NavBar from "./NavBar";
+import { signInWithPopup } from "@firebase/auth";
 
 const SignUpForm = () => {
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+
+  const signGoogle = async () => {
+    try {
+      await signInWithGoogle();
+      Router.push("/new");
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleChange = (event: { target: { name: any; value: any } }) => {
     setUserDetails((prevState) => {
@@ -79,7 +91,7 @@ const SignUpForm = () => {
             value={userDetails.password}
             onChange={handleChange}
           />
-          <Sign.Button>Sign Up</Sign.Button>
+          <Sign.Button>Continue</Sign.Button>
         </Sign.Form>
 
         <Sign.Text>OR</Sign.Text>
@@ -92,9 +104,9 @@ const SignUpForm = () => {
                 marginRight: "0.8em",
               }}
             />
-            Sign up with Facebook
+            Continue with Facebook
           </Sign.Button>
-          <Sign.Button media="google">
+          <Sign.Button media="google" onClick={signGoogle}>
             <IoLogoGoogle
               style={{
                 fontSize: "1.2rem",
@@ -102,7 +114,7 @@ const SignUpForm = () => {
                 marginRight: "0.8em",
               }}
             />
-            Sign up with Google
+            Continue with Google
           </Sign.Button>
           <Sign.Button media="twitter">
             <AiOutlineTwitter
@@ -112,7 +124,7 @@ const SignUpForm = () => {
                 marginRight: "0.8em",
               }}
             />
-            Sign up with Twitter
+            Continue with Twitter
           </Sign.Button>
         </Sign.Wrapper>
 
