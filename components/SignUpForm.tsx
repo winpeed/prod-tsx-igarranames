@@ -24,7 +24,7 @@ const SignUpForm = () => {
   const signGoogle = async () => {
     try {
       await signInWithGoogle();
-      Router.push("/new");
+      await Router.push("/new");
     } catch (err) {
       console.error(err);
     }

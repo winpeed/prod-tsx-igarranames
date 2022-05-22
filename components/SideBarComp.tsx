@@ -19,24 +19,24 @@ const SideBarComp = () => {
 
   const [names, setNames] = useState<[] | null>([]);
 
-  const getNumberOfNames = async () => {
-    try {
-      const response = await axios.get("/api/v1/names");
-      const sortedData = response.data.data.sort(
-        (
-          a: { fields: { modified: string | number | Date } },
-          b: { fields: { modified: string | number | Date } }
-        ) =>
-          new Date(b.fields.modified).getTime() -
-          new Date(a.fields.modified).getTime()
-      );
-      setNames(sortedData);
-    } catch (err) {
-      return new Error(err);
-    }
-  };
-
   useEffect(() => {
+    const getNumberOfNames = async () => {
+      try {
+        const response = await axios.get("/api/v1/names");
+        const sortedData = await response.data.data.sort(
+          (
+            a: { fields: { modified: string | number | Date } },
+            b: { fields: { modified: string | number | Date } }
+          ) =>
+            new Date(b.fields.modified).getTime() -
+            new Date(a.fields.modified).getTime()
+        );
+        setNames(sortedData);
+      } catch (err) {
+        return new Error(err);
+      }
+    };
+
     getNumberOfNames();
   }, []);
 

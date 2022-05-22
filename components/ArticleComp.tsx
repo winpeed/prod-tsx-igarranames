@@ -137,7 +137,7 @@ const ArticleComp = ({ data, shareURL }) => {
               position: "absolute",
               right: -15,
               top: -15,
-              fill: "var(--black)",
+              fill: "var(--yellow)",
               cursor: "pointer",
             }}
             onClick={() => setIsShowFeedback(false)}

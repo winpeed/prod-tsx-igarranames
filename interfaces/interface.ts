@@ -5,6 +5,7 @@ export type ComponentProps = {
   data?: Result[];
   onClick?: () => void;
   color?: string;
+  align?: center;
 };
 
 export type Ref = HTMLAnchorElement;

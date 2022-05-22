@@ -49,7 +49,8 @@ export const Article = styled.article<SectionProps>`
 
 export const BannerWrapper = styled.div<DivProps>`
   position: fixed;
-  background: var(--green-dark);
+  background: ${(props) =>
+    props.color == "black" ? "var(--black)" : "var(--green-dark)"};
   color: var(--white);
   z-index: 11;
   margin: 0 auto;
@@ -58,6 +59,8 @@ export const BannerWrapper = styled.div<DivProps>`
   right: 5%;
   text-align: center;
   max-width: 600px;
+  height: fit-content;
+  padding: 2em 0.5em;
 
   @media(max-width: 376px){
     bottom: 2%;
@@ -76,7 +79,7 @@ export const Banner = styled.section<SectionProps>`
   display: flex;
   max-width: 700px;
   align-items: center;
-  padding: 1em 2em 2em 2em;
+  padding: 1em 2em 1em 2em;
   justify-content: space-between;
   line-height: 1.7;
   flex-direction: ${(props) =>
@@ -138,8 +141,7 @@ export const Heading = styled.h2<HeadingProps>`
   text-align: ${(props) => (props.alignment == "left" ? "left" : "center")};
 
   @media (min-width: 768px) {
-    font-size: 1.5rem;
-    padding: 1.5em 0em;
+    font-size: 1.25rem;
   }
 `;
 
@@ -151,10 +153,7 @@ export const Text = styled.p<HeadingProps>`
   color: ${(props) =>
     props.color == "white" ? "var(--white)" : "var(--black)"};
   max-width: 400px;
-
-  @media (min-width: 768px) {
-    font-size: 1.2rem;
-  }
+    margin: 0 auto;
 `;
 
 export const Links = styled.a<AnchorProps>`

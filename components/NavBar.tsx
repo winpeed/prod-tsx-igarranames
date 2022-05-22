@@ -9,15 +9,18 @@ import Router from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { auth } from "../src/firebase";
+import SignOutNotif from "./SignOutNotif";
 
 export default function NavBar() {
   const [isShow, setIsShow] = useState<boolean>(false);
   const [user, loading, error] = useAuthState(auth);
+  const [isNavShow, setIsNavShow] = useState(false);
 
   const textValue = useAppSelector((state) => state.search.text);
   const dispatch = useAppDispatch();
 
   const logout = () => {
+    setIsNavShow(!isNavShow);
     signOut(auth);
     Router.push("/");
   };
@@ -103,11 +106,14 @@ export default function NavBar() {
 
               {user ? (
                 <Header.NavItem>
-                  <Link href="/" passHref>
-                    <Header.NavLink onClick={() => logout()}>
-                      Sign Out
-                    </Header.NavLink>
-                  </Link>
+                  <Header.NavLink
+                    onClick={() => {
+                      setIsShow(!isShow);
+                      setIsNavShow(!isNavShow);
+                    }}
+                  >
+                    Sign Out
+                  </Header.NavLink>
                 </Header.NavItem>
               ) : (
                 <Header.NavItem>
@@ -126,6 +132,13 @@ export default function NavBar() {
           </>
         ) : null}
       </Header.Nav>
+      {isNavShow && (
+        <SignOutNotif
+          logout={logout}
+          setIsNavShow={setIsNavShow}
+          isNavShow={isNavShow}
+        />
+      )}
     </>
   );
 }
