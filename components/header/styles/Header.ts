@@ -174,6 +174,7 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
   padding: 1em 0em;
+  cursor:pointer;
 
   @media (min-width: 900px) {
     padding: 0em 0.8em;
@@ -205,6 +206,7 @@ export const NavLink = styled.a<AnchorProps>`
   align-items: center;
   display: flex;
   z-index: 10;
+  cursor:pointer;
 
   :hover {
     text-decoration: none;
