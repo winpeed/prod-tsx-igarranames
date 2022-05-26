@@ -6,9 +6,7 @@ import {
   FacebookShareButton,
   LinkedinShareButton,
   WhatsappShareButton,
-  EmailShareButton,
   TwitterShareButton,
-  EmailIcon,
   FacebookIcon,
   LinkedinIcon,
   TwitterIcon,
@@ -98,9 +96,6 @@ const ArticleComp = ({ data, shareURL }) => {
               {" "}
               <LinkedinIcon size={36}></LinkedinIcon>
             </LinkedinShareButton>{" "}
-            <EmailShareButton url={shareURL}>
-              <EmailIcon size={36}></EmailIcon>
-            </EmailShareButton>
           </Article.Wrapper>
 
           <Article.Span>
