@@ -136,7 +136,7 @@ export const Heading = styled.h2<HeadingProps>`
   font-weight: 600;
   letter-spacing: 0.015em;
   font-size: 1.5rem;
-  line-height: 1.2;
+  line-height: 1.35;
   padding: 0.5em 0em 0.5em 0em;
   text-align: ${(props) => (props.alignment == "left" ? "left" : "center")};
 
@@ -155,6 +155,8 @@ export const Text = styled.p<HeadingProps>`
   max-width: 400px;
     margin: 0 auto;
 `;
+
+
 
 export const Links = styled.a<AnchorProps>`
   display: flex;
@@ -291,4 +293,37 @@ padding: 7.5em 1em;
   text-align: center;
 }
 
+`
+
+export const PrivacyWrapper = styled.section
+`
+padding: 7.5em 1em;
+
+@media(min-width: 500px){
+  margin: 0 auto;
+  max-width: 1000px;
+
+}
+`
+
+export const PrivacyText = styled.p<HeadingProps>`
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  padding: 0.5em 0em 1em 0em;
+  color: ${(props) =>
+    props.color == "white" ? "var(--white)" : "var(--black)"};
+  max-width: 900px;
+    margin: 0 auto;
+    text-align:justify;
+`;
+
+
+export const UnorderedList = styled.ul`
+margin-top: -0.3em;
+`
+
+export const ListItem = styled.li`
+line-height: 1.6;
+padding-top:0.5em;
 `

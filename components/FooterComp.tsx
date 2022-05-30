@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "../components/footer/index";
+import { BsHeartFill } from "react-icons/bs";
 import NewsletterComp from "./NewsletterComp";
 
 export default function FooterComp() {
@@ -80,18 +81,13 @@ export default function FooterComp() {
               </Link>
             </Footer.ListItem>
             <Footer.ListItem>
-              <Link href="/donate" passHref>
-                <Footer.ListLink>Donate</Footer.ListLink>
-              </Link>
-            </Footer.ListItem>
-            <Footer.ListItem>
-              <Link href="/privacy" passHref>
+              <Link href="/privacy-policy" passHref>
                 <Footer.ListLink>Privacy Policy</Footer.ListLink>
               </Link>
             </Footer.ListItem>
             <Footer.ListItem>
-              <Link href="/ads" passHref>
-                <Footer.ListLink>Ads</Footer.ListLink>
+              <Link href="/donate" passHref>
+                <Footer.ListLink>Donate</Footer.ListLink>
               </Link>
             </Footer.ListItem>
           </Footer.Column>
@@ -100,8 +96,15 @@ export default function FooterComp() {
       <NewsletterComp color="white" />
       <Footer.Row full="yes">
         <Footer.Text>
-          © 2022 Igarra Names. All rights reserved. Built by{" "}
-          <Link href="https://winpeed.com">winpeed.com</Link>
+          © 2022 Igarra Names. All rights reserved. Built with{" "}
+          <BsHeartFill
+            style={{
+              fill: "red",
+              paddingTop: "0.1em",
+              margin: "0.5em 0.3em 0em 0.3em",
+            }}
+          />{" "}
+          by <Link href="https://winpeed.com">winpeed.com</Link>
         </Footer.Text>
       </Footer.Row>
     </Footer>

@@ -68,7 +68,7 @@ export default function NavBar() {
               width={30}
               height={30}
             />
-            <Header.Logo>Igarranames</Header.Logo>
+            <Header.Logo>Igarra Names</Header.Logo>
           </Header.NavLink>
         </Link>
 
@@ -86,8 +86,8 @@ export default function NavBar() {
           )}
         </Header.Span>
         {isShow ? (
-          <>
-            <Header.NavList>
+          <Header.NavList>
+            <>
               <Header.NavItem>
                 <Link href="/" passHref>
                   <Header.NavLink>Home</Header.NavLink>
@@ -103,7 +103,9 @@ export default function NavBar() {
                   <Header.NavLink>Add Name(s)</Header.NavLink>
                 </Link>
               </Header.NavItem>
+            </>
 
+            <>
               {user ? (
                 <Header.NavItem>
                   <Header.NavLink
@@ -128,8 +130,8 @@ export default function NavBar() {
                   <Header.NavLink name="donate">Donate</Header.NavLink>
                 </Link>
               </Header.NavItem>
-            </Header.NavList>
-          </>
+            </>
+          </Header.NavList>
         ) : null}
       </Header.Nav>
       {isNavShow && (

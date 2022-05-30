@@ -35,6 +35,10 @@ import {
   Label,
   Select,
   Option,
+  UnorderedList,
+  ListItem,
+  PrivacyWrapper,
+  PrivacyText,
 } from "./styles/Body";
 
 export default function Body({ children, ...restProps }: ComponentProps) {
@@ -154,4 +158,32 @@ Body.ContactWrapper = function BodyContactWrapper({
   ...restProps
 }: SectionProps) {
   return <ContactWrapper {...restProps}>{children}</ContactWrapper>;
+};
+
+Body.PrivacyWrapper = function BodyPrivacyWrapper({
+  children,
+  ...restProps
+}: SectionProps) {
+  return <PrivacyWrapper {...restProps}>{children}</PrivacyWrapper>;
+};
+
+Body.PrivacyText = function BodyPrivacyText({
+  children,
+  ...restProps
+}: SectionProps) {
+  return <PrivacyText {...restProps}>{children}</PrivacyText>;
+};
+
+Body.UnorderedList = function BodyUnorderedList({
+  children,
+  ...restProps
+}: ComponentProps) {
+  return <UnorderedList {...restProps}>{children}</UnorderedList>;
+};
+
+Body.ListItem = function BodyListItem({
+  children,
+  ...restProps
+}: ComponentProps) {
+  return <ListItem {...restProps}>{children}</ListItem>;
 };
