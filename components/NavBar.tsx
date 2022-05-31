@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "./header";
 import { GiHamburgerMenu, GiCrossMark } from "react-icons/gi";
-import { useAppDispatch, useAppSelector } from "../src/app/hooks";
+import { useAppDispatch } from "../src/app/hooks";
 import { text } from "../src/features/search/searchSlice";
 import Router from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -16,7 +16,6 @@ export default function NavBar() {
   const [user, loading, error] = useAuthState(auth);
   const [isNavShow, setIsNavShow] = useState(false);
 
-  const textValue = useAppSelector((state) => state.search.text);
   const dispatch = useAppDispatch();
 
   const logout = () => {
@@ -137,6 +136,7 @@ export default function NavBar() {
           </Header.NavList>
         ) : null}
       </Header.Nav>
+
       {isNavShow && (
         <SignOutNotif
           logout={logout}

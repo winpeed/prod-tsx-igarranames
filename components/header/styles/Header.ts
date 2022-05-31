@@ -91,7 +91,7 @@ export const Heading = styled.h1`
   letter-spacing: -0.02em;
   font-size: 1.9rem;
   line-height: 1.3;
-  padding: 1em 0em;
+  padding: 0.5em 0em;
 
   @media (min-width: 768px) {
     font-size: 2.5rem;
@@ -120,7 +120,7 @@ export const FormWrapper = styled.div`
   margin: 1em 0em;
   border-radius: 4px;
   border: 1px solid var(--green-dark);
-  padding: 0.85em 0.3em 0.85em 1.3em;
+  padding: 0.5em 0.3em 0.5em 1.3em;
   align-items: center;
 `;
 
@@ -174,7 +174,7 @@ export const NavList = styled.ul`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 13.5em 0em;
+    padding: 6.5em 0em 10.5em 0em;
     margin: 0em;
     left: 0;
     right: 0;
@@ -194,7 +194,7 @@ export const NavItem = styled.li`
   }
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 `;
 
@@ -220,6 +220,7 @@ export const NavLink = styled.a<AnchorProps>`
   display: flex;
   z-index: 10;
   cursor:pointer;
+
 
   :hover {
     text-decoration: none;
