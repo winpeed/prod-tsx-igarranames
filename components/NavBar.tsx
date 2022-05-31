@@ -36,6 +36,7 @@ export default function NavBar() {
   };
 
   useEffect(() => {
+    console.log(isShow);
     if (window.innerWidth > 900) {
       setIsShow(true);
     }
@@ -55,7 +56,7 @@ export default function NavBar() {
         setIsShow(false);
       });
     };
-  }, []);
+  }, [isShow]);
 
   return (
     <>
@@ -85,9 +86,10 @@ export default function NavBar() {
             />
           )}
         </Header.Span>
+
         {isShow ? (
           <Header.NavList>
-            <>
+            <Header.NavListContent>
               <Header.NavItem>
                 <Link href="/" passHref>
                   <Header.NavLink>Home</Header.NavLink>
@@ -103,9 +105,9 @@ export default function NavBar() {
                   <Header.NavLink>Add Name(s)</Header.NavLink>
                 </Link>
               </Header.NavItem>
-            </>
+            </Header.NavListContent>
 
-            <>
+            <Header.NavListContent>
               {user ? (
                 <Header.NavItem>
                   <Header.NavLink
@@ -113,6 +115,7 @@ export default function NavBar() {
                       setIsShow(!isShow);
                       setIsNavShow(!isNavShow);
                     }}
+                    name="login"
                   >
                     Sign Out
                   </Header.NavLink>
@@ -120,7 +123,7 @@ export default function NavBar() {
               ) : (
                 <Header.NavItem>
                   <Link href="/signin" passHref>
-                    <Header.NavLink>Sign In</Header.NavLink>
+                    <Header.NavLink name="login">Sign In</Header.NavLink>
                   </Link>
                 </Header.NavItem>
               )}
@@ -130,7 +133,7 @@ export default function NavBar() {
                   <Header.NavLink name="donate">Donate</Header.NavLink>
                 </Link>
               </Header.NavItem>
-            </>
+            </Header.NavListContent>
           </Header.NavList>
         ) : null}
       </Header.Nav>

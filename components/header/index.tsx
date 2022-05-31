@@ -8,6 +8,7 @@ import {
 } from "../../interfaces/interface";
 import {
   Container,
+  NavListContent,
   Logo,
   Span,
   ItemWrapper,
@@ -29,6 +30,13 @@ export default function Header({ children, ...restProps }: ComponentProps) {
 
 Header.Logo = function HeaderLogo({ children, ...restProps }: ComponentProps) {
   return <Logo {...restProps}>{children}</Logo>;
+};
+
+Header.NavListContent = function HeaderNavListContent({
+  children,
+  ...restProps
+}: ComponentProps) {
+  return <NavListContent {...restProps}>{children}</NavListContent>;
 };
 
 Header.Span = function HeaderSpan({ children, ...restProps }: ComponentProps) {
