@@ -120,12 +120,6 @@ const SignInForm = () => {
                 Continue with Twitter
               </Sign.Button>
             </Sign.Wrapper>
-
-            {/* <Sign.Span>
-         By continuing, you agree to Igarranames's{" "}
-         <Link href="/terms">Terms and Services </Link>,{" "}
-         <Link href="/privacy">Privacy and Policy</Link>
-       </Sign.Span> */}
           </Sign.Card>
           <Sign.Wrapper direction="column" width="small">
             <Link href="/signup" passHref>

@@ -170,7 +170,7 @@ Body.PrivacyWrapper = function BodyPrivacyWrapper({
 Body.PrivacyText = function BodyPrivacyText({
   children,
   ...restProps
-}: SectionProps) {
+}: HeadingProps) {
   return <PrivacyText {...restProps}>{children}</PrivacyText>;
 };
 
