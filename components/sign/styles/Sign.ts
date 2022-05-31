@@ -9,7 +9,7 @@ import {
 } from "../../../interfaces/interface";
 
 export const Container = styled.main`
-  background: var(--gray-dark);
+  background: var(--white);
   width: 100vw;
   min-height: 100vh;
   padding: 5em 1.8em 3em 1em;
@@ -18,10 +18,11 @@ export const Container = styled.main`
 export const Card = styled.section`
   max-width: 480px;
   margin: 2em auto;
-  background: var(--white);
+  background: var(--black);
   text-align: center;
   padding: 0em 1.5em 3em 1.5em;
   border-radius: 8px;
+  color: white;
 
   @media (max-width: 400px) {
     max-width: 350px;
@@ -56,7 +57,7 @@ export const Heading = styled.h2<HeadingProps>`
 `;
 
 export const MinHeading = styled.h4`
-  color: var(--blue-light);
+  color: var(--white);
   font-size: 1.5rem;
   margin-top: 1em;
   padding: 0.4em 0em;
@@ -69,7 +70,7 @@ export const Text = styled.p<HeadingProps>`
   line-height: 1.7;
   font-weight: 600;
   padding: 0.5em 0em 0.5em 0em;
-  color: ${(props) => (props.color == 'red' ? 'var(--red)' : props.color == 'white' ? "white" : "black")};
+  color: ${(props) => (props.color == 'yellow' ? 'var(--yellow)' : props.color == 'white' ? "white" : "black")};
   text-align: center;
   margin-top: 1em;
 

@@ -120,7 +120,7 @@ export const FormWrapper = styled.div`
   margin: 1em 0em;
   border-radius: 4px;
   border: 1px solid var(--green-dark);
-  padding: 0.5em 0.3em 0.5em 1.3em;
+  padding: 0.8em 0.3em 0.8em 1.3em;
   align-items: center;
 `;
 
@@ -235,9 +235,9 @@ display: flex;
 flex-direction: column;
 background: white;
 align-items: flex-start;
-padding: 1.2em 2em 1.2em 2em;
+padding: 0.5em 2em 0.8em 2em;
 max-width: 580px;
-margin: 0em auto -2em;
+margin: 1.2em auto -2em;
 z-index: 3;
 border: 1px solid #ccc;
 box-shadow: 0 2px 4px rgb(0 0 0 / 20%);

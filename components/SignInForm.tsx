@@ -60,7 +60,7 @@ const SignInForm = () => {
           <Sign.Card>
             <Sign.Form onSubmit={handleSubmit}>
               <Sign.MinHeading>Log in to your account</Sign.MinHeading>
-              <Sign.Text color="red">
+              <Sign.Text color="yellow">
                 Enter correct email address/password.
               </Sign.Text>
               <Sign.Label>Email Address*</Sign.Label>
@@ -117,7 +117,7 @@ const SignInForm = () => {
                     marginRight: "0.8em",
                   }}
                 />
-                Handle Stuff
+                Continue with Twitter
               </Sign.Button>
             </Sign.Wrapper>
 
@@ -169,7 +169,7 @@ const SignInForm = () => {
               <Sign.Button>Log in</Sign.Button>
             </Sign.Form>
 
-            <Sign.Text>OR</Sign.Text>
+            <Sign.Text color="white">OR</Sign.Text>
             <Sign.Wrapper direction="column">
               <Sign.Button media="facebook">
                 {" "}
@@ -204,12 +204,6 @@ const SignInForm = () => {
                 Continue with Twitter
               </Sign.Button>
             </Sign.Wrapper>
-
-            {/* <Sign.Span>
-          By continuing, you agree to Igarranames's{" "}
-          <Link href="/terms">Terms and Services </Link>,{" "}
-          <Link href="/privacy">Privacy and Policy</Link>
-        </Sign.Span> */}
           </Sign.Card>
           <Sign.Wrapper direction="column" width="small">
             <Link href="/signup" passHref>
