@@ -11,6 +11,7 @@ import {
 import { auth } from "../src/firebase";
 import Router from "next/router";
 import Link from "next/link";
+import { Oval } from "react-loader-spinner";
 import NavBar from "./NavBar";
 
 const SignInForm = () => {
@@ -134,7 +135,17 @@ const SignInForm = () => {
           </Sign.Wrapper>
         </>
       ) : loading || loading2 ? (
-        <Sign.Text>Signing in...</Sign.Text>
+        <Sign.Wrapper direction="column">
+          <Sign.Text>Signing in...</Sign.Text>
+          <Oval
+            ariaLabel="loading-indicator"
+            height={80}
+            width={80}
+            strokeWidth={5}
+            color="yellow"
+            secondaryColor="black"
+          />
+        </Sign.Wrapper>
       ) : user ? (
         Router.push("/new")
       ) : (

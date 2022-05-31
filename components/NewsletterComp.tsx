@@ -26,8 +26,8 @@ const NewsletterComp = ({ color }) => {
     };
 
     try {
-      const response = await fetch("api/v1/newsletter", {
-        method: "post",
+      const response = await fetch("/api/v1/newsletter", {
+        method: "POST",
         headers,
         body: JSON.stringify({ Name: newsForm.name, Email: newsForm.email }),
       });
@@ -53,7 +53,7 @@ const NewsletterComp = ({ color }) => {
       <Footer.ColWrap full="true">
         {isShow ? (
           <Footer.Row close="yes">
-            <Footer.Text close="yes">
+            <Footer.Text close="yes" color={color}>
               You've been successfully signed up to the newsletter.{" "}
             </Footer.Text>
           </Footer.Row>

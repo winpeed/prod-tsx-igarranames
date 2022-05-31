@@ -92,6 +92,7 @@ export const Wrapper = styled.div<DivProps>`
   max-width: 1000px;
   margin: 0 auto;
   padding: 1em 1em 2em 1em;
+  align-items: ${props => props.align == "center" ? "center" : null};
 
   @media (min-width: 768px) {
     flex-direction:  ${(props) => (props.close == 'yes' ? "column" : "row")};

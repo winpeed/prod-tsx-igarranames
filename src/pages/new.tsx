@@ -10,6 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Result } from "../../interfaces/interface";
 import SignInForm from "../../components/SignInForm";
 import Body from "../../components/body";
+import { Oval } from "react-loader-spinner";
 
 type Props = {
   data: Result[];
@@ -22,7 +23,17 @@ const NewNamePage: NextPage<Props> = ({ data }) => {
   if (loading) {
     return (
       <Body>
-        <Body.Heading>Loading...</Body.Heading>
+        <Body.Wrapper align="center">
+          <Body.Heading>Loading...</Body.Heading>
+          <Oval
+            ariaLabel="loading-indicator"
+            height={80}
+            width={80}
+            strokeWidth={5}
+            color="yellow"
+            secondaryColor="black"
+          />
+        </Body.Wrapper>
       </Body>
     );
   }

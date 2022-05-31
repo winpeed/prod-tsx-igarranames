@@ -125,14 +125,14 @@ const ArticleComp = ({ data, shareURL }) => {
         ) : null}
       </Article>
       {isShowFeedback ? (
-        <Body.BannerWrapper>
+        <Body.BannerWrapper color="black">
           <ImCancelCircle
             style={{
               fontSize: "2.5rem",
               position: "absolute",
-              right: -15,
-              top: -15,
-              fill: "var(--yellow)",
+              right: 3,
+              top: 3,
+              fill: "var(--white)",
               cursor: "pointer",
             }}
             onClick={() => setIsShowFeedback(false)}

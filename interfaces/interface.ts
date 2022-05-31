@@ -51,6 +51,7 @@ export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: boolean;
   width?: string;
   close?:string;
+  align?:string
 }
 
 export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {

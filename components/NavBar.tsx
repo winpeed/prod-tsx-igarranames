@@ -35,7 +35,6 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    console.log(isShow);
     if (window.innerWidth > 900) {
       setIsShow(true);
     }

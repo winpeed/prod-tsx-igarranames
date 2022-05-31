@@ -169,12 +169,12 @@ export const NavList = styled.ul`
   @media (max-width: 900px) {
     background: var(--black);
     color: var(--white);
-    height: 60vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 6.5em 0em 10.5em 0em;
+    padding: 8.5em 0em 11.5em 0em;
     margin: 0em;
     left: 0;
     right: 0;
