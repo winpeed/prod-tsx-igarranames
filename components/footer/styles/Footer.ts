@@ -131,9 +131,12 @@ export const Span = styled.span`
 export const Text = styled.p<TextProps>`
   font-size: 0.875rem;
   line-height: 1.5rem;
-  font-weight: 400;
-  color: ${props => props.color == 'black' ? 'var(--black)' : 'var(--white)'}
-  flex: ${props => props.close == 'yes' && '0 0 60%'}
+  font-weight: 100;
+  color: ${props => props.color == 'black' ? 'var(--black)' : props.color == "yellow" ? 'var(--light-yellow)' : 'var(--white)'};
+  flex: ${props => props.close == 'yes' && '0 0 60%'};
+  line-height: 1.6;
+  letter-spacing:0.03em;
+  padding-bottom: 0.7em;
 
   @media (min-width: 768px) {
     font-size: 1rem;

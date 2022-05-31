@@ -1,5 +1,9 @@
 import React from "react";
 
+export interface FormContainerProps {
+  names: Result[];
+}
+
 export type ComponentProps = {
   children?: React.ReactNode;
   data?: Result[];

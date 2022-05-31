@@ -9,20 +9,9 @@ export default function FooterComp() {
   return (
     <Footer>
       <Footer.Row>
-        {" "}
-        <Link href="/" passHref>
-          <Footer.ListLink>
-            <Image
-              src="/ignames.png"
-              alt="Igarra Names Logo"
-              width={30}
-              height={30}
-            />
-            {/* <Footer.Logo>Igarranames</Footer.Logo> */}
-          </Footer.ListLink>
-        </Link>
         <Footer.ColWrap>
           <Footer.Column>
+            <Footer.Text color="yellow">CONNECT</Footer.Text>
             <Footer.ListItem>
               <Link href="/" passHref>
                 <Footer.ListLink>Email</Footer.ListLink>
@@ -49,6 +38,7 @@ export default function FooterComp() {
       <Footer.Row>
         <Footer.ColWrap>
           <Footer.Column>
+            <Footer.Text color="yellow">EXPLORE</Footer.Text>
             <Footer.ListItem>
               <Link href="/" passHref>
                 <Footer.ListLink>Home</Footer.ListLink>
@@ -75,6 +65,14 @@ export default function FooterComp() {
       <Footer.Row>
         <Footer.ColWrap>
           <Footer.Column>
+            <Footer.Text color="yellow">IGARRA NAMES</Footer.Text>
+
+            <Footer.ListItem>
+              <Link href="/about" passHref>
+                <Footer.ListLink>About</Footer.ListLink>
+              </Link>
+            </Footer.ListItem>
+
             <Footer.ListItem>
               <Link href="/contact" passHref>
                 <Footer.ListLink>Contact</Footer.ListLink>

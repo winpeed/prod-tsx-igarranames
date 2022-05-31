@@ -4,11 +4,7 @@ import Header from "./header";
 import { add, text } from "../src/features/search/searchSlice";
 import { useAppDispatch, useAppSelector } from "../src/app/hooks";
 import { BsSearch } from "react-icons/bs";
-import { Result } from "../interfaces/interface";
-
-interface FormContainerProps {
-  names: Result[];
-}
+import { FormContainerProps, Result } from "../interfaces/interface";
 
 export default function SearchForm({ names }: FormContainerProps) {
   const dispatch = useAppDispatch();
@@ -55,6 +51,7 @@ export default function SearchForm({ names }: FormContainerProps) {
         }
       })
       .slice(0, 5);
+
   return (
     <>
       {textValue == "" ? null : results.length !== 0 ? (

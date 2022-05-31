@@ -8,7 +8,6 @@ function privacy() {
   return (
     <Body>
       <NavBar />
-
       <Body.PrivacyWrapper>
         <Body.ContactHeading>Privacy Policy</Body.ContactHeading>
         <Body.PrivacyText>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Footer from "./footer";
-import Image from "next/image";
 
 const NewsletterComp = ({ color }) => {
   const [newsForm, setNewsForm] = useState<{ name: string; email: string }>({
@@ -48,6 +47,7 @@ const NewsletterComp = ({ color }) => {
   };
 
   useEffect(() => {}, [newsForm.email, newsForm.name]);
+
   return (
     <Footer.Row full="true">
       <Footer.ColWrap full="true">
@@ -56,16 +56,6 @@ const NewsletterComp = ({ color }) => {
             <Footer.Text close="yes">
               You've been successfully signed up to the newsletter.{" "}
             </Footer.Text>
-            <Image
-              src="/close.svg"
-              alt="Close"
-              width={30}
-              height={30}
-              onClick={() => {
-                setIsShow(!isShow);
-              }}
-              style={{ cursor: "pointer" }}
-            />
           </Footer.Row>
         ) : (
           <>
