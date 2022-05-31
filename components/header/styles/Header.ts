@@ -205,7 +205,7 @@ export const NavLink = styled.a<AnchorProps>`
       : props.name == "login" || props.name == "donate"
       ? "var(--white)"
       : "var(--white)"};
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   padding: 0.6em 1em;
   font-weight: 500;
   line-height: 1.5;
@@ -228,3 +228,19 @@ export const NavLink = styled.a<AnchorProps>`
       props.name == "donate" || props.name == 'login' ? "var(--white)" : "var(--blue-light)"};
   }
 `;
+
+
+export const ResultWrapper = styled.div`
+display: flex;
+flex-direction: column;
+background: white;
+align-items: flex-start;
+padding: 1.2em 2em 1.2em 2em;
+max-width: 580px;
+margin: 0em auto -2em;
+z-index: 3;
+border: 1px solid #ccc;
+box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+cursor: default;
+
+`

@@ -58,18 +58,7 @@ export default function SearchForm({ names }: FormContainerProps) {
   return (
     <>
       {textValue == "" ? null : results.length !== 0 ? (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            background: "white",
-            alignItems: "flex-start",
-            padding: "1.2em 2em 1.2em 2em",
-            maxWidth: "580px",
-            margin: "0em auto -2em",
-            zIndex: "3",
-          }}
-        >
+        <Header.ResultWrapper>
           {results.map((item: Result) => {
             const {
               id,
@@ -83,22 +72,9 @@ export default function SearchForm({ names }: FormContainerProps) {
               </Link>
             );
           })}
-        </div>
+        </Header.ResultWrapper>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            background: "white",
-            alignItems: "flex-start",
-            padding: "1.2em 2em 1.2em 2em",
-            maxWidth: "580px",
-            margin: "-0em auto -2em",
-            zIndex: "3",
-          }}
-        >
-          No results found...
-        </div>
+        <Header.ResultWrapper>No results found...</Header.ResultWrapper>
       )}
       <Header.Form
         onSubmit={(event: React.FormEvent<HTMLFormElement>): void => {

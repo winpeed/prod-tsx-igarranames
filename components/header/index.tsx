@@ -22,6 +22,7 @@ import {
   NavList,
   NavItem,
   NavLink,
+  ResultWrapper,
 } from "./styles/Header";
 
 export default function Header({ children, ...restProps }: ComponentProps) {
@@ -111,3 +112,10 @@ Header.NavLink = React.forwardRef<Ref, AnchorProps>(function HeaderNavLink(
     </NavLink>
   );
 });
+
+Header.ResultWrapper = function HeaderResultWrapper({
+  children,
+  ...restProps
+}: ComponentProps) {
+  return <ResultWrapper {...restProps}>{children}</ResultWrapper>;
+};
