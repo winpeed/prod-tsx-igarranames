@@ -17,9 +17,12 @@ import { ImCancelCircle } from "react-icons/im";
 
 const ArticleComp = ({ data, shareURL }) => {
   const { name, meaning, modified, sound, card } = data.fields;
+
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [isShowFeedback, setIsShowFeedback] = useState<boolean>(false);
-  const [formDetail, setFormDetail] = useState({ Feedback: "" });
+  const [formDetail, setFormDetail] = useState<{ Feedback: string }>({
+    Feedback: "",
+  });
 
   const audioRef = useRef(null);
 

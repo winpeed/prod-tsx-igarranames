@@ -5,7 +5,7 @@ import {
   ButtonProps,
   DivProps,
   AnchorProps,
-  FormProps
+  FormProps,
 } from "../../../interfaces/interface";
 
 export const Container = styled.main`
@@ -32,12 +32,13 @@ export const Card = styled.section`
 export const Wrapper = styled.div<DivProps>`
   padding: 0.1em 0em;
   display: flex;
-  max-width: ${props => props.width == 'small' ? '500px' : '300px'};
+  max-width: ${(props) => (props.width == "small" ? "500px" : "300px")};
   margin: 0 auto;
   align-items: center;
   text-align: center;
   justify-content: center;
-  flex-direction: ${props => props.direction == 'column' ? 'column' : 'row'}
+  flex-direction: ${(props) =>
+    props.direction == "column" ? "column" : "row"};
 `;
 
 export const Heading = styled.h2<HeadingProps>`
@@ -70,10 +71,14 @@ export const Text = styled.p<HeadingProps>`
   line-height: 1.7;
   font-weight: 600;
   padding: 0.5em 0em 0.5em 0em;
-  color: ${(props) => (props.color == 'yellow' ? 'var(--yellow)' : props.color == 'white' ? "white" : "black")};
+  color: ${(props) =>
+    props.color == "yellow"
+      ? "var(--yellow)"
+      : props.color == "white"
+      ? "white"
+      : "black"};
   text-align: center;
   margin-top: 1em;
-
 
   @media (min-width: 768px) {
     font-size: 0.9rem;
@@ -86,7 +91,6 @@ export const Form = styled.form<FormProps>`
   max-width: 370px;
   margin: 0 auto;
   padding: 1em 0.8em;
-
 `;
 
 export const Input = styled.input<InputProps>`
@@ -117,8 +121,10 @@ export const Button = styled.button<ButtonProps>`
     props.media == "google"
       ? "var(--red)"
       : props.media == "facebook"
-      ? "var(--blue-light)" 
-      : props.media == "twitter" ? "var(--btn-blue)" :"var(--green)"};
+      ? "var(--blue-light)"
+      : props.media == "twitter"
+      ? "var(--btn-blue)"
+      : "var(--green)"};
   font-size: 0.85rem;
   cursor: pointer;
   display: block;
@@ -142,13 +148,12 @@ export const Span = styled.span`
 `;
 
 export const Anchor = styled.a<AnchorProps>`
+  margin-top: 1em;
+  display: block;
+  font-size: 0.85rem;
 
-margin-top: 1em;
-display: block;
-font-size: 0.85rem;
-
-  :hover{
+  :hover {
     text-decoration: none;
-    color: var(--black)
+    color: var(--black);
   }
 `;

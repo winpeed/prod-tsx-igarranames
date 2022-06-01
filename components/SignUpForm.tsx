@@ -14,6 +14,7 @@ import {
 import Router from "next/router";
 import NavBar from "./NavBar";
 import { signInWithPopup } from "@firebase/auth";
+import FooterComp from "./FooterComp";
 
 const SignUpForm = () => {
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
@@ -67,82 +68,79 @@ const SignUpForm = () => {
   }
 
   return (
-    <Sign>
-      <NavBar />
+    <>
+      <Sign>
+        <NavBar />
 
-      <Sign.Card>
-        <Sign.Form onSubmit={handleSubmit}>
-          <Sign.MinHeading>Create an account</Sign.MinHeading>
-          <Sign.Label>Email Address*</Sign.Label>
-          <Sign.Input
-            type="email"
-            placeholder="Email"
-            required
-            name="email"
-            value={userDetails.email}
-            onChange={handleChange}
-          />
-          <Sign.Label>Password*</Sign.Label>
-          <Sign.Input
-            type="password"
-            placeholder="Password"
-            required
-            name="password"
-            value={userDetails.password}
-            onChange={handleChange}
-          />
-          <Sign.Button>Continue</Sign.Button>
-        </Sign.Form>
+        <Sign.Card>
+          <Sign.Form onSubmit={handleSubmit}>
+            <Sign.MinHeading>Create an account</Sign.MinHeading>
+            <Sign.Label>Email Address*</Sign.Label>
+            <Sign.Input
+              type="email"
+              placeholder="Email"
+              required
+              name="email"
+              value={userDetails.email}
+              onChange={handleChange}
+            />
+            <Sign.Label>Password*</Sign.Label>
+            <Sign.Input
+              type="password"
+              placeholder="Password"
+              required
+              name="password"
+              value={userDetails.password}
+              onChange={handleChange}
+            />
+            <Sign.Button>Continue</Sign.Button>
+          </Sign.Form>
 
-        <Sign.Text>OR</Sign.Text>
+          <Sign.Text>OR</Sign.Text>
+          <Sign.Wrapper direction="column">
+            <Sign.Button media="facebook">
+              <FaFacebookSquare
+                style={{
+                  fontSize: "1.2rem",
+                  padding: "0.1em",
+                  marginRight: "0.8em",
+                }}
+              />
+              Continue with Facebook
+            </Sign.Button>
+            <Sign.Button media="google" onClick={signGoogle}>
+              <IoLogoGoogle
+                style={{
+                  fontSize: "1.2rem",
+                  padding: "0.1em",
+                  marginRight: "0.8em",
+                }}
+              />
+              Continue with Google
+            </Sign.Button>
+            <Sign.Button media="twitter">
+              <AiOutlineTwitter
+                style={{
+                  fontSize: "1.2rem",
+                  padding: "0.1em",
+                  marginRight: "0.8em",
+                }}
+              />
+              Continue with Twitter
+            </Sign.Button>
+          </Sign.Wrapper>
+        </Sign.Card>
         <Sign.Wrapper direction="column">
-          <Sign.Button media="facebook">
-            <FaFacebookSquare
-              style={{
-                fontSize: "1.2rem",
-                padding: "0.1em",
-                marginRight: "0.8em",
-              }}
-            />
-            Continue with Facebook
-          </Sign.Button>
-          <Sign.Button media="google" onClick={signGoogle}>
-            <IoLogoGoogle
-              style={{
-                fontSize: "1.2rem",
-                padding: "0.1em",
-                marginRight: "0.8em",
-              }}
-            />
-            Continue with Google
-          </Sign.Button>
-          <Sign.Button media="twitter">
-            <AiOutlineTwitter
-              style={{
-                fontSize: "1.2rem",
-                padding: "0.1em",
-                marginRight: "0.8em",
-              }}
-            />
-            Continue with Twitter
-          </Sign.Button>
+          <Link href="/signin" passHref>
+            <Sign.Anchor>Already have an account ? Log in. </Sign.Anchor>
+          </Link>
+          <Link href="/forgot-password" passHref>
+            <Sign.Anchor>Forgot Password ? </Sign.Anchor>
+          </Link>
         </Sign.Wrapper>
-
-        {/* <Sign.Span>
-          By continuing, you agree to Igarranames's{" "}
-          <Link href="/terms">Terms and Services </Link>,{" "}
-          <Link href="/privacy">Privacy and Policy</Link>
-        </Sign.Span> */}
-      </Sign.Card>
-      <Sign.Wrapper direction="column">
-        <Link href="/signin" passHref>
-          <Sign.Anchor>Already have an account ? Log in. </Sign.Anchor>
-        </Link>
-        <Link href="/forgot-password" passHref>
-          <Sign.Anchor>Forgot Password ? </Sign.Anchor>
-        </Link>
-      </Sign.Wrapper>
-    </Sign>
+      </Sign>
+      <FooterComp />
+    </>
   );
 };
 

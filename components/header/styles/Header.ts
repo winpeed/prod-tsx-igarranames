@@ -11,7 +11,7 @@ export const Container = styled.header`
   padding: 5.5em 1em 0em 1em;
   background-blend-mode: soft-light;
 
-  @media(min-width: 900px){
+  @media (min-width: 900px) {
     padding: 6em 1em 0em 1em;
   }
 `;
@@ -22,7 +22,7 @@ export const NavListContent = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media(min-width: 900px){
+  @media (min-width: 900px) {
     flex-direction: row;
   }
 `;
@@ -187,7 +187,7 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
   padding: 1em 0em;
-  cursor:pointer;
+  cursor: pointer;
 
   @media (min-width: 900px) {
     padding: 0em 0.8em;
@@ -219,28 +219,27 @@ export const NavLink = styled.a<AnchorProps>`
   align-items: center;
   display: flex;
   z-index: 10;
-  cursor:pointer;
-
+  cursor: pointer;
 
   :hover {
     text-decoration: none;
     color: ${(props) =>
-      props.name == "donate" || props.name == 'login' ? "var(--white)" : "var(--blue-light)"};
+      props.name == "donate" || props.name == "login"
+        ? "var(--white)"
+        : "var(--blue-light)"};
   }
 `;
 
-
 export const ResultWrapper = styled.div`
-display: flex;
-flex-direction: column;
-background: white;
-align-items: flex-start;
-padding: 0.5em 2em 0.8em 2em;
-max-width: 580px;
-margin: 1.2em auto -2em;
-z-index: 3;
-border: 1px solid #ccc;
-box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
-cursor: default;
-
-`
+  display: flex;
+  flex-direction: column;
+  background: white;
+  align-items: flex-start;
+  padding: 0.5em 2em 0.8em 2em;
+  max-width: 580px;
+  margin: 1.2em auto -2em;
+  z-index: 3;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+  cursor: default;
+`;

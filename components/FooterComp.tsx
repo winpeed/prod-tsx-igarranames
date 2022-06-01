@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Footer from "../components/footer/index";
 import { BsHeartFill } from "react-icons/bs";
 import NewsletterComp from "./NewsletterComp";

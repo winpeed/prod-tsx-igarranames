@@ -45,9 +45,9 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    // if (window.innerWidth > 900) {
-    //   setIsShow(true);
-    // }
+    if (window.innerWidth > 900) {
+      setIsShow(true);
+    }
 
     window.addEventListener("resize", handleShowListener);
 

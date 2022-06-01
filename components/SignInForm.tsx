@@ -13,6 +13,7 @@ import Router from "next/router";
 import Link from "next/link";
 import { Oval } from "react-loader-spinner";
 import NavBar from "./NavBar";
+import FooterComp from "./FooterComp";
 
 const SignInForm = () => {
   const [userDetails, setUserDetails] = useState<{
@@ -54,176 +55,180 @@ const SignInForm = () => {
   };
 
   return (
-    <Sign>
-      <NavBar />
-      {error || error2 ? (
-        <>
-          <Sign.Card>
-            <Sign.Form onSubmit={handleSubmit}>
-              <Sign.MinHeading>Log in to your account</Sign.MinHeading>
-              <Sign.Text color="yellow">
-                Enter correct email address/password.
-              </Sign.Text>
-              <Sign.Label>Email Address*</Sign.Label>
-              <Sign.Input
-                type="email"
-                placeholder="Email"
-                required
-                name="email"
-                onChange={handleChange}
-                value={userDetails.email}
-              />
-              <Sign.Label>Password*</Sign.Label>
-              <Sign.Input
-                type="password"
-                placeholder="Password"
-                required
-                name="password"
-                onChange={handleChange}
-                value={userDetails.password}
-              />
-              <Sign.Button>Log in</Sign.Button>
-            </Sign.Form>
-
-            <Sign.Text>OR</Sign.Text>
-            <Sign.Wrapper direction="column">
-              <Sign.Button media="facebook">
-                {" "}
-                <FaFacebookSquare
-                  style={{
-                    fontSize: "1.2rem",
-                    padding: "0.1em",
-                    marginRight: "0.8em",
-                  }}
+    <>
+      <Sign>
+        <NavBar />
+        {error || error2 ? (
+          <>
+            <Sign.Card>
+              <Sign.Form onSubmit={handleSubmit}>
+                <Sign.MinHeading>Log in to your account</Sign.MinHeading>
+                <Sign.Text color="yellow">
+                  Enter correct email address/password.
+                </Sign.Text>
+                <Sign.Label>Email Address*</Sign.Label>
+                <Sign.Input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  name="email"
+                  onChange={handleChange}
+                  value={userDetails.email}
                 />
-                Continue with Facebook
-              </Sign.Button>
-
-              <Sign.Button media="google" onClick={signGoogle}>
-                {" "}
-                <IoLogoGoogle
-                  style={{
-                    fontSize: "1.2rem",
-                    padding: "0.1em",
-                    marginRight: "0.8em",
-                  }}
-                />{" "}
-                Continue with Google
-              </Sign.Button>
-              <Sign.Button media="twitter">
-                <AiOutlineTwitter
-                  style={{
-                    fontSize: "1.2rem",
-                    padding: "0.1em",
-                    marginRight: "0.8em",
-                  }}
+                <Sign.Label>Password*</Sign.Label>
+                <Sign.Input
+                  type="password"
+                  placeholder="Password"
+                  required
+                  name="password"
+                  onChange={handleChange}
+                  value={userDetails.password}
                 />
-                Continue with Twitter
-              </Sign.Button>
+                <Sign.Button>Log in</Sign.Button>
+              </Sign.Form>
+
+              <Sign.Text>OR</Sign.Text>
+              <Sign.Wrapper direction="column">
+                <Sign.Button media="facebook">
+                  {" "}
+                  <FaFacebookSquare
+                    style={{
+                      fontSize: "1.2rem",
+                      padding: "0.1em",
+                      marginRight: "0.8em",
+                    }}
+                  />
+                  Continue with Facebook
+                </Sign.Button>
+
+                <Sign.Button media="google" onClick={signGoogle}>
+                  {" "}
+                  <IoLogoGoogle
+                    style={{
+                      fontSize: "1.2rem",
+                      padding: "0.1em",
+                      marginRight: "0.8em",
+                    }}
+                  />{" "}
+                  Continue with Google
+                </Sign.Button>
+                <Sign.Button media="twitter">
+                  <AiOutlineTwitter
+                    style={{
+                      fontSize: "1.2rem",
+                      padding: "0.1em",
+                      marginRight: "0.8em",
+                    }}
+                  />
+                  Continue with Twitter
+                </Sign.Button>
+              </Sign.Wrapper>
+            </Sign.Card>
+            <Sign.Wrapper direction="column" width="small">
+              <Link href="/signup" passHref>
+                <Sign.Anchor>
+                  Not on Igarranames.com yet? Create an account.
+                </Sign.Anchor>
+              </Link>
+
+              <Link href="/forgot-password" passHref>
+                <Sign.Anchor>Forgot Password? </Sign.Anchor>
+              </Link>
             </Sign.Wrapper>
-          </Sign.Card>
-          <Sign.Wrapper direction="column" width="small">
-            <Link href="/signup" passHref>
-              <Sign.Anchor>
-                Not on Igarranames.com yet? Create an account.
-              </Sign.Anchor>
-            </Link>
-
-            <Link href="/forgot-password" passHref>
-              <Sign.Anchor>Forgot Password? </Sign.Anchor>
-            </Link>
+          </>
+        ) : loading || loading2 ? (
+          <Sign.Wrapper direction="column">
+            <Sign.Text>Signing in...</Sign.Text>
+            <Oval
+              ariaLabel="loading-indicator"
+              height={80}
+              width={80}
+              strokeWidth={5}
+              color="yellow"
+              secondaryColor="black"
+            />
           </Sign.Wrapper>
-        </>
-      ) : loading || loading2 ? (
-        <Sign.Wrapper direction="column">
-          <Sign.Text>Signing in...</Sign.Text>
-          <Oval
-            ariaLabel="loading-indicator"
-            height={80}
-            width={80}
-            strokeWidth={5}
-            color="yellow"
-            secondaryColor="black"
-          />
-        </Sign.Wrapper>
-      ) : user ? (
-        Router.push("/new")
-      ) : (
-        <>
-          <Sign.Card>
-            <Sign.Form onSubmit={handleSubmit}>
-              <Sign.MinHeading>Log in to your account</Sign.MinHeading>
-              <Sign.Label>Email Address*</Sign.Label>
-              <Sign.Input
-                type="email"
-                placeholder="Email"
-                required
-                name="email"
-                onChange={handleChange}
-                value={userDetails.email}
-              />
-              <Sign.Label>Password*</Sign.Label>
-              <Sign.Input
-                type="password"
-                placeholder="Password"
-                required
-                name="password"
-                onChange={handleChange}
-                value={userDetails.password}
-              />
-              <Sign.Button>Log in</Sign.Button>
-            </Sign.Form>
+        ) : user ? (
+          Router.push("/new")
+        ) : (
+          <>
+            <Sign.Card>
+              <Sign.Form onSubmit={handleSubmit}>
+                <Sign.MinHeading>Log in to your account</Sign.MinHeading>
+                <Sign.Label>Email Address*</Sign.Label>
+                <Sign.Input
+                  type="email"
+                  placeholder="Email"
+                  required
+                  name="email"
+                  onChange={handleChange}
+                  value={userDetails.email}
+                />
+                <Sign.Label>Password*</Sign.Label>
+                <Sign.Input
+                  type="password"
+                  placeholder="Password"
+                  required
+                  name="password"
+                  onChange={handleChange}
+                  value={userDetails.password}
+                />
+                <Sign.Button>Log in</Sign.Button>
+              </Sign.Form>
 
-            <Sign.Text color="white">OR</Sign.Text>
-            <Sign.Wrapper direction="column">
-              <Sign.Button media="facebook">
-                {" "}
-                <FaFacebookSquare
-                  style={{
-                    fontSize: "1.2rem",
-                    padding: "0.1em",
-                    marginRight: "0.8em",
-                  }}
-                />
-                Continue with Facebook
-              </Sign.Button>
-              <Sign.Button media="google" onClick={signGoogle}>
-                {" "}
-                <IoLogoGoogle
-                  style={{
-                    fontSize: "1.2rem",
-                    padding: "0.1em",
-                    marginRight: "0.8em",
-                  }}
-                />{" "}
-                Continue with Google
-              </Sign.Button>
-              <Sign.Button media="twitter">
-                <AiOutlineTwitter
-                  style={{
-                    fontSize: "1.2rem",
-                    padding: "0.1em",
-                    marginRight: "0.8em",
-                  }}
-                />
-                Continue with Twitter
-              </Sign.Button>
+              <Sign.Text color="white">OR</Sign.Text>
+              <Sign.Wrapper direction="column">
+                <Sign.Button media="facebook">
+                  {" "}
+                  <FaFacebookSquare
+                    style={{
+                      fontSize: "1.2rem",
+                      padding: "0.1em",
+                      marginRight: "0.8em",
+                    }}
+                  />
+                  Continue with Facebook
+                </Sign.Button>
+                <Sign.Button media="google" onClick={signGoogle}>
+                  {" "}
+                  <IoLogoGoogle
+                    style={{
+                      fontSize: "1.2rem",
+                      padding: "0.1em",
+                      marginRight: "0.8em",
+                    }}
+                  />{" "}
+                  Continue with Google
+                </Sign.Button>
+                <Sign.Button media="twitter">
+                  <AiOutlineTwitter
+                    style={{
+                      fontSize: "1.2rem",
+                      padding: "0.1em",
+                      marginRight: "0.8em",
+                    }}
+                  />
+                  Continue with Twitter
+                </Sign.Button>
+              </Sign.Wrapper>
+            </Sign.Card>
+            <Sign.Wrapper direction="column" width="small">
+              <Link href="/signup" passHref>
+                <Sign.Anchor>
+                  Not on Igarranames.com yet? Create an account.
+                </Sign.Anchor>
+              </Link>
+
+              <Link href="/forgot-password" passHref>
+                <Sign.Anchor>Forgot Password? </Sign.Anchor>
+              </Link>
             </Sign.Wrapper>
-          </Sign.Card>
-          <Sign.Wrapper direction="column" width="small">
-            <Link href="/signup" passHref>
-              <Sign.Anchor>
-                Not on Igarranames.com yet? Create an account.
-              </Sign.Anchor>
-            </Link>
+          </>
+        )}
+      </Sign>
 
-            <Link href="/forgot-password" passHref>
-              <Sign.Anchor>Forgot Password? </Sign.Anchor>
-            </Link>
-          </Sign.Wrapper>
-        </>
-      )}
-    </Sign>
+      <FooterComp />
+    </>
   );
 };
 

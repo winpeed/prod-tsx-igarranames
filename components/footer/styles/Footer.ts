@@ -1,6 +1,11 @@
 import styled from "styled-components";
-import { AnchorProps, DivProps, HeadingProps, InputProps, TextProps } from "../../../interfaces/interface";
-
+import {
+  AnchorProps,
+  DivProps,
+  HeadingProps,
+  InputProps,
+  TextProps,
+} from "../../../interfaces/interface";
 
 export const Container = styled.footer`
   background: var(--black);
@@ -9,7 +14,7 @@ export const Container = styled.footer`
   flex-direction: column;
   flex-wrap: wrap;
   bottom: 0;
-  max-width:2000px;
+  max-width: 2000px;
   color: var(--white);
 
   @media (min-width: 588px) {
@@ -17,51 +22,45 @@ export const Container = styled.footer`
   }
 
   @media (min-width: 768px) {
-    
     padding: 3em 1.5em;
     flex-direction: row;
   }
 
   @media (min-width: 1000px) {
-  
     padding: 3em 1em 3em 5em;
   }
 
   @media (min-width: 1100px) {
-  
     padding: 3em 3em 3em 5em;
   }
 
   @media (min-width: 1200px) {
-  
     padding: 3em 2em 3em 9em;
   }
 `;
 
 export const Row = styled.div<DivProps>`
   padding: 1.5em 0em;
-  border-top: ${(props) => (props.full == 'yes' ? "1px solid #c1c1c1" : null)};
-  display: ${(props) => (props.close == 'yes' ? "flex" : null)};
-  flex-direction:  ${(props) => (props.close == 'yes' ? "column" : null)};
+  border-top: ${(props) => (props.full == "yes" ? "1px solid #c1c1c1" : null)};
+  display: ${(props) => (props.close == "yes" ? "flex" : null)};
+  flex-direction: ${(props) => (props.close == "yes" ? "column" : null)};
 
   @media (min-width: 588px) {
-    flex: ${(props) => (props.full == 'yes' ? "0 0 100%" : "0 0 42%")};
+    flex: ${(props) => (props.full == "yes" ? "0 0 100%" : "0 0 42%")};
   }
 
   @media (min-width: 768px) {
-    display: ${(props) => (props.full == 'yes' ? "flex" : null)};
-    justify-content: ${(props) => (props.full == 'yes' ? "space-between" : null)};
-    align-items: ${(props) => (props.full == 'yes' ? "center" : null)};
-    flex: ${(props) => (props.full == 'yes' ? "0 0 100%" : "0 0 33%")};
-    padding-right: ${(props) => (props.full == 'yes' ? "6em" : null)};
+    display: ${(props) => (props.full == "yes" ? "flex" : null)};
+    justify-content: ${(props) =>
+      props.full == "yes" ? "space-between" : null};
+    align-items: ${(props) => (props.full == "yes" ? "center" : null)};
+    flex: ${(props) => (props.full == "yes" ? "0 0 100%" : "0 0 33%")};
+    padding-right: ${(props) => (props.full == "yes" ? "6em" : null)};
   }
 
   @media (min-width: 900px) {
-
-    flex: ${(props) => (props.full == 'yes' ? "0 0 100%" : "0 0 21%")};
+    flex: ${(props) => (props.full == "yes" ? "0 0 100%" : "0 0 21%")};
   }
-
-
 `;
 
 export const RowWrap = styled.div`
@@ -75,7 +74,8 @@ export const RowWrap = styled.div`
 
 export const ColHead = styled.h5<HeadingProps>`
   font-size: 1.3rem;
-  color: ${(props) => (props.color == 'black' ? "var(--black)" : "var(--white)")}; 
+  color: ${(props) =>
+    props.color == "black" ? "var(--black)" : "var(--white)"};
   padding: 0.35em 0em;
 `;
 
@@ -88,7 +88,7 @@ export const ColWrap = styled.div<DivProps>`
 export const Logo = styled.div`
   margin-left: 0.6em;
   color: var(--white);
-  font-style:italic;
+  font-style: italic;
   letter-spacing: 0.02em;
   font-weight: 600;
   font-size: 1rem;
@@ -105,7 +105,7 @@ export const ListItem = styled.li`
 `;
 
 export const ListLink = styled.a<AnchorProps>`
-  color: var(--white);;
+  color: var(--white);
   font-size: 0.85rem;
   opacity: 1;
   line-height: 1.3;
@@ -115,7 +115,7 @@ export const ListLink = styled.a<AnchorProps>`
   align-items: center;
   padding: 0.5em 0em;
 
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 `;
@@ -132,12 +132,16 @@ export const Text = styled.p<TextProps>`
   font-size: 0.875rem;
   line-height: 1.5rem;
   font-weight: 400;
-  color: ${props => props.color == 'black' ? 'var(--black)' : props.color == "yellow" ? 'var(--light-yellow)' : 'var(--white)'};
-  flex: ${props => props.close == 'yes' && '0 0 60%'};
+  color: ${(props) =>
+    props.color == "black"
+      ? "var(--black)"
+      : props.color == "yellow"
+      ? "var(--light-yellow)"
+      : "var(--white)"};
+  flex: ${(props) => props.close == "yes" && "0 0 60%"};
   line-height: 1.6;
-  letter-spacing:0.03em;
+  letter-spacing: 0.03em;
   padding-bottom: 0.7em;
- 
 
   @media (min-width: 768px) {
     font-size: 1rem;
@@ -164,7 +168,6 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-
 `;
 
 export const Button = styled.button`
@@ -178,8 +181,7 @@ export const Button = styled.button`
   font-size: 1rem;
   cursor: pointer;
 
-  @media(min-width: 750px){
+  @media (min-width: 750px) {
     max-width: 95%;
   }
-
 `;

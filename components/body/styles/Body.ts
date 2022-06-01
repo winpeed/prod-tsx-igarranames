@@ -8,7 +8,7 @@ import {
   DivProps,
   TextAreaProps,
   SelectProps,
-  OptionProps
+  OptionProps,
 } from "../../../interfaces/interface";
 
 export const Container = styled.section`
@@ -26,9 +26,8 @@ export const NameWrapper = styled(Container)<SectionProps>`
 
   @media (min-width: 768px) {
     flex-direction: row;
-  padding: ${(props) => (props.hero == "set" ? "0em 0.7em 1em 3.7em" : "0.7em")};
-
-   
+    padding: ${(props) =>
+      props.hero == "set" ? "0em 0.7em 1em 3.7em" : "0.7em"};
   }
 `;
 
@@ -62,15 +61,15 @@ export const BannerWrapper = styled.div<DivProps>`
   height: fit-content;
   padding: 2em 0.5em;
 
-  @media(max-width: 376px){
+  @media (max-width: 376px) {
     bottom: 2%;
   }
 
-  @media(min-width: 450px){
+  @media (min-width: 450px) {
     bottom: 20%;
   }
 
-  @media(min-width: 760px){
+  @media (min-width: 760px) {
     bottom: 9%;
   }
 `;
@@ -92,10 +91,10 @@ export const Wrapper = styled.div<DivProps>`
   max-width: 1000px;
   margin: 0 auto;
   padding: 1em 1em 2em 1em;
-  align-items: ${props => props.align == "center" ? "center" : null};
+  align-items: ${(props) => (props.align == "center" ? "center" : null)};
 
   @media (min-width: 768px) {
-    flex-direction:  ${(props) => (props.close == 'yes' ? "column" : "row")};
+    flex-direction: ${(props) => (props.close == "yes" ? "column" : "row")};
     padding: 1em 1.5em 2em 1.5em;
   }
 `;
@@ -119,17 +118,15 @@ export const Card = styled.div`
   }
 `;
 
-
 export const ContactHeading = styled.h1<HeadingProps>`
-font-weight: 600;
+  font-weight: 600;
   letter-spacing: 0.015em;
   font-size: 2.5rem;
   line-height: 1.2;
   padding: 0.5em 0em 0.5em 0em;
   text-align: center;
   text-align: ${(props) => (props.alignment == "left" ? "left" : "center")};
-
-`
+`;
 
 export const Heading = styled.h2<HeadingProps>`
   color: ${(props) =>
@@ -154,19 +151,17 @@ export const Text = styled.p<HeadingProps>`
   color: ${(props) =>
     props.color == "white" ? "var(--white)" : "var(--black)"};
   max-width: 400px;
-    margin: 0 auto;
+  margin: 0 auto;
 `;
-
-
 
 export const Links = styled.a<AnchorProps>`
   display: flex;
   align-items: center;
   color: var(--white);
   background: var(--btn-blue);
-  font-size: ${props =>  props.selected ? "1.15em" : "0.85rem"};
+  font-size: ${(props) => (props.selected ? "1.15em" : "0.85rem")};
   font-weight: 600;
-  letter-spacing: ${props =>  props.selected ? "0.01em" : "0.015em"};
+  letter-spacing: ${(props) => (props.selected ? "0.01em" : "0.015em")};
   padding: 0.9em 2em;
   border-radius: 3px;
 `;
@@ -184,7 +179,7 @@ export const Section = styled.section<SectionProps>`
     padding: 0em 3em 4em 1em;
     flex-direction: ${(props) => (props.color ? "column" : "row")};
     align-items: center;
-    flex:0 0 43%;
+    flex: 0 0 43%;
   }
 `;
 
@@ -208,7 +203,9 @@ export const Button = styled.button<ButtonProps>`
       ? "var(--red)"
       : props.media == "submit"
       ? "var(--yellow)"
-      : props.media == "green" ? "var(--green)" : null};
+      : props.media == "green"
+      ? "var(--green)"
+      : null};
   color: ${(props) =>
     props.media == "submit" ? "var(--black)" : "var(--white)"};
   font-size: 0.95rem;
@@ -248,7 +245,7 @@ export const Form = styled.form`
   max-width: 500px;
   width: 100%;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 `;
 
 export const Input = styled.input<InputProps>`
@@ -277,35 +274,30 @@ export const Label = styled.label`
 `;
 
 export const Select = styled.select<SelectProps>`
-padding: 0.8em;
-margin: 0.8em 0em;
-`
+  padding: 0.8em;
+  margin: 0.8em 0em;
+`;
 
-export const Option = styled.option<OptionProps>`
-`
+export const Option = styled.option<OptionProps>``;
 
-export const ContactWrapper = styled.section
-`
-padding: 7.5em 1em;
+export const ContactWrapper = styled.section`
+  padding: 7.5em 1em;
 
-@media(min-width: 500px){
-  margin: 0 auto;
-  max-width: 450px;
-  text-align: center;
-}
+  @media (min-width: 500px) {
+    margin: 0 auto;
+    max-width: 450px;
+    text-align: center;
+  }
+`;
 
-`
+export const PrivacyWrapper = styled.section`
+  padding: 7.5em 1em;
 
-export const PrivacyWrapper = styled.section
-`
-padding: 7.5em 1em;
-
-@media(min-width: 500px){
-  margin: 0 auto;
-  max-width: 1000px;
-
-}
-`
+  @media (min-width: 500px) {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+`;
 
 export const PrivacyText = styled.p<HeadingProps>`
   font-size: 1rem;
@@ -315,16 +307,15 @@ export const PrivacyText = styled.p<HeadingProps>`
   color: ${(props) =>
     props.color == "white" ? "var(--white)" : "var(--black)"};
   max-width: 900px;
-    margin: 0 auto;
-    text-align:justify;
+  margin: 0 auto;
+  text-align: justify;
 `;
 
-
 export const UnorderedList = styled.ul`
-margin-top: -0.3em;
-`
+  margin-top: -0.3em;
+`;
 
 export const ListItem = styled.li`
-line-height: 1.6;
-padding-top:0.5em;
-`
+  line-height: 1.6;
+  padding-top: 0.5em;
+`;
