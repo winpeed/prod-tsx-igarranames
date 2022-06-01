@@ -34,25 +34,25 @@ export default function NavBar() {
     }
   };
 
-  useEffect(() => {
+  const handleShowListener = () => {
     if (window.innerWidth > 900) {
       setIsShow(true);
     }
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) {
-        setIsShow(true);
-      }
+    if (window.innerWidth < 900) {
+      setIsShow(false);
+    }
+  };
 
-      if (window.innerWidth < 900) {
-        setIsShow(false);
-      }
-    });
+  useEffect(() => {
+    // if (window.innerWidth > 900) {
+    //   setIsShow(true);
+    // }
+
+    window.addEventListener("resize", handleShowListener);
 
     return () => {
-      window.removeEventListener("resize", () => {
-        setIsShow(false);
-      });
+      window.removeEventListener("resize", handleShowListener);
     };
   }, [isShow]);
 
