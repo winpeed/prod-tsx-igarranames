@@ -4,7 +4,7 @@ import { ButtonProps, DivProps } from "../../../interfaces/interface";
 export const Container = styled.section`
   display: flex;
   align-items: center;
-  border:1px solid var(--btn-blue);
+  border:1px solid var(--green-dark);
   padding: 1em 1.5em 1em 1.5em;
   flex: 0 0 52%;
   border-radius: 4px;

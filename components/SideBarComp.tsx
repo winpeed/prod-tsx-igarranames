@@ -109,8 +109,12 @@ const SideBarComp = () => {
     const getPopularNames = () => {
       fetch("/api/v1/popular")
         .then((response) => response.json())
-        .then((data) => setPopularNames(data.data));
+        .then((data) => {
+          console.log(data);
+          setPopularNames(data.data);
+        });
     };
+
     getPopularNames();
   }, []);
 

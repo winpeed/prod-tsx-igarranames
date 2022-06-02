@@ -32,19 +32,38 @@ const namesHandler: NextApiHandler = async (request, response) => {
       })
       .eachPage(
         function page(records: any) {
-          const results = records.map((item: { fields: any; }) => item.fields.Name).reduce((acc, curr) => {
-            acc[curr] ??= {[curr]: 0};
-            acc[curr][curr]++;
-            
-            return acc;
-          }, {})
-                  
-          response.status(200).json({ message: "Success", data: results });
+          //Get All names from the popular names table
+          const results = records.map(
+            (item: { fields: any }) => item.fields.Name
+          );
 
+          //Get the length of each popular name in the array including repetitions
+          const prelimResults = results.map((item: any) => {
+            let length = 0;
+            for (let i = 0; i < results.length; i++) {
+              if (item === results[i]) {
+                length++;
+              }
+            }
+            return JSON.stringify({ name: item, number: length });
+          });
+
+          //Get unique items in the array
+          const finalResults = new Set([...prelimResults]);
+
+          //Send the result as response and sort the results by the number of occurences
+          response.status(200).json({
+            message: "Success",
+            data: [...finalResults]
+              .map((item) => JSON.parse(item))
+              .sort((a, b) => b.number - a.number),
+          });
         },
         function done(err: any) {
           if (err) {
-            response.status(404).json({ message: "Error getting popular names" });
+            response
+              .status(404)
+              .json({ message: "Error getting popular names" });
             return;
           }
         }
