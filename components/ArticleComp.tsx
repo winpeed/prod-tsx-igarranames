@@ -141,7 +141,7 @@ const ArticleComp = ({ data, shareURL }) => {
             onClick={() => setIsShowFeedback(false)}
           />
           <Body.Banner direction="column">
-            <Body.Heading color="white">Help us improve {name}</Body.Heading>
+            <Body.Heading color="white">Help us improve '{name}'</Body.Heading>
             <Body.Text color="white">
               Do you have a story to share about this name? Do you think we
               missed something? Kindly share with us make improvements.

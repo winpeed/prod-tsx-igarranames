@@ -15,6 +15,30 @@ export const Container = styled.section`
   background: var(--white);
 `;
 
+export const Main = styled.main`
+  padding: 1em 1em 4em 1em;
+`;
+
+export const SearchSection = styled.section<SectionProps>`
+  max-width: 900px;
+  margin: 0 auto;
+`;
+
+export const SearchHeading = styled.h3<HeadingProps>`
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 500;
+  padding: 0.2em 0em 0.8em 0em;
+`;
+
+export const SearchSpan = styled.span`
+color: #1938b3; 
+`
+
+export const SearchButtonWrapper = styled.div`
+text-align: center
+`
+
 export const NameWrapper = styled(Container)<SectionProps>`
   display: flex;
   flex-direction: column;
@@ -205,7 +229,7 @@ export const Button = styled.button<ButtonProps>`
       ? "var(--yellow)"
       : props.media == "green"
       ? "var(--green)"
-      : null};
+      : props.media == "blue" ? "var(--blue-light)" : "var(--black)"};
   color: ${(props) =>
     props.media == "submit" ? "var(--black)" : "var(--white)"};
   font-size: 0.95rem;
@@ -311,11 +335,30 @@ export const PrivacyText = styled.p<HeadingProps>`
   text-align: justify;
 `;
 
+export const List = styled.ul`
+margin-top: -0.3em;
+`
 export const UnorderedList = styled.ul`
   margin-top: -0.3em;
+  list-style: none;
+  line-height: 1.6;
+ column-width: 125px;
+ padding: 0em;
+ margin: 0em;
+ display: flex;
+ flex-wrap: wrap;
 `;
 
+export const Item = styled.li`
+line-height: 1.6;
+padding-top: 0.5em;
+`
 export const ListItem = styled.li`
   line-height: 1.6;
   padding-top: 0.5em;
+  padding: 0.25em 0em;
+  font-weight: 500;
+  width: 150px;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
 `;

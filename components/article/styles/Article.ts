@@ -6,13 +6,13 @@ export const Container = styled.section`
   align-items: center;
   border:1px solid var(--green-dark);
   padding: 1em 1.5em 1em 1.5em;
-  flex: 0 0 52%;
+  flex: 0 0 50%;
   border-radius: 4px;
   box-shadow: 0px 0px 0px 1px var(--gray-light);
   justify-content: space-between;
   line-height: 1.7;
   margin: 1em 0em 3em 0em;
-  width: 100%;
+  width: 96%;
 
 
 `;

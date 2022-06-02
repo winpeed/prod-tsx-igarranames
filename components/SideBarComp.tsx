@@ -5,10 +5,13 @@ import axios from "axios";
 import { add } from "../src/features/search/searchSlice";
 import Sidebar from "../components/sidebar/index";
 import NewsletterComp from "./NewsletterComp";
+import { Oval } from "react-loader-spinner";
+import Sign from "./sign";
 
 const SideBarComp = () => {
   const [searchItems, setSearchItems] = useState([]);
   const [popularNames, setPopularNames] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const items = useAppSelector((state) => state.search.value);
   const uniqueItems = [...new Set(items)];
@@ -32,6 +35,7 @@ const SideBarComp = () => {
             new Date(a.fields.modified).getTime()
         );
         setNames(sortedData);
+        setIsLoading(false);
       } catch (err) {
         return new Error(err);
       }
@@ -44,7 +48,6 @@ const SideBarComp = () => {
 
   const handleSearch = (uniqueName: string) => {
     addPopularName(uniqueName);
-    console.log(uniqueName);
     dispatch(add(uniqueName));
   };
 
@@ -93,60 +96,75 @@ const SideBarComp = () => {
       );
     });
 
-  // const popularSearches =
-  //   popularNames.length !== 0 &&
-  //   popularNames.map((item, index) => {
-  //     return (
-  //       <Link href={`/names/${item.Name}`} passHref key={index}>
-  //         <Sidebar.Anchor onClick={() => handleSearch(item)}>
-  //           <Sidebar.ListItem>{item.Name}</Sidebar.ListItem>
-  //         </Sidebar.Anchor>
-  //       </Link>
-  //     );
-  //   });
+  const popularSearches =
+    popularNames.length !== 0 &&
+    popularNames.slice(0, 10).map((item) => {
+      return (
+        <Link href={`/names/${item.name}`} passHref key={item.name}>
+          <Sidebar.Anchor onClick={() => handleSearch(item)}>
+            <Sidebar.ListItem>{item.name}</Sidebar.ListItem>
+          </Sidebar.Anchor>
+        </Link>
+      );
+    });
+
+  const getPopularNames = () => {
+    fetch("/api/v1/popular")
+      .then((response) => response.json())
+      .then((data) => {
+        setPopularNames(data.data);
+      });
+  };
 
   useEffect(() => {
-    const getPopularNames = () => {
-      fetch("/api/v1/popular")
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          setPopularNames(data.data);
-        });
-    };
-
     getPopularNames();
   }, []);
 
   return (
-    <Sidebar>
-      {names.length !== 0 && (
-        <>
-          <Sidebar.Heading>
-            Recently Added ({names.length == 0 ? 0 : 10})
-          </Sidebar.Heading>
-          <Sidebar.List>{recentlyAdded}</Sidebar.List>
-        </>
+    <>
+      {isLoading ? (
+        <Sign.Wrapper direction="column">
+          <Oval
+            ariaLabel="loading-indicator"
+            height={60}
+            width={60}
+            strokeWidth={5}
+            color="yellow"
+            secondaryColor="black"
+          />
+        </Sign.Wrapper>
+      ) : (
+        <Sidebar>
+          {popularNames.length !== 0 && (
+            <>
+              <Sidebar.Heading>Popular names (10)</Sidebar.Heading>
+              <Sidebar.List> {popularSearches}</Sidebar.List>
+            </>
+          )}
+
+          {names.length !== 0 && (
+            <>
+              <Sidebar.Heading>
+                Recently Added ({names.length == 0 ? 0 : 10})
+              </Sidebar.Heading>
+              <Sidebar.List>{recentlyAdded}</Sidebar.List>
+            </>
+          )}
+
+          {searchItems.length !== 0 && (
+            <>
+              <Sidebar.Heading>
+                Recent Searches (
+                {searchItems.length == 0 ? 0 : searchItems.length})
+              </Sidebar.Heading>
+              <Sidebar.List>{userSearches}</Sidebar.List>
+            </>
+          )}
+
+          <NewsletterComp color="black" />
+        </Sidebar>
       )}
-
-      {searchItems.length !== 0 && (
-        <>
-          <Sidebar.Heading>
-            Recent Searches ({searchItems.length == 0 ? 0 : searchItems.length})
-          </Sidebar.Heading>
-          <Sidebar.List>{userSearches}</Sidebar.List>
-        </>
-      )}
-
-      {/* {popularNames.length !== 0 && (
-        <>
-          <Sidebar.Heading>Popular names</Sidebar.Heading>
-          <Sidebar.List> {popularSearches}</Sidebar.List>
-        </>
-      )} */}
-
-      <NewsletterComp color="black" />
-    </Sidebar>
+    </>
   );
 };
 

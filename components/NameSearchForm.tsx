@@ -16,25 +16,23 @@ export default function NameSearchForm({
 }: FormContainerProps) {
   return (
     <>
-      <Header>
-        <Header.ItemWrapper>
-          <Header.Form
-            onSubmit={(event) => {
-              event.preventDefault();
-            }}
-          >
-            <Header.FormWrapper>
-              <BsSearch style={{ margin: "0em 0.4em -0.2em 0em" }} />
-              <Header.Input
-                type="text"
-                placeholder="Search..."
-                onChange={onSetText}
-                value={searchText}
-              />
-            </Header.FormWrapper>
-          </Header.Form>
-        </Header.ItemWrapper>
-      </Header>
+      <Header.ItemWrapper>
+        <Header.Form
+          onSubmit={(event: { preventDefault: () => void }) => {
+            event.preventDefault();
+          }}
+        >
+          <Header.FormWrapper>
+            <BsSearch style={{ margin: "0em 0.4em -0.2em 0em" }} />
+            <Header.Input
+              type="text"
+              placeholder="Search..."
+              onChange={onSetText}
+              value={searchText}
+            />
+          </Header.FormWrapper>
+        </Header.Form>
+      </Header.ItemWrapper>
     </>
   );
 }

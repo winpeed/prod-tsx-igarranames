@@ -14,6 +14,11 @@ import {
 import { ComponentProps, Ref } from "../../interfaces/interface";
 import {
   Container,
+  Main,
+  SearchSection,
+  SearchHeading,
+  SearchSpan,
+  SearchButtonWrapper,
   NameWrapper,
   Article,
   Wrapper,
@@ -50,6 +55,38 @@ Body.NameWrapper = function BodyNameWrapper({
   ...restProps
 }: SectionProps) {
   return <NameWrapper {...restProps}>{children}</NameWrapper>;
+};
+
+Body.Main = function BodyMain({ children, ...restProps }: ComponentProps) {
+  return <Main {...restProps}>{children}</Main>;
+};
+
+Body.SearchSection = function BodySearchSection({
+  children,
+  ...restProps
+}: SectionProps) {
+  return <SearchSection {...restProps}>{children}</SearchSection>;
+};
+
+Body.SearchHeading = function BodySearchHeading({
+  children,
+  ...restProps
+}: HeadingProps) {
+  return <SearchHeading {...restProps}>{children}</SearchHeading>;
+};
+
+Body.SearchSpan = function BodySearchSpan({
+  children,
+  ...restProps
+}: ComponentProps) {
+  return <SearchSpan {...restProps}>{children}</SearchSpan>;
+};
+
+Body.SearchButtonWrapper = function BodySearchButtonWrapper({
+  children,
+  ...restProps
+}: ComponentProps) {
+  return <SearchButtonWrapper {...restProps}>{children}</SearchButtonWrapper>;
 };
 
 Body.BannerWrapper = function BodyBannerWrapper({
