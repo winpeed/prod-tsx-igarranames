@@ -4,11 +4,9 @@ import { BsPlayCircle, BsPauseCircle } from "react-icons/bs";
 import { BiPencil } from "react-icons/bi";
 import {
   FacebookShareButton,
-  LinkedinShareButton,
   WhatsappShareButton,
   TwitterShareButton,
   FacebookIcon,
-  LinkedinIcon,
   TwitterIcon,
   WhatsappIcon,
 } from "react-share";
@@ -95,10 +93,6 @@ const ArticleComp = ({ data, shareURL }) => {
             <WhatsappShareButton url={shareURL}>
               <WhatsappIcon size={36}></WhatsappIcon>
             </WhatsappShareButton>{" "}
-            <LinkedinShareButton url={shareURL}>
-              {" "}
-              <LinkedinIcon size={36}></LinkedinIcon>
-            </LinkedinShareButton>{" "}
           </Article.Wrapper>
 
           <Article.Span>

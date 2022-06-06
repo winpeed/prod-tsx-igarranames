@@ -51,8 +51,8 @@ const SearchResults = ({ data, letter, searchText }) => {
             filteredResult.map((item: { id: any; fields: any }) => {
               const { id, fields } = item;
               return (
-                <Body.ListItem>
-                  <Link href={`/names/${fields.name}`} passHref key={id}>
+                <Body.ListItem key={id}>
+                  <Link href={`/names/${fields.name}`} passHref>
                     {fields.name}
                   </Link>
                 </Body.ListItem>
@@ -62,7 +62,7 @@ const SearchResults = ({ data, letter, searchText }) => {
       </Body.SearchSection>
 
       <Body.SearchButtonWrapper>
-        <Link href="/add">
+        <Link href="/new">
           <Body.Button media="blue"> Add Name(s)</Body.Button>
         </Link>
       </Body.SearchButtonWrapper>

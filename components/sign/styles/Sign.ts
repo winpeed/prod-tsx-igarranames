@@ -129,7 +129,7 @@ export const Button = styled.button<ButtonProps>`
   cursor: pointer;
   display: block;
   width: 100%;
-  margin: 1.5em auto 1em auto;
+  margin: 2em auto 1em auto;
   align-items: center;
   display: flex;
   justify-content: center;
