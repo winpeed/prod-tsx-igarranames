@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import { getName } from "../api/v1/names/[name]";
 import type { GetStaticProps, NextPage, GetStaticPaths } from "next";
@@ -8,7 +8,6 @@ import { getNames } from "../api/v1/names";
 import LetterComp from "../../../components/LetterComp";
 import FooterComp from "../../../components/FooterComp";
 import NamePageContainer from "../../../containers/NamePageContainer";
-import NavBar from "../../../components/NavBar";
 import { useAppSelector } from "../../app/hooks";
 import HeaderContainer from "../../../containers/HeaderContainer";
 
@@ -28,7 +27,6 @@ const NamePage: NextPage<Props> = ({ data }) => {
   return (
     <>
       <Head>
-        {" "}
         <title>Meaning of {name} | Igarranames.com</title>
         <link rel="icon" href="/ignames.png" />
         <meta name="description" content={meaning} />

@@ -18,7 +18,7 @@ type Props = {
 };
 
 const NewNamePage: NextPage<Props> = ({ data }) => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   if (loading) {
     return (
