@@ -68,12 +68,14 @@ export default function NewNameForm() {
             value={formDetails.name}
             onChange={handleChange}
             name="name"
+            required
           />
           <Body.Label>Meaning of Name</Body.Label>
           <Body.TextArea
             value={formDetails.meaning}
             onChange={handleChange}
             name="meaning"
+            required
           ></Body.TextArea>
           <Body.Label>Your Email Address</Body.Label>
           <Body.Input
@@ -82,6 +84,7 @@ export default function NewNameForm() {
             value={formDetails.email}
             onChange={handleChange}
             name="email"
+            required
           />
           <Body.Label>Are you from Igarra (Etuno)?</Body.Label>
           <Body.Select onChange={handleChange} name="isIgarra">

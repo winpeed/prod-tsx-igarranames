@@ -10,6 +10,7 @@ import {
   SectionProps,
   SelectProps,
   TextAreaProps,
+  UnorderedListProps,
 } from "../../interfaces/interface";
 import { ComponentProps, Ref } from "../../interfaces/interface";
 import {
@@ -214,13 +215,13 @@ Body.PrivacyText = function BodyPrivacyText({
 Body.UnorderedList = function BodyUnorderedList({
   children,
   ...restProps
-}: ComponentProps) {
+}: UnorderedListProps) {
   return <UnorderedList {...restProps}>{children}</UnorderedList>;
 };
 
 Body.ListItem = function BodyListItem({
   children,
   ...restProps
-}: ComponentProps) {
+}: ListItemProps) {
   return <ListItem {...restProps}>{children}</ListItem>;
 };

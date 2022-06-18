@@ -9,6 +9,8 @@ import {
   TextAreaProps,
   SelectProps,
   OptionProps,
+  UnorderedListProps,
+  ListItemProps,
 } from "../../../interfaces/interface";
 
 export const Container = styled.section`
@@ -32,12 +34,12 @@ export const SearchHeading = styled.h3<HeadingProps>`
 `;
 
 export const SearchSpan = styled.span`
-color: #1938b3; 
-`
+  color: #1938b3;
+`;
 
 export const SearchButtonWrapper = styled.div`
-text-align: center
-`
+  text-align: center;
+`;
 
 export const NameWrapper = styled(Container)<SectionProps>`
   display: flex;
@@ -229,7 +231,9 @@ export const Button = styled.button<ButtonProps>`
       ? "var(--yellow)"
       : props.media == "green"
       ? "var(--green)"
-      : props.media == "blue" ? "var(--blue-light)" : "var(--black)"};
+      : props.media == "blue"
+      ? "var(--blue-light)"
+      : "var(--black)"};
   color: ${(props) =>
     props.media == "submit" ? "var(--black)" : "var(--white)"};
   font-size: 0.95rem;
@@ -270,6 +274,7 @@ export const Form = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding-top: 1em;
 `;
 
 export const Input = styled.input<InputProps>`
@@ -336,29 +341,31 @@ export const PrivacyText = styled.p<HeadingProps>`
 `;
 
 export const List = styled.ul`
-margin-top: -0.3em;
-`
-export const UnorderedList = styled.ul`
   margin-top: -0.3em;
-  list-style: none;
+`;
+
+export const UnorderedList = styled.ul<UnorderedListProps>`
+  margin-top: -0.3em;
+  list-style: ${(props) => (props.default ? null : "none")} ;
   line-height: 1.6;
- column-width: 125px;
+ column-width: ${(props) => (props.default ? null : "125px")} 
  padding: 0em;
  margin: 0em;
- display: flex;
- flex-wrap: wrap;
+ display: ${(props) => (props.default ? null : "flex")} ;
+ flex-wrap: ${(props) => (props.default ? null : "wrap")} ;
 `;
 
 export const Item = styled.li`
-line-height: 1.6;
-padding-top: 0.5em;
-`
-export const ListItem = styled.li`
+  line-height: 1.6;
+  padding-top: 0.5em;
+`;
+
+export const ListItem = styled.li<ListItemProps>`
   line-height: 1.6;
   padding-top: 0.5em;
   padding: 0.25em 0em;
-  font-weight: 500;
-  width: 150px;
-  font-size: 1.1rem;
+  font-weight: ${(props) => (props.default ? null : "500")};
+  width: ${(props) => (props.default ? null : "150px")};
+  font-size: ${(props) => (props.default ? null : "0.95rem")};
   letter-spacing: 0.02em;
 `;

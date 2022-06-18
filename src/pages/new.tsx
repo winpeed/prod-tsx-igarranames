@@ -11,6 +11,7 @@ import { Result } from "../../interfaces/interface";
 import SignInForm from "../../components/SignInForm";
 import Body from "../../components/body";
 import { Oval } from "react-loader-spinner";
+import NavBar from "../../components/NavBar";
 
 type Props = {
   data: Result[];
@@ -43,7 +44,7 @@ const NewNamePage: NextPage<Props> = ({ data }) => {
 
   return (
     <>
-      <HeaderContainer data={data} />
+      <NavBar />
       <NewNameContainer />
       <LetterComp />
       <FooterComp />

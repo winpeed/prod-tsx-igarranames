@@ -54,6 +54,14 @@ export interface DivProps extends React.HTMLAttributes<HTMLDivElement> {
   align?:string
 }
 
+export interface UnorderedListProps extends React.HTMLAttributes<HTMLUListElement>{
+  default?:boolean
+}
+
+export interface ListItemProps extends React.HTMLAttributes<HTMLLIElement> {
+  default?:boolean
+}
+
 export interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   color?: string;
