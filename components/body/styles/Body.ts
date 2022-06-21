@@ -196,13 +196,13 @@ export const Section = styled.section<SectionProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0em 1em 3em 1em;
+  padding: ${(props) => (props.color ? "4em 3em 4em 1em" : "0em 1em 3em 1em")} ;
   margin: 0em auto;
   text-align: center;
   background: ${(props) => (props.color ? "var(--white)" : "var(--black)")};
 
   @media (min-width: 768px) {
-    padding: 0em 3em 4em 1em;
+    padding: ${(props) => (props.color ? "5.5em 3em 4em 1em" : "0em 3em 4em 1em")} ;
     flex-direction: ${(props) => (props.color ? "column" : "row")};
     align-items: center;
     flex: 0 0 43%;

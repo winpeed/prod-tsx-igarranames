@@ -24,11 +24,15 @@ const namesHandler: NextApiHandler = async (request, response) => {
 export default namesHandler;
 
 export async function getName(name: string ) {
-  const response = await airtable.list({ maxRecords: 1000 });
-  const data = await response;
-
-  const result = data.records.find(
-    (item: any) => String(item.fields.name.toLowerCase()) == (name.toLowerCase())
-  );
-  return result;
+  try {
+    const response = await airtable.list({ maxRecords: 1000 });
+    const data = await response;
+    const result = data.records.find(
+      (item: any) => String(item.fields.name.toLowerCase()) == (name.toLowerCase())
+    );
+    return result;
+  } catch (err) {
+    console.error(err)
+  }
+ 
 }

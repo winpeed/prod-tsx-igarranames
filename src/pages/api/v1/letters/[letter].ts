@@ -24,10 +24,15 @@ export async function getNamesFromLetter(id: string | string[]) {
   const response = await airtable.list({ maxRecords: 1000 });
   const results = await response;
 
-  return results.records
+  try {
+    return results.records
     .filter(
       (item: any) =>
         item.fields.name.toLowerCase().startsWith(id) && item.fields.meaning
     )
     .sort((a: any, b: any) => (a.fields.name > b.fields.name ? 1 : -1));
+  } catch (err) {
+    console.error(err)
+  }
+ 
 }

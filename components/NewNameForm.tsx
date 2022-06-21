@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 import Body from "./body";
 import Image from "next/image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function NewNameForm() {
+  const notify = () =>
+    toast.success("New name submitted!", {
+      position: "bottom-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
   const [formDetails, setFormDetails] = useState<{
     name: string;
     meaning: string;
@@ -44,6 +57,7 @@ export default function NewNameForm() {
       const data = await response.json();
       setFormDetails({ name: "", meaning: "", email: "", isIgarra: "" });
       setIsShow(!isShow);
+      notify();
     } catch (err) {
       console.error(err);
     }
@@ -108,6 +122,17 @@ export default function NewNameForm() {
           />
         </Body.Wrapper>
       )}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Body.Section>
   );
 }

@@ -18,10 +18,15 @@ const namesHandler: NextApiHandler = async (request, response) => {
 export default namesHandler;
 
 export async function getNames() {
-  const response = await airtable.list({ maxRecords: 1000 });
-  const results = await response;
-  const data = results.records.filter(
-    (item: any) => item.fields.meaning !== undefined
-  );
-  return data;
+  try {
+    const response = await airtable.list({ maxRecords: 1000 });
+    const results = await response;
+    const data = results.records.filter(
+      (item: any) => item.fields.meaning !== undefined
+    );
+    return data;
+  } catch (err) {
+    console.error(err)
+  }
+
 }

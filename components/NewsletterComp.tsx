@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Footer from "./footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const NewsletterComp = ({ color }) => {
+  const notify = () =>
+    toast.success("Successfully signed up to newsletter!", {
+      position: "bottom-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
   const [newsForm, setNewsForm] = useState<{ name: string; email: string }>({
     name: "",
     email: "",
@@ -35,6 +48,7 @@ const NewsletterComp = ({ color }) => {
       setNewsForm(() => {
         return { name: "", email: "" };
       });
+      notify();
       setIsShow(!isShow);
     } catch (err) {
       console.error(err);
@@ -90,6 +104,17 @@ const NewsletterComp = ({ color }) => {
           <Footer.Button>Subscribe</Footer.Button>
         </Footer.Form>
       )}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Footer.Row>
   );
 };

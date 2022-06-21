@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 import Body from "./body";
 import Image from "next/image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ContactForm() {
+  const notify = () =>
+    toast.success("Message sent!", {
+      position: "bottom-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
   const [formDetails, setFormDetails] = useState<{
     firstName: string;
     lastName: string;
@@ -50,6 +63,7 @@ function ContactForm() {
         email: "",
         message: "",
       });
+      notify();
     } catch (err) {
       console.error(err);
     }
@@ -121,6 +135,17 @@ function ContactForm() {
           </Body.Wrapper>
         )}
       </Body.ContactWrapper>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 }
