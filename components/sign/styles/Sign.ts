@@ -20,7 +20,7 @@ export const Card = styled.section`
   margin: 2em auto;
   background: var(--black);
   text-align: center;
-  padding: 0em 1.5em 3em 1.5em;
+  padding: 1.5em 1.5em 3em 1.5em;
   border-radius: 8px;
   color: white;
 
