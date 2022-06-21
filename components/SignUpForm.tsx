@@ -95,7 +95,14 @@ const SignUpForm = () => {
             />
             <Sign.Button>Continue</Sign.Button>
           </Sign.Form>
-
+          <Sign.Wrapper direction="column">
+            <Link href="/signin" passHref>
+              <Sign.Anchor>Already have an account ? Log in. </Sign.Anchor>
+            </Link>
+            <Link href="/forgot-password" passHref>
+              <Sign.Anchor>Forgot Password ? </Sign.Anchor>
+            </Link>
+          </Sign.Wrapper>
           <Sign.Text>OR</Sign.Text>
           <Sign.Wrapper direction="column">
             <Sign.Button media="facebook">
@@ -130,14 +137,6 @@ const SignUpForm = () => {
             </Sign.Button>
           </Sign.Wrapper>
         </Sign.Card>
-        <Sign.Wrapper direction="column">
-          <Link href="/signin" passHref>
-            <Sign.Anchor>Already have an account ? Log in. </Sign.Anchor>
-          </Link>
-          <Link href="/forgot-password" passHref>
-            <Sign.Anchor>Forgot Password ? </Sign.Anchor>
-          </Link>
-        </Sign.Wrapper>
       </Sign>
       <FooterComp />
     </>

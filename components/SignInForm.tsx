@@ -86,6 +86,17 @@ const SignInForm = () => {
                 />
                 <Sign.Button>Log in</Sign.Button>
               </Sign.Form>
+              <Sign.Wrapper direction="column" width="small">
+                <Link href="/signup" passHref>
+                  <Sign.Anchor>
+                    Not on Igarranames.com yet? Create an account.
+                  </Sign.Anchor>
+                </Link>
+
+                <Link href="/forgot-password" passHref>
+                  <Sign.Anchor>Forgot Password? </Sign.Anchor>
+                </Link>
+              </Sign.Wrapper>
 
               <Sign.Text>OR</Sign.Text>
               <Sign.Wrapper direction="column">
@@ -124,17 +135,6 @@ const SignInForm = () => {
                 </Sign.Button>
               </Sign.Wrapper>
             </Sign.Card>
-            <Sign.Wrapper direction="column" width="small">
-              <Link href="/signup" passHref>
-                <Sign.Anchor>
-                  Not on Igarranames.com yet? Create an account.
-                </Sign.Anchor>
-              </Link>
-
-              <Link href="/forgot-password" passHref>
-                <Sign.Anchor>Forgot Password? </Sign.Anchor>
-              </Link>
-            </Sign.Wrapper>
           </>
         ) : loading || loading2 ? (
           <Sign.Wrapper direction="column">
@@ -175,7 +175,17 @@ const SignInForm = () => {
                 />
                 <Sign.Button>Log in</Sign.Button>
               </Sign.Form>
+              <Sign.Wrapper direction="column" width="small">
+                <Link href="/signup" passHref>
+                  <Sign.Anchor>
+                    Not on Igarranames.com yet? Create an account.
+                  </Sign.Anchor>
+                </Link>
 
+                <Link href="/forgot-password" passHref>
+                  <Sign.Anchor>Forgot Password? </Sign.Anchor>
+                </Link>
+              </Sign.Wrapper>
               <Sign.Text color="white">OR</Sign.Text>
               <Sign.Wrapper direction="column">
                 <Sign.Button media="facebook">
@@ -212,17 +222,6 @@ const SignInForm = () => {
                 </Sign.Button>
               </Sign.Wrapper>
             </Sign.Card>
-            <Sign.Wrapper direction="column" width="small">
-              <Link href="/signup" passHref>
-                <Sign.Anchor>
-                  Not on Igarranames.com yet? Create an account.
-                </Sign.Anchor>
-              </Link>
-
-              <Link href="/forgot-password" passHref>
-                <Sign.Anchor>Forgot Password? </Sign.Anchor>
-              </Link>
-            </Sign.Wrapper>
           </>
         )}
       </Sign>

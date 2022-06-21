@@ -5,7 +5,7 @@ export const Container = styled.aside`
   flex: 0 0 34%;
   padding: 2em;
   max-width: 550px;
-  margin: 6em auto 2em auto;
+  margin: 0em auto 2em auto;
   background: #f3f4f6;
   border-radius: 5px;
 `;

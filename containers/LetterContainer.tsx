@@ -3,7 +3,6 @@ import FooterComp from "../components/FooterComp";
 import LetterComp from "../components/LetterComp";
 import LetterHeaderComp from "../components/LetterHeaderComp";
 import SearchResults from "../components/SearchResults";
-import SideBarComp from "../components/SideBarComp";
 import { LetterComponents } from "../interfaces/interface";
 
 const LetterContainer = ({ data, letter }: LetterComponents) => {
@@ -17,7 +16,6 @@ const LetterContainer = ({ data, letter }: LetterComponents) => {
       <LetterHeaderComp searchText={searchText} setSearchText={setSearchText} />
       <SearchResults data={data} letter={letter} searchText={searchText} />
       <LetterComp />
-      <SideBarComp />
       <FooterComp />
     </>
   );

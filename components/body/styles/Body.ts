@@ -320,7 +320,7 @@ export const ContactWrapper = styled.section`
 `;
 
 export const PrivacyWrapper = styled.section`
-  padding: 7.5em 1em;
+  padding: 7.5em 1em 2.5em 1em;
 
   @media (min-width: 500px) {
     margin: 0 auto;
@@ -348,8 +348,8 @@ export const UnorderedList = styled.ul<UnorderedListProps>`
   margin-top: -0.3em;
   list-style: ${(props) => (props.default ? null : "none")} ;
   line-height: 1.6;
- column-width: ${(props) => (props.default ? null : "125px")} 
- padding: 0em;
+ column-width: ${(props) => (props.default ? null : "125px")};
+ padding: 0.6em;
  margin: 0em;
  display: ${(props) => (props.default ? null : "flex")} ;
  flex-wrap: ${(props) => (props.default ? null : "wrap")} ;
@@ -365,7 +365,15 @@ export const ListItem = styled.li<ListItemProps>`
   padding-top: 0.5em;
   padding: 0.25em 0em;
   font-weight: ${(props) => (props.default ? null : "500")};
-  width: ${(props) => (props.default ? null : "150px")};
+  width: ${(props) => (props.default ? null : "180px")};
   font-size: ${(props) => (props.default ? null : "0.95rem")};
   letter-spacing: 0.02em;
+
+  @media(max-width: 450px){
+    width: ${(props) => (props.default ? null : "130px")};
+  }
+
+  @media(min-width: 900px){
+    font-size: 1.3rem
+  }
 `;
